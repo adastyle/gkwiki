@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.datas {
+				background-color: #FFF;
+				padding: 1rem 1.5rem;
+			}
+			
+			.title {
+				color: #282628;
+				font-size: 1.375rem;
+				line-height: 1.75rem;
+				font-weight: bold;
+			}
+			
+			.title font {
+				color: #999999;
+			}
+			
+			.content {
+				margin-top: 1.25rem;
+				text-align: justify;
+				color: #333333;
+				font-size: 0.8125rem;
+				line-height: 1.5rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+		</header>
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll coment_scroll">
+				<div class="datas">
+					<div class="title"><span class="subject_name"></span>
+						<font>(<span class="subject_type"></span>)</font>
+					</div>
+					<div class="content ahref">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			myFunc(function() {
+				$(".datas").css('min-height', plus.screen.resolutionHeight - 200);
+				var subjectId = osg.param('schoolSubjectId');
+				
+				osg.ajax('school/findSubject', {
+					'id': subjectId
+				}, function(data) {
+					$('.subject_name').text(data.name);
+					$('.subject_type').text(data.type);
+					$('.content').html(data.memo);
+				})
+
+			});
+		</script>
+	</body>
+
+</html>

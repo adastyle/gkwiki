@@ -1,0 +1,515 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<link href="../resources/fonts/xyIconfonts/iconfont.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<style type="text/css">
+			.topPay{
+				width:99%;
+				padding:.1rem 0;
+				position:relative;
+				height:10rem;
+				background:#fff;
+				margin-bottom:.7rem;		
+			}
+			.leftImg{
+				display:inline-block;
+				width:48%;
+				text-align:left;
+				height:10rem;
+				position: relative;
+			}
+			.leftImg>img{
+				width:97%;
+				position:absolute;
+				top:50%;
+				left:50%;
+				transform:translate(-50%,-50%);		
+			}
+			.rightPayDetail{
+				display:inline-block;
+				width:49%;
+			}	
+			.rightPayDetail>.title{
+				height:3rem;
+				text-align: left;
+				line-height: 3rem;
+				margin:0;
+				font-size:1.3rem;
+				color:#222222;
+				padding:0;
+			}	
+			.rightPayDetail>.price{
+				font-size: 1.1rem;
+				color:#fea71d;
+				text-align: left;
+				padding-bottom:1rem;
+				padding-top:.5rem;
+			}	
+			.rightPayDetail>.price>.yy{
+				color:#cdcdcd;
+				font-size: .8rem;
+			}
+			.rightPayDetail>div{
+				width:100%;
+			}
+			.rightPayDetail>div a{
+				width:45%;
+				height:1.7rem;
+				display:inline-block;
+				border-radius:1rem;
+				text-align: center;
+				line-height: 1.8rem;
+				font-size:.9rem;
+			}
+			.rightPayDetail>div a.currPay{
+				background: -o-linear-gradient(top,#82d5fd,#008fd3);
+				background: -moz-linear-gradient(top,#82d5fd,#008fd3);
+				background: -webkit-linear-gradient(top,#82d5fd,#008fd3);
+				background: linear-gradient(top,#82d5fd,#008fd3) !important;
+				border:none;
+				color:#fff;
+				margin-right:.3rem;
+			}
+			.rightPayDetail>div a.tryKa{
+				background:#fff;
+				color:#008fd3;
+				border:1px solid #008fd3;
+			}
+			/*相关推荐*/
+			.ost{
+				width:99%;
+				background:#fff;
+				/*height:5rem;*/
+				padding-top:1.2rem;
+			}
+			.ostTitle{
+				width:93%;
+				margin:.7rem;
+				min-height:.1rem;
+				background:#E5E5E5;
+				position:relative;
+			}
+			.ostTitle>span{
+				display:inline-block;
+				padding:.2rem .5rem;
+				position: absolute;
+				top:50%;
+				left:50%;
+				transform:translate(-50%,-50%);
+				background:#fff;
+			}
+			.recommenndList {
+				list-style: none;
+				padding-top:.2rem;
+				background:#fff;
+				overflow: hidden;
+			}
+			.recommenndList>li{
+				padding:.2rem;
+				width:99%;
+				height:5rem;
+				position: relative;
+				margin:3rem .6rem;
+			}
+			.recommenndList>li>.listTitle{
+				width:60%;
+				display:inline-block;
+			}
+			.recommenndList>li>.listTitle .titleName{
+				font-size:1.2rem;
+				color:#373637;
+				height:3.3rem;
+				margin-bottom:0;
+			}
+			.recommenndList>li>.listTitle span{
+				color:#939393;
+			}
+			.recommenndList>li>.listTitle .createSchoolName{
+				margin-right:.4rem;
+			}
+			.recommenndList>li .videoImg{
+				display:inline-block;
+				width:38%;
+				height:100%;
+			}
+			.recommenndList>li .videoImg>img{
+				width:100%;
+				height:100%;
+			}
+			/*遮罩层 弹框*/
+			.cardTuank{
+				position:fixed;
+				width:100%;
+				height:100%;
+				top:0;
+				left:0;
+				z-index:1000;
+				display:none;
+			}
+			.shadow{
+				position:absolute;
+				width:100%;
+				height:100%;
+				top:0;
+				left:0;
+				background:#000;
+				opacity:.5;
+			}
+			.cardTuank .useCard{
+				width:80%;
+				height:10rem;
+				background:#fff;
+				position:absolute;
+				top:50%;
+				left:50%;
+				transform:translate(-50%,-50%);
+				z-index:10001;
+				opacity:1;
+				border-radius:4px;
+			}
+			.cardTuank .useCard>input{
+				width:73%;
+				margin:2rem 2.4rem;
+			}
+			.cardTuank .useCard>p{
+				padding-left:3.2rem;
+			}
+			.cardTuank .useCard>p a{
+				display:inline-block;
+				border-radius:1rem;
+				text-align: center;
+				font-size:.9rem;
+				padding:.3rem 1.5rem ;
+			}
+			.cardTuank .useCard>p a:first-child{
+				background: -o-linear-gradient(top,#82d5fd,#008fd3);
+				background: -moz-linear-gradient(top,#82d5fd,#008fd3);
+				background: -webkit-linear-gradient(top,#82d5fd,#008fd3);
+				background: linear-gradient(top,#82d5fd,#008fd3) !important;
+				border:none;
+				color:#fff;
+				margin-right:2rem;
+			}
+			.cardTuank .useCard>p a:last-child{
+				background:#fff;
+				color:#008fd3;
+				border:1px solid #008fd3;
+				padding:.25rem 1.5rem ;
+			}
+			
+			/*课程和目录简介*/
+			.courseContent{
+				background:#fff;
+				padding-bottom:2rem;
+			}
+			.coursedetails{
+				width:100%;
+				height:2.5rem;
+				line-height:2.5rem;
+				margin-bottom: .7rem;
+			}
+			.coursedetails>div{
+				width:100%;
+				text-align: center;
+				/*position: absolute;
+				top:50%;
+				left:50%;
+				transform:translate(-50%,-50%);*/
+			}
+			.coursedetails>div>span{
+				font-size:1rem;
+				vertical-align: middle;
+				margin:0 .3rem;
+			}
+			.coursedetails>div>img{
+				width:3rem;
+			}
+			.courseContent{
+				margin-bottom:.7rem;
+				position:relative;
+				}
+			.courseContent .content{
+				height:7.2rem;
+				overflow:hidden;
+				text-align:justify;
+				padding:0 .5rem;
+			}
+			.courseContent  .contendDown{
+				position:absolute;
+				bottom:.3rem;
+				left:50%;
+				transform:translateX(-50%);
+				font-size:1.8rem;
+				z-index:10;
+				color:#666666;
+			}
+			.courseContent #allContentShow{
+				height:auto;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">国学101讲</h1>
+		</header>
+			<div class="my_scroll mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="topPay">
+						<div class="leftImg">
+							<img src="../resources/images/guoxue101.png"></img>
+						</div>
+						<div class="rightPayDetail">
+							<p class="title"> </p>
+							<p class="price">￥<span class="priceNum"></span><span class="yy">费用</span></p>
+							<div>
+								<a href="javascript:;" class="currPay">立即购买</a>
+								<a href="javascript:;" class="tryKa">使用卡券</a>
+							</div>
+						</div>
+					</div>
+					<div class="courseContent">
+						<div class="coursedetails">
+							<div>
+								<img src="../resources/images/zuo.png" alt="" />
+								<span>课程简介</span>
+								<img src="../resources/images/you.png" alt="" />
+							</div>
+						</div>
+						<div class="content" id="">
+						</div>
+						<i class="icon iconfont icon-spread-down contendDown"></i>
+					</div>
+					<div class="ost">
+						<div class="ostTitle">
+							<span>相关推荐</span>
+						</div>
+						<ul class='recommenndList'>
+							<li class="recommenndLi" data-videoId="">
+								<div class="listTitle">
+									<p class="titleName">招生办老师说-国学101讲</p>
+									<span class="createSchoolName">高考百科</span>
+									<span class="date">2018年4月3号</span>
+								</div>
+								<div class="videoImg"><img src="../resources/images/dummy_news_image.png" /></div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="pay_menu mui-scroll-wrapper">
+				<div class="pay_bar">
+					<div class="pay_btn ali_pay">
+						<i class="icon iconfont icon-alipay"></i>
+						<div>支付宝</div>
+					</div>
+					<div class="pay_btn wx_pay">
+						<i class="icon iconfont icon-wechat"></i>
+						<div>微信支付</div>
+					</div>
+				</div>
+			</div>
+		<!--使用卡券弹框-->
+		<div class="cardTuank">
+			<div class="shadow"></div>
+			<div class="useCard">
+				<input type="text" placeholder="请输入卡券号" name="cardId" class="cardId" id="cardId" value="" />
+				<p><a href="javascript:;" class="confirm">确定</a><a class="cancel" href="javascript:;">取消</a></p>
+			</div>
+		</div>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			var CurrPackageSrc="",
+			CurrPackagePrice="",
+			payid,
+			channel = {},
+			CurrPackageTitle="";
+			mui.init();
+			/*mui('.mui-scroll-wrapper').scroll({
+							//indicators: true
+						});*/
+			myFunc(function() {
+				var videoId = osg.param("videoId");
+				var xgRecommend=$(".recommenndLi").clone();
+				$(".recommenndLi").hide();
+				payData(videoId);
+				/*加载相关推荐*/
+				osg.ajax('video/findByCategoryId', {
+					'id': videoId
+				}, function(data) {
+					var videos = data.data;
+					if(videos == null || videos.length <= 0) {
+						$('.xiangguan').remove();
+					}
+					for(var i = 0; i < videos.length; i++) {
+						var currRecommend=xgRecommend.clone();
+						currRecommend.find(".titleName").html(videos[i].title);
+						currRecommend.find(".createSchoolName").html(videos[i].createSchoolName);
+						currRecommend.find(".date").html(videos[i].createTimeFormat);
+						var cover;
+						if(videos[i].logo) {
+							cover = qiniuRoot + videos[i].logo + "!app.cover";
+						} else {
+							cover = videos[i].appCoverUrl;
+						}
+						currRecommend.attr("data-videoId",videos[i]._id);
+						currRecommend.find(".videoImg img").attr("src",cover);
+						$(".recommenndList").append(currRecommend);
+					}
+				}, {
+					noload: true
+				});
+				
+				/*支付相关*/
+				mui(".rightPayDetail").on("tap",".currPay",function() {
+					if(payid)
+						doShowPayMenu();
+				});
+				
+				$(".pay_menu").tap(function() {
+					$(".pay_menu").fadeOut();
+				});
+
+				function doShowPayMenu() {
+					if(mui.os.ios && (plus.runtime.version + '') == '1.5')
+						pay('alipay', payid);
+					else
+						$(".pay_menu").fadeIn();
+				}
+				$(".ali_pay").tap(function() {
+					pay('alipay', payid);
+				});
+				$(".wx_pay").tap(function() {
+					pay('wxpay', payid);
+				});
+				// 获取支付通道
+				plus.payment.getChannels(function(channels) {
+					for(var i = 0; i < channels.length; i++) {
+						var c = channels[i];
+						if(c.serviceReady)
+							channel[c.id] = c;
+						//alert(c.id + ":" + c.description + ":" + c.serviceReady);
+					}
+				}, function(e) {
+					alert("获取支付通道失败：" + e.message);
+				});
+
+				function pay(id, typeId) {
+					$(".pay_menu").fadeOut();
+					var url;
+					if(id == 'alipay')
+						url = '/order/payali';
+					else if(id == 'wxpay')
+						url = '/order/payweixin';
+					else
+						return;
+
+					osg.ajax(url, {
+						typeId: typeId,
+						type:1
+					}, function(d) {
+						plus.payment.request(channel[id], d, function(result) {
+							// 支付成功
+							osg.toast('支付成功！');
+							osg.open('CourseDetail.html', {"resourcePackId":payid}, null, {
+								im: 1
+							});
+						}, function(error) {
+							// 支付失败
+							if(error.code==62000){
+								osg.toast('支付失败--您未安装此应用，请选择其他支付方式 。');
+							}else{
+								osg.toast('支付失败:' + error.code);
+							}
+						});
+					});
+				}
+				
+				/*简介下拉的点击*/
+				var isShow=false;
+				$(".courseContent .contendDown").tap(function(){
+					if(!isShow){
+						$(".courseContent .content").attr("id","allContentShow");
+						$(this).removeClass("icon-spread-down").addClass("icon-spread-up");
+						isShow=true;
+					}else{
+						$(".courseContent .content").attr("id","");
+						$(this).removeClass("icon-spread-up").addClass("icon-spread-down");
+						/*滚动到底部*/
+						mui(".my_scroll").scroll().scrollTo(0,0);
+						isShow=false;
+					}
+				})
+				
+				
+				
+			});
+			function payData(videoId){
+				osg.ajax('video/detailList/'+videoId,{},function(data){
+					CurrPackageSrc=data.data.logo;
+					CurrPackageTitle=data.data.name;
+					CurrPackagePrice=data.data.price;
+					payid=data.data._id;
+					$(".topPay>.leftImg img").attr("src",qiniuRoot + CurrPackageSrc);
+					$(".topPay>.rightPayDetail .title").html(CurrPackageTitle);
+					$(".mui-title").html(CurrPackageTitle);
+					$(".topPay>.rightPayDetail .priceNum").html(CurrPackagePrice);
+					$(".courseContent .content").html(data.data.content);
+				})
+				
+			}
+			
+			
+			/*弹框的确定取消*/
+			$(".confirm").tap(function(){
+				var currCardId=$(".cardId").val();
+				if(currCardId){
+						osg.ajax('/order/payVoucher', {
+								"code":currCardId,
+								"typeId":payid,
+								"type":1
+							}, function(data) {
+								osg.toast("支付成功");
+								if(data.status==1){
+									osg.toast("支付成功");
+									osg.open('CourseDetail.html', {"resourcePackId":payid}, null, {
+										im: 1
+									});
+								}
+							else{
+								osg.alert(data.message);
+							}
+					})
+				}
+					
+			})
+			$(".tryKa").tap(function(){
+				$(".cardTuank").show();
+			})
+			$(".cancel").tap(function(){
+				$(".cardTuank").hide();
+			})
+			
+			/*点击播放相关推荐视频*/
+			$(".recommenndList").on("tap","li",function(){
+				var vId=$(this).attr("data-videoId");
+				if(vId){
+					osg.open('detail.html', {"videoId":vId}, null, {'id':vId});
+				}
+			})
+		</script>
+	</body>
+
+</html>

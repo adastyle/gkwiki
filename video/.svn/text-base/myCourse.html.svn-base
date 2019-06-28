@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<style type="text/css">
+			.allCourse{
+				list-style: none;
+				width:100%;
+				padding-left:0;
+				background:#fff;
+			}
+			.courseImg{
+				display:inline-block;
+				width:30%;
+			}
+			.courseDetail{
+				display:inline-block;
+				width:68%;
+				padding:.1rem .5rem;
+				position:relative;
+			}
+			.courseDetail .aleadyStudy{
+				position:absolute;
+				bottom:.5rem;
+				right:.2rem;
+				font-size:.9rem;
+				color:#008fd3;
+			}
+			.courseDetail .courseTitle{
+				font-dize:1.2rem;
+				margin-bottom:2rem;
+				padding-top:.5rem;
+			}
+			.courseImg>img{
+				width:100%;	
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">我的课程</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-scroll coment_scroll">
+				<ul class="allCourse">
+					<li class="course1" data-currCourseId="">
+						<div class="courseImg">
+							<img src="../resources/images/guoxue101.png" alt="" />
+						</div>
+						<div class="courseDetail">
+							<span class="aleadyStudy">已学<span class="baifenbi"></span></span>
+							<p class="courseTitle"></p>
+							<div id="demo1" class="mui-progressbar">
+							    <span></span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			
+			myFunc(function() {
+				var cou=$(".course1").clone();
+				$('.course1').hide();
+				/*用户id*/
+				/*var userId= owner.getObj(cacheKeys.user);*/
+					osg.ajax('/resourcePack/resourcePackList.do',{},
+						function(data) {
+							if(data!=null && data!=undefined){
+								var courses=data.data.resourcePacksIsBuy;
+								var htmls="";
+								for(var i=0;i<courses.length;i++){
+									var currClone=cou.clone();
+									currClone.attr("data-currCourseId",courses[i]._id);
+									currClone.find(".courseImg>img").attr("src",qiniuRoot + courses[i].logo);
+									currClone.find(".baifenbi").html(courses[i].progress);
+									currClone.find(".courseTitle").html(courses[i].name);
+									var allRead=courses[i].videos['allVideo'].length;
+									var aleadyRead=courses[i].videos["viewedVideos"].length;
+									var progr=aleadyRead*(100/allRead);
+									/*给当前进度条初始化*/
+									mui(currClone.find("#demo1")).progressbar({progress:progr}).show();
+									$(".allCourse").append(currClone);
+								}
+							}
+							else{
+								osg.toast("暂无课程");
+							}
+							
+							
+					})
+				
+				$(".allCourse").on("tap","li",function(){
+					var currCourseId=$(this).attr("data-currCourseId");
+					if(currCourseId)
+						osg.open('CourseDetail.html', {"resourcePackId":currCourseId}, null, {
+							im: 1
+						});
+				})
+				
+			})
+		</script>
+	</body>
+
+</html>

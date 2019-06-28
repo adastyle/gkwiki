@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet">
+		<style>
+			body {
+				background: #FFFFFF;
+			}
+			
+			.content {
+				padding: 10px 40px;
+			}
+			
+			span {
+				position: static;
+				margin-left: 90px;
+				font-size: 1.4rem;
+				height: 2.8rem;
+				line-height: 2.8rem;
+			}
+			
+			label {
+				color: #626262;
+				z-index: 1;
+			}
+			
+			input::-webkit-input-placeholder {
+				/*text-align: center;*/
+				color: #D5D5D5;
+			}
+			
+			.form_input {
+				background: #F4F4F4;
+				position: relative;
+				margin-top: 20px;
+				padding: 0 20px;
+				height: 44px;
+			}
+			
+			.form_input input {
+				border: none;
+				background: transparent;
+				width: 100%;
+				line-height: 44px;
+				height: 44px;
+				padding: 0
+			}
+			
+			.input_w {
+				left: 90px;
+				right: 0;
+				position: absolute;
+				display: inline-block;
+			}
+			
+			.name {
+				width: 90px;
+				display: inline-block;
+				text-align: justify;
+				color: #5E5E5E;
+				line-height: 44px;
+			}
+			
+			button {
+				margin-top: 22px;
+				background: #008FD3;
+				color: #EFEFF4;
+				padding: 10px 0;
+				width: 100%;
+				font-size: 1rem;
+			}
+			
+			.choose {
+				width: 100%;
+				text-align: center;
+				margin-top: 10px;
+				font-size: 10px;
+				white-space: nowrap;
+				color: #5798E4;
+			}
+			
+			.login p {
+				border: 1px solid #F3F3F3;
+				width: 100%;
+				margin-left: 0px;
+				padding-left: 60px;
+				color: #8C8C8C;
+			}
+			
+			.sign_in {
+				color: #6CA5E8;
+				font-size: 16px;
+				margin: 0;
+			}
+			
+			.mui-btn-outlined {
+				line-height: 44px;
+				border: 0;
+				padding: 0;
+				color: #0F9CE4;
+				width: 95px;
+				right: 0;
+				bottom: 0;
+				position: absolute;
+			}
+			.agreenment{
+				padding-top:1rem;
+				padding-left:1.3rem;
+			}
+			.agreenment>input{
+				vertical-align:middle;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav ">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">注册</h1>
+		</header>
+		<div class="mui-scroll-wrapper ">
+			<div class="mui-scroll ">
+				<form action="">
+					<div class="content">
+						<div class="form_input">
+							<div class="name"><pre>手   机</pre></div>
+							<div class="input_w">
+								<input type="text" placeholder="请输入注册手机号" id="phone" />
+							</div>
+						</div>
+
+						<div class="form_input">
+							<div class="name"><pre>昵   称</pre></div>
+							<div class="input_w">
+								<input type="text" placeholder="你的昵称 " id="nick" />
+							</div>
+						</div>
+						<div class="form_input">
+							<div class="name"><pre>设置密码</pre></div>
+							<div class="input_w">
+								<input type="password" placeholder="建议至少只要两种字符组合" id="pwd">
+							</div>
+						</div>
+						<div class="form_input">
+							<div class="name"><pre>确定密码</pre></div>
+							<div class="input_w">
+								<input type="password" placeholder="请再次输入密码 " id="cpwd">
+							</div>
+						</div>
+						<div class="form_input">
+							<div class="name"><pre>验 证 码</pre></div>
+							<div class="input_w" style="right:85px;">
+								<input id='code' type="text" class="mui-input-clear mui-input" placeholder="请输验证码" id="code">
+							</div>
+							<button id="vcode" type="button" class="mui-btn mui-btn-outlined">获取验证码</button>
+						</div>
+						<div  class="agreenment">
+							<!--<input type="checkbox" />-->
+							<a href="#" class="choose">注册即表示同意《高考百科用户注册协议和隐私政策》</a>
+						</div>
+						<button id="btn" type="button">同意协议并注册</button>
+						<div class="login">
+							<p>已有账号 ？
+								<span class="sign_in">立即登录</span>
+							</p>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script src="../resources/js/jquery.min.js "></script>
+		<script src="../resources/js/mui.min.js "></script>
+		<script src="../resources/js/jquery.jplayer.min.js "></script>
+		<script src="../resources/js/common.js "></script>
+		<script src="../resources/js/mui.pullToRefresh.js "></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js "></script>
+		<script type="text/javascript ">
+			var reg = /^[1][0-9]{10}$/;
+			myFunc(function() {
+				$(".choose").tap(function() {
+					osg.open('agreement.html', null, null, {
+						im: 1
+					});
+				});
+				
+				osg.evtAddListener(function(d) {
+					if(d && d == 'login') { // 登录事件
+						osg.closeMe();
+					}
+				});
+
+				$(".sign_in ").tap(function() {
+					osg.open('login.html');
+				});
+
+				$("#btn").tap(function() {
+					var phone = $("#phone").val();
+					var password = $("#pwd").val();
+					var confirmPwd = $("#cpwd").val();
+					var nickname = $("#nick").val();
+					var code = $("#code").val();
+					var vcode = $("#vcode").val();
+					if(phone.length == 0) {
+						osg.toast("手机号不能为空");
+						return;
+					} else if(!reg.test(phone)) {
+						osg.toast("手机号格式不正确");
+						return;
+					}
+					if(password.length == 0) {
+						osg.toast("密码不能为空");
+						return;
+					}
+					if(password != confirmPwd) {
+						osg.toast("两次密码不一致");
+						return;
+					}
+					if(code.length == 0) {
+						osg.toast("验证码不能为空");
+						return;
+					}
+				/*	if(!$("agreement>input[type=checkbox]").is(":checked")){
+						osg.toast("请先阅读协议");
+						return;
+					}*/
+
+					osg.ajax('user/regist', {
+						phone: phone,
+						passwd: password,
+						nick: nickname,
+						code: code
+					}, function(data) {
+						if(data.success) {
+							osg.toast("注册成功，自动登录...");
+							// 注册成功后自动登录
+							// 获取推送clientid（个推）
+							var cinfo = plus.push.getClientInfo(),
+								clientid = cinfo.clientid;
+							var device = mui.os.ios ? 'ios' : 'android';
+							osg.ajax('user/login', {
+								phone: phone,
+								password: password,
+								clientid: clientid,
+								device: device
+							}, function(data) {
+								osg.closeMe();
+								/***持久化缓存用户信息**/
+								osg.currentUserSet(data);
+								osg.evtFireEvent('login');
+							});
+						} else {
+							osg.toast("注册失败:" + data.message);
+						}
+					}, {
+						disableBtns: [$("#btn")]
+					});
+				});
+
+				$("#vcode").tap(function() {
+					var phone = $("#phone").val();
+					if(phone.length == 0)
+						osg.toast("手机号不能为空");
+					else if(!reg.test(phone))
+						osg.toast("手机号格式不正确");
+					else
+						osg.ajax('user/fverifycode/' + phone, null, function(data) {
+							if(data.success) {
+								/*验证码发送成功进入倒计时*/
+								invokeSettime(vcode);
+							} else {
+								osg.toast("验证码发送失败");
+							}
+						});
+					/* 短信验证码倒计时 */
+					function invokeSettime(obj) {
+						var countdown = 60;
+						settime(obj);
+
+						function settime(obj) {
+							if(countdown == 0) {
+								$(obj).attr("disabled", false);
+								$(obj).text("获取验证码");
+								countdown = 60;
+								return;
+							} else {
+								$(obj).attr("disabled", true);
+								$(obj).text(
+									"(" + countdown + ") s 重新发送");
+								countdown--;
+							}
+							setTimeout(function() {
+								settime(obj)
+							}, 1000)
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

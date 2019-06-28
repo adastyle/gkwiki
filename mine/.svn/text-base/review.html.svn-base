@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet">
+		<style>
+			body {
+				background: #FFFFFF;
+			}
+			
+			.content {
+				padding: 10px 40px;
+			}
+			
+			span {
+				position: static;
+				margin-left: 90px;
+				font-size: 1.4rem;
+				height: 2.8rem;
+				line-height: 2.8rem;
+			}
+			
+			label {
+				color: #626262;
+			}
+			
+			input::-webkit-input-placeholder {
+				/*text-align: center;*/
+				color: #D5D5D5;
+			}
+			
+			.form_input {
+				background: #F4F4F4;
+				position: relative;
+				margin-top: 20px;
+				padding: 0 20px;
+				height: 44px;
+			}
+			
+			.form_input input {
+				border: none;
+				background: transparent;
+				width: 100%;
+				line-height: 44px;
+				height: 44px;
+				padding: 0
+			}
+			
+			.input_w {
+				left: 5.625rem;
+				right: 0;
+				position: absolute;
+				display: inline-block;
+			}
+			
+			.name {
+				width: 90px;
+				display: inline-block;
+				text-align: justify;
+				color: #5E5E5E;
+				line-height: 44px;
+			}
+			
+			button {
+				margin-top: 22px;
+				background: #008FD3;
+				color: #EFEFF4;
+				padding: 10px 0;
+				width: 100%;
+				font-size: 1rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<header class="mui-bar mui-bar-nav ">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">测评</h1>
+		</header>-->
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="content">
+					<input id="yan_id" name="_id" type="hidden"/>
+					<div class="form_input">
+						<div class="name"><pre>姓   名</pre></div>
+						<div class="input_w">
+							<input type="text" placeholder="请输入姓名" id="yan_name" name="name" minlength="1" maxlength="20" required />
+						</div>
+					</div>
+					<div class="form_input">
+						<div class="name"><pre>性   别</pre></div>
+						<div class="input_w" style="line-height: 44px;">
+							<div class="mui-input-row mui-radio mui-left">
+								<input name="gender" type="radio" checked="checked" value="Male">
+								<label>男</label>
+							</div>
+							<div class="mui-input-row mui-radio mui-left">
+								<input name="gender" type="radio" value="Female">
+								<label>女</label>
+							</div>
+						</div>
+					</div>
+					<div class="form_input">
+						<div class="name"><pre>电子邮箱</pre></div>
+						<div class="input_w">
+							<input id="yan_email" name="email" type="text" placeholder="请输入电子邮箱" minlength="1" maxlength="50" required>
+						</div>
+					</div>
+					<div class="form_input ">
+						<div class="name "><pre>身份证号</pre></div>
+						<div class="input_w ">
+							<input id="yan_idcard" name="idcard " type="text " placeholder="请输入身份证号码 " minlength="1 " maxlength="18" required>
+						</div>
+					</div>
+					<div class="form_input">
+						<div class="name"><pre>就读学校</pre></div>
+						<div class="input_w">
+							<input id="yan_schoolName" name="schoolName" type="text" placeholder="请输入就读学校" minlength="1" maxlength="100" required>
+						</div>
+					</div>
+					<button id="btn" type="button ">开始测评</button>
+				</div>
+				<form action="http://gxcp.ctdaa.com/partner_login" method="post" accept-charset="utf-8">
+					<input class="yan_name" type="hidden" name="name" id="name" />
+					<input class="yan_birthDay" type="hidden" name="birthDay" id="birthDay" />
+					<input class="yan_gender" type="hidden" name="gender" id="gender" />
+					<input class="yan_email" type="hidden" name="email" id="email" />
+					<input class="yan_idNO" type="hidden" name="idNO" id="idNO" />
+					<input class="yan_school" type="hidden" name="school" id="school" />
+					<input class="yan_identity" type="hidden" name="identity" id="identity" />
+					<input class="yan_thirdPcd" type="hidden" name="thirdPcd" id="thirdPcd" />
+					<input class="yan_md5" type="hidden" name="md5" id="md5" />
+					<input id="yan_submit" type="submit" style="display: none;" />
+				</form>
+			</div>
+		</div>
+		<script src="../resources/js/jquery.min.js "></script>
+		<script src="../resources/js/mui.min.js "></script>
+		<script src="../resources/js/common.js "></script>
+		<script src="../resources/js/mui.pullToRefresh.js "></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js "></script>
+		<script type="text/javascript ">
+			var param = {};
+			myFunc(function() {
+				if(osg.isLogined()) {
+					osg.ajax('user/mine', {}, function(data) {
+						$('#yan_id').val(data._id);
+						$('#yan_name').val(data.name);
+						$('#yan_email').val(data.email);
+						$('#yan_idcard').val(data.idcard);
+						$('#yan_schoolName').val(data.schoolName);
+					});
+				}
+				mui('.mui-scroll-wrapper').on('tap', '#btn', function(e) {
+					if(osg.isLogined()) {
+						param["_id"] = $('#yan_id').val();
+						param["name"] = $('#yan_name').val();
+						param["gender"] = $("input[name='gender']:checked").val();
+						param["email"] = $('#yan_email').val();
+						param["idcard"] = $('#yan_idcard').val();
+						param["schoolName"] = $('#yan_schoolName').val();
+						formValidate();
+					} else { //跳转登录页面
+						osg.confirm("请登录！", function() {
+							osg.open('../mine/login.html');
+						});
+					}
+
+				});
+			});
+			// 验证用户姓名
+			function isChinaName(name) {
+				var pattern = /^[\u4E00-\u9FA5]{1,6}$/;
+				return pattern.test(name);
+			}
+			//验证邮箱
+			function isEmail(email) {
+				var pattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+				return pattern.test(email);
+			}
+			// 验证身份证 
+			function isCardNo(card) {
+				var pattern = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+				return pattern.test(card);
+			}
+
+			function formValidate() {
+				var str = '';
+				// 判断名称
+				if($.trim($('#yan_name').val()).length == 0) {
+					str += '姓名没有输入';
+					$('#yan_name').focus();
+				}
+				// 判断邮箱
+				if($.trim($('#yan_email').val()).length == 0) {
+					str += '电子邮箱没有输入';
+					$('#yan_email').focus();
+				} else {
+					if(isEmail($.trim($('#yan_email').val())) == false) {
+						str += '电子邮箱不合法';
+						$('#yan_email').focus();
+					}
+				}
+				// 验证身份证
+				if($.trim($('#yan_idcard').val()).length == 0) {
+					str += '身份证号码没有输入';
+					$('#yan_idcard').focus();
+				} else {
+					if(isCardNo($.trim($('#yan_idcard').val())) == false) {
+						str += '身份证号不正确；';
+						$('#yan_idcard').focus();
+					}
+				}
+				// 验证学校名称
+				if($.trim($('#yan_schoolName').val()).length == 0) {
+					str += '就读学校没有输入';
+					$('#yan_schoolName').focus();
+				}
+				// 如果没有错误则提交
+				if(str != '') {
+					osg.toast(str);
+					return false;
+				} else {
+					osg.ajax('user/reviewmd5', param, function(data) {
+						console.log(data.idNO);
+						$(".yan_name").val(data['name']);
+						$(".yan_birthDay").val(data['birthDay']);
+						$(".yan_gender").val(data['gender']);
+						$(".yan_email").val(data['email']);
+						$(".yan_idNO").val(data.idNO);
+						$(".yan_school").val(data['school']);
+						$(".yan_identity").val(data['identity']);
+						$(".yan_thirdPcd").val(data['thirdPcd']);
+						$(".yan_md5").val(data['md5']);
+						$('#yan_submit').tap();
+					});
+				}
+			}
+		</script>
+	</body>
+
+</html>

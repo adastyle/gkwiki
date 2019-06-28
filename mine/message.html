@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			#message_list {
+				background-color: #fff;
+			}
+			
+			#message_list>.message_item {
+				margin: 0 10px;
+				padding: 10px 0;
+				border-bottom: 0.5px solid #e6e6e6;
+			}
+			
+			#message_list>.message_item .time {
+				font-size: 0.875rem;
+				color: #666;
+				margin-top: 6px;
+			}
+			
+			#message_list>.message_item .userName {
+				float: right;
+				font-size: 0.875rem;
+				color: #666;
+			}
+			
+			#message_list>.message_item .realContent {
+				margin-top: 6px;
+			}
+		</style>
+	</head>
+
+	<body class="la">
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">消息</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-slider mui-fullscreen">
+				<div class="mui-scroll myscroll">
+					<ul id="message_list">
+						<li class="message_item debug">
+							<div>
+								<div>
+									<div class="title inline">评论被回复</div>
+									<div class="userName inline">小矮人</div>
+								</div>
+								<div class="realContent">666</div>
+								<div class="time">2018-05-03 04:30</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			var fpi, ptr;
+			myFunc(function() {
+				var myscroll = $(".myscroll")[0];
+				mui(myscroll).pullToRefresh({
+					down: {
+						callback: function() {
+							ptr = this;
+							findPage(1, {
+								'pullDown': true
+							});
+						}
+					},
+					up: {
+						auto: true,
+						callback: function() {
+							ptr = this;
+							var nextPage;
+							if(fpi)
+								nextPage = fpi.page + 1;
+							else
+								nextPage = 1;
+
+							findPage(nextPage);
+						}
+					},
+				});
+
+				//分页函数
+				function findPage(page, param) {
+					if(!param) param = {};
+					param.self = ptr;
+					var $messageList = $("#message_list");
+					osg.ajax('message/query',
+						null,
+						function(data) {
+							// 刷新未读消息数量
+							osg.ajax('message/counts', {
+								msgId: null
+							}, function(data) {
+								osg.set('messageCounts', data + '');
+								osg.evtFireEvent('messageCounts');
+							}, {
+								noload: true
+							});
+
+							// 下拉的情况下，结束下拉刷新状态
+							if(param.pullDown) {
+								param.self.endPullDownToRefresh();
+							}
+							if(!data) {
+								param.self.endPullUpToRefresh(true);
+								return;
+							}
+							if(page == 1) {
+								$messageList.html('');
+							}
+							fpi = data;
+							for(var i = 0; i < data.data.length; i++) {
+								var oneData = data.data[i];
+								$messageList.append(getItem(oneData));
+							}
+
+							param.self.endPullUpToRefresh(data.page >= data.pages);
+						}, {
+							noload: true
+						});
+				}
+
+				// 条目模板
+				var messageItemObj = $('.message_item');
+				messageItemObj.remove().removeClass("debug");
+
+				// 获取高校显示条目
+				function getItem(data) {
+					var listItem = messageItemObj.clone();
+
+					listItem.find(".title").text(data.title);
+					listItem.find(".realContent").text(data.realContent);
+					listItem.find(".time").text(data.createTime);
+					listItem.find(".userName	").text(data.userName);
+
+					return listItem;
+				}
+
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet">
+		<link href="../resources/fonts/xyIconfonts/iconfont.css" rel="stylesheet">
+		<style>
+			body {
+				background: #FFFFFF;
+			}
+			
+			.header {
+				position: relative;
+				text-align: center;
+			}
+			
+			.header .name {
+				color: #FFFDEF;
+			}
+			
+			.user_info {
+				position: absolute;
+				top: 30%;
+				left: 0;
+				right: 0;
+			}
+			
+			.user_info>img {
+				border-radius: 50%;
+				width: 4.375rem;
+				height: 4.375rem;
+			}
+			
+			.mui-content>.mui-table-view:first-child {
+				margin-top: -4px;
+			}
+			
+			.num {
+				position: absolute;
+				right: 45px;
+				top: 12px;
+			}
+			
+			.iconfont {
+				margin-right: 13px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-scroll-wrapper ">
+			<div class="mui-scroll ">
+				<div class="header">
+					<div class="header_img"> <img style="width:100%;" src="../resources/images/bg.png "></div>
+					<div class="user_info inline login">
+						<img src="../resources/images/user.png" class="avatar">
+						<div class="name">未登录</div>
+					</div>
+				</div>
+				<div class="mui-content" style="background-color: #F6F6F6;">
+					<!--<ul class="mui-table-view mui-table-view-chevron ">
+						<li class="btn_live mui-table-view-cell">
+							<a class="mui-navigate-right">
+								<span class="icon iconfont icon-zhibo "></span>发起直播</a>
+							<span class="num ">2</span>
+						</li>
+					</ul>-->
+					<ul class="mui-table-view mui-table-view-chevron m-t-10">
+						<li class="btn_review mui-table-view-cell">
+							<a class="mui-navigate-right">
+								<span class="icon iconfont icon-ceping "></span>测评</a>
+							<!--<span class="num ">已完成3/5</span>-->
+						</li>
+					</ul>
+					<ul class="mui-table-view mui-table-view-chevron m-t-10">
+						<li class="btn_message mui-table-view-cell">
+							<a class="mui-navigate-right">
+								<span class="icon iconfont icon-xiaoxi2 "></span>消息</a>
+							<!--<span class="num ">2</span>-->
+						</li>
+						<li class="btn_myCourse mui-table-view-cell">
+							<a class="mui-navigate-right">
+								<span class="icon iconfont icon-kecheng1"></span>我的课程</a>
+						</li>
+						<li class="btn_favor mui-table-view-cell">
+							<a class="mui-navigate-right">
+								<span class="icon iconfont icon-shoucang "></span>收藏</a>
+						</li>
+						<li class="btn_history mui-table-view-cell">
+							<a class="mui-navigate-right">
+								<span class="icon iconfont icon-lishi "></span>历史</a>
+						</li>
+						<!--<li class="btn_myCompetition mui-table-view-cell">
+							<a class="mui-navigate-right">
+								<span class="icon iconfont icon-wodebisai "></span>我的竞赛</a>
+						</li>-->
+					</ul>
+					<ul class="mui-table-view mui-table-view-chevron m-t-10">
+						<li class="btn_setting mui-table-view-cell ">
+							<a class="mui-navigate-right">
+								<span class="icon iconfont icon-shezhi "></span>设置</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="../resources/js/jquery.min.js "></script>
+		<script src="../resources/js/mui.min.js "></script>
+		<script src="../resources/js/jquery.jplayer.min.js "></script>
+		<script src="../resources/js/common.js "></script>
+		<script src="../resources/js/mui.pullToRefresh.js "></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js "></script>
+		<script type="text/javascript ">
+			myFunc(function() {
+				$(".login ").tap(function() {
+					if(osg.isLogined())
+						osg.open('update.html');
+					else
+						osg.open('login.html');
+				});
+
+				$(".btn_live").tap(function() {
+					osg.toast('功能建设中...');
+				});
+				//专业测评
+				$(".btn_review").tap(function() {
+					if(!osg.isLogined()) {
+						osg.confirm("请登录！", function() {
+							osg.open('../mine/login.html', null, null, {
+								im: 1
+							});
+						});
+					} else {
+						// 设置系统状态栏文字为黑色
+						plus.navigator.setStatusBarStyle(defaultStatusBarStyle);
+						// 设置系统状态栏背景颜色
+						plus.navigator.setStatusBarBackground(defaultTitleBarBackgroundColor);
+						osg.openWithTitle('review.html', 'review', {
+							notChangeStatusBar: 'true'
+						}, '专业选择测评', {
+							hide: function() {
+								var main = plus.webview.getTopWebview();
+								if(main != null) {
+									main.evalJS("plus.navigator.setStatusBarStyle('" + mainStatusBarStyle + "');plus.navigator.setStatusBarBackground('" + mainTitleBarBackgroundColor + "');");
+								}
+							}
+						});
+					}
+				});
+				$(".btn_message").tap(function() {
+					osg.open('message.html', null, null, {
+						im: 1
+					});
+				});
+				//收藏
+				$(".btn_favor").tap(function() {
+					if(osg.isLogined()) {
+						osg.open('../search.html', {
+							'mine': 'favor'
+						}, null, {
+							im: 1
+						});
+					} else {
+						osg.confirm("请登录！", function() {
+							osg.open('../mine/login.html', null, null, {
+								im: 1
+							});
+						});
+					}
+				});
+				/*我的课程*/
+				$(".btn_myCourse").tap(function(){
+					if(osg.isLogined()) {
+						osg.open('../video/myCourse.html',null,null,{
+						im:1
+					})
+					} else {
+						osg.customConfirm("尚未登录无法查看，请登录！","提示", function() {
+							osg.open('../mine/login.html', null, null, {
+								im: 1
+							});
+						});
+					}
+				})
+				//历史
+				$(".btn_history").tap(function() {
+					osg.open('../search.html', {
+						'mine': 'history'
+					}, null, {
+						im: 1
+					});
+				});
+				$(".btn_setting ").tap(function() {
+					osg.open('setting.html', null, null, {
+						im: 1
+					});
+				});
+
+				//我的竞赛 
+				$(".btn_myCompetition").tap(function() {
+					osg.open('../match/match.html', null, null, {
+						im: 1
+					})
+				})
+				document.addEventListener("pause", onAppPause, false);
+
+				function onAppPause() {
+					loadMine();
+				}
+
+				function loadMine() {
+					if(!osg.isLogined())
+						return;
+					osg.ajax('user/mine', null, function(data) {
+						if(!data)
+							return;
+						var u = data;
+						if(u.avatar)
+							$(".avatar").attr('src', qiniuRoot + u.avatar);
+						$(".name").text(u.nick);
+
+						var token = osg.currentToken();
+						var userInfo = {
+							'user': data,
+							'token': token
+						}
+						osg.currentUserSet(userInfo);
+						currentState();
+					}, {
+						noload: true
+					});
+				}
+
+				function currentState() {
+					if(osg.isLogined()) {
+						var u = osg.currentUser();
+						if(u.avatar)
+							$(".avatar").attr('src', qiniuRoot + u.avatar);
+						$(".name").text(u.nick);
+					} else {
+						$(".avatar").attr('src', '../resources/images/user.png');
+						$(".name").text('未登录');
+					}
+				}
+
+				currentState();
+
+				osg.evtAddListener(function(d) {
+					if(d && (d == 'login' || d == 'logout')) { // 登录、退出事件
+						currentState();
+					} else if(d && d == 'change_student') { // 学生基本信息修改
+						loadMine();
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

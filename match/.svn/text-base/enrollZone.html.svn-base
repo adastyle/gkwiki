@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			/*临时解决缓存问题*/
+			
+			.match_title_bar {
+				border: 0;
+				padding: 0.4rem 1.6rem;
+				text-align: center;
+			}
+			
+			.match_title_bar img {
+				width: 3.6rem !important;
+				margin: 0.4rem 0;
+			}
+			
+			.match_title_bar .name {
+				font-size: 1.125rem;
+				font-weight: bold;
+				color: #333;
+				line-height: 1.6rem;
+				margin-bottom: 0.6rem;
+			}
+			
+			.match_title_bar .name>div {
+				text-align: center;
+				max-width: 100%;
+				white-space: normal;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+			
+			.match_title_bar .news_list_div {
+				border-bottom: 1px solid rgba(228, 228, 228, 1);
+				border-top: 1px solid rgba(228, 228, 228, 1);
+				margin-top: 0.6rem;
+				padding: 0.4rem 0;
+			}
+			
+			.match_title_bar .news_list_div>div {
+				display: inline-block;
+				max-width: 100%;
+				color: #2D93E9;
+				white-space: nowrap;
+				text-align: center;
+			}
+			
+			.match_title_bar .news_list_div>div>div {
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				max-width: 96%;
+				margin: 0 0.4rem;
+			}
+			
+			.match_title_bar .news_list_div .news_read {
+				line-height: 1.5rem;
+				white-space: nowrap;
+				color: #2D93E9;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">竞赛报名</h1>
+		</header>
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="match_enrolled_ul" style="padding-top: 10px;">
+					<li class="match_enrolled_item debug">
+						<div class="enroll_div">
+							<div class="match_title_bar">
+								<img class="region_logo" src="${qiniuImageHost }${region.logo}" />
+								<div class="name m-l-5 m-r-20">
+									<div class="match_name">${match.name}</div>
+									<div class="zone_name">${zone.name }</div>
+								</div>
+								<div class="news_list_div news_list"></div>
+							</div>
+							<div class="enrollPhases">
+								<div class="enrollPhase match_phase_item">
+									<div>
+										<div class="num inline phase_code">${phase.code }</div>
+										<div class="name inline phase_name">${phase.name}</div>
+									</div>
+									<div class="pieces">
+										<div class="piece piece1">
+											<div class="title">报名</div>
+											<div class="label1 enroll_time">${phase.enrollStartTimeStr }-${phase.enrollEndTimeStr }</div>
+											<div class="label2"><span class="enroll_status">${phase.enrollStatus }</span><span class="enroll_btns"></span></div>
+										</div>
+										<!--线下比赛参赛证下载 -->
+										<div class="piece piece2">
+											<div class="title">参赛证下载</div>
+											<div class="label1 cert_time">${phase.certStartTimeStr }-${phase.certEndTimeStr }</div>
+											<div class="label2"><span class="cert_status">${phase.certStatus }</span></div>
+										</div>
+										<div class="piece piece3">
+											<div class="title">比赛</div>
+											<div class="label1 match_time">${phase.matchStartTimeStr }-${phase.matchEndTimeStr }</div>
+											<div class="label2"><span class="match_status">${phase.matchStatus }</span><span class="match_btns"></span></div>
+										</div>
+										<div class="piece piece4">
+											<div class="title">公布结果</div>
+											<div class="label1 result_time">${phase.resultTimeStr }</div>
+											<div class="label2"><span class="result_status">${phase.resultStatus }</span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.picker.min.js"></script>
+		<script src="../resources/js/mui.picker.js"></script>
+		<script src="../resources/js/mui.poppicker.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			myFunc(function() {
+				var zoneId = osg.param('zoneId');
+				osg.evtAddListener(function(d) {
+					if(d && d.startsWith('match_enroll')) {
+						osg.closeMe();
+					}
+				});
+				// 报名须知新闻链接点击事件
+				mui(".match_enrolled_ul")
+					.on(
+						"tap",
+						".news_read",
+						function() {
+							var id = $(this).attr('data-id');
+							if(id) {
+								osg.open('../news/detail.html', {
+									'newsId': id
+								}, null, {
+									im: 1
+								});
+							}
+						});
+				// 报名点击事件
+				mui(".match_enrolled_ul")
+					.on(
+						"tap",
+						".btn_enroll",
+						function() {
+							var id = $(this).attr('data-id');
+							if(id) {
+								osg.open('enrollMatch.html', {
+									phaseId: id
+								}, null, {
+									im: 1
+								});
+							}
+						});
+
+				var phaseItem = $('.match_phase_item');
+				phaseItem.remove();
+				var enrolledItem = $(".match_enrolled_item");
+				enrolledItem.removeClass('debug').remove();
+
+				/* 加载要报名的赛区信息 */
+				function loadEnrollZone() {
+					if(!osg.isLogined()) {
+						$('.match_enrolled_ul').html('');
+						return;
+					}
+
+					osg.ajax('match/toEnrollZone/' + zoneId, null, function(d) {
+						$('.match_enrolled_ul').html('');
+						var zone = d,
+							region = zone.region,
+							match = zone.match;
+						var itemObj = enrolledItem.clone();
+						itemObj.find(".region_logo").attr('src', qiniuRoot + region.logo);
+						itemObj.find(".match_name").text(match.name);
+						if(match.memo)
+							itemObj.find(".zone_name").text(match.memo);
+						else
+							itemObj.find(".zone_name").remove();
+						var newsListObj = itemObj.find('.news_list');
+						var newsList = match.newsList;
+						if(newsList.length == 0)
+							itemObj.find(".news_list_div").remove();
+						for(var v = 0; v < newsList.length; v++) {
+							var news = newsList[v],
+								$div = $("<div></div>"),
+								$div2 = $("<div class='inline'></div>");
+							$div.append('[').append($div2.append(generateALink('news_read', news._id, news.titleAbbrBetter))).append(']');
+							newsListObj.append($div);
+						}
+
+						var phases = zone.phases;
+						for(var k = 0; k < phases.length; k++) {
+							var phase = phases[k];
+							var phaseItemObj = phaseItem.clone();
+							if(phase.code == 1)
+								phaseItemObj.addClass('green');
+							else if(phase.code == 2)
+								phaseItemObj.addClass('blue');
+							else if(phase.code == 3)
+								phaseItemObj.addClass('orange');
+							else
+								phaseItemObj.addClass('green');
+
+							phaseItemObj.find('.phase_code').text(phase.code);
+							phaseItemObj.find('.phase_name').text(phase.name);
+
+							if(k == phases.length - 1)
+								phaseItemObj.find('.pieces').addClass('last');
+
+							// 报名处理
+							//							if(phase.enrollStatus == '未开始')
+							//								phaseItemObj.find('.piece1').addClass('gray');
+							phaseItemObj.find('.enroll_time').text(phase.enrollStartTimeStr + ' - ' + phase.enrollEndTimeStr);
+							phaseItemObj.find('.enroll_status').text(phase.enrollStatus);
+							var enrollBtnsObj = phaseItemObj.find('.enroll_btns');
+							if(phase.enrollStatus == '进行中' && phase.canEnroll)
+								enrollBtnsObj.append(generateALink('btn_enroll', phase._id, '去报名'));
+							//							if(phase.enrollPhase) {
+							//								var toPay = phase.enrollPhase.state == 0 || phase.enrollPhase.state == -1;
+							//								if(toPay)
+							//									enrollBtnsObj.append(generateALink('btn_pay', phase.enrollPhase._id, '去支付', phase.enrollPhase));
+							//								if(phase.enrollPhase.state == -1)
+							//									enrollBtnsObj.append('<div class="payMemo">' + phase.enrollPhase.payMemo + '</div>');
+							//							}
+
+							// 参赛证处理
+							if(phase.type == 1) {
+								//								if(phase.certStatus == '未开始')
+								//									phaseItemObj.find('.piece2').addClass('gray');
+								phaseItemObj.find('.cert_time').text(phase.certStartTimeStr + ' - ' + phase.certEndTimeStr);
+								phaseItemObj.find('.cert_status').text(phase.certStatus);
+							} else {
+								phaseItemObj.find('.piece2').hide();
+							}
+
+							// 比赛处理
+							//							if(phase.matchStatus == '未开始')
+							//								phaseItemObj.find('.piece3').addClass('gray');
+							phaseItemObj.find('.match_time').text(phase.matchStartTimeStr + ' - ' + phase.matchEndTimeStr);
+							phaseItemObj.find('.match_status').text(phase.matchStatus);
+							var matchBtnsObj = phaseItemObj.find('.match_btns');
+							//							if(phase.enrollPhase) {
+							//								if(phase.matchStatus == '进行中' && (phase.enrollPhase.state == 2 || phase.enrollPhase.state == 3))
+							//									matchBtnsObj.append(generateALink('btn_answer', phase.enrollPhase._id, '试题查看&作品提交'));
+							//							}
+
+							// 结果处理
+							//							if(phase.resultStatus == '未开始')
+							//								phaseItemObj.find('.piece4').addClass('gray');
+							phaseItemObj.find('.result_time').text(phase.resultTimeStr);
+							phaseItemObj.find('.result_status').text(phase.resultStatus);
+
+							itemObj.find('.enrollPhases').append(phaseItemObj);
+						}
+
+						$('.match_enrolled_ul').removeClass('debug').append(itemObj);
+					});
+				}
+				loadEnrollZone();
+
+				function generateALink(clz, id, txt, obj) {
+					var aobj = $('<a class="' + clz + '" target="_blank" href="javascript:void(0)"></a>');
+					aobj.text(txt).attr('data-id', id);
+					if(obj)
+						aobj.data('data', obj);
+					return aobj;
+				}
+			});
+		</script>
+	</body>
+
+</html>

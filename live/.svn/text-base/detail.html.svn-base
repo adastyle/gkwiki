@@ -1,0 +1,480 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../resources/css/aliplayer-min.css" />
+		<!--<script type="text/javascript" src="../resources/js/aliplayer-h5-min.js"></script>-->
+		<script type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.6.0/aliplayer-h5-min.js"></script>
+		<style type="text/css">
+			.mui-bar {
+				background: #fff0;
+				-webkit-box-shadow: 0 0 0px #d6d6d6;
+			}
+			
+			.mui-bar-nav {
+				color: #fff;
+				background: transparent;
+			}
+			
+			.mui-bar~.mui-scroll-wrapper {
+				margin-top: 0;
+			}
+			
+			.live_detail {
+				width: 100%;
+				background-color: #fff;
+			}
+			
+			.live_detail .div_img {
+				position: relative;
+			}
+			
+			.live_detail .cover {
+				width: 100%;
+			}
+			
+			.live_detail .play_btn {
+				position: absolute;
+				top: 42%;
+				width: 100%;
+			}
+			
+			.live_detail .play_btn>div {
+				color: #fff;
+				font-size: 2rem;
+				background-color: #00000070;
+				width: 38px;
+				height: 38px;
+				line-height: 26px;
+				border-radius: 19px;
+				margin: 0 auto;
+				text-align: center;
+				padding-left: 4px;
+			}
+			
+			.live_detail .title {
+				border-top: 0.5px solid #e6e6e6;
+				font-size: 1.0625rem;
+				padding: 10px 18px;
+				line-height: 1.6rem;
+				color: #282628;
+			}
+			
+			.live_detail .div_avatar {
+				left: 14px;
+				border: 1px solid #fff;
+				border-radius: 19px;
+			}
+			
+			.live_detail .div_avatar>.avatar {
+				width: 26px;
+				height: 26px;
+				border-radius: 13px;
+				margin-top: 2px;
+			}
+			
+			.div_bar {
+				line-height: 34px;
+				padding-left: 18px;
+				margin-top: 8px;
+			}
+			
+			.div_bar .school {
+				color: #312825;
+				font-size: 14px;
+			}
+			
+			.div_bar .bar_right {
+				float: right;
+				color: #666;
+				font-size: 1rem;
+			}
+			
+			.div_bar .comments>.comment_count {
+				margin-left: 4px;
+				margin-top: -1px;
+			}
+			
+			.div_bar .gengduo {
+				margin-left: 10px;
+				width: 52px;
+				text-align: center;
+			}
+			
+			.div_bar .gengduo i {
+				font-weight: bold;
+			}
+			
+			.news_item {
+				padding: 0;
+			}
+			
+			.news_item>div {
+				padding: 0.5rem 0rem;
+			}
+			
+			.prism-player .prism-big-play-btn {
+				width: 45px;
+				height: 45px;
+			}
+			/*评论表情大小*/
+			
+			.emoji-img {
+				width: 6vw;
+			}
+			
+			.live_detail .time_div {
+				position: absolute;
+				top: 42%;
+				width: 100%;
+				text-align: center;
+			}
+			
+			.live_detail .time_div>div {
+				padding: 2px 12px;
+				background-color: hsla(0, 0%, 0%, 0.6);
+				border-radius: 9.375rem;
+				margin: 0 auto;
+				display: inline-block;
+				text-align: center;
+			}
+			
+			.live_detail .time_div .icon {
+				line-height: 1.4rem;
+				font-size: 0.875rem;
+				color: #5D85DE;
+				margin-top: 1px;
+				margin-right: 0.25rem;
+			}
+			
+			.live_detail .time_div .time {
+				font-size: 0.875rem;
+				color: #fff;
+				line-height: 1.4rem;
+			}
+			
+			.mui-scroll-wrapper {
+				margin-bottom: 48px;
+			}
+			/*收藏颜色*/
+			
+			.shoucang_xin {
+				color: #D0021B;
+			}
+			/*评论点赞颜色*/
+			
+			.icon-dianzan_dianji {
+				color: #008FD3;
+			}
+			.comment_submit {
+				position: absolute;
+				background-color: transparent !important;
+			    right: 0;
+			    bottom: 0.45rem;
+				border: none;
+				color: #4A90E2;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+		</header>
+		<div class="mui-scroll-wrapper" top="true">
+			<div class="mui-scroll coment_scroll">
+				<div class="live_detail">
+					<div class="div_img">
+					</div>
+					<div class="div_bar">
+						<div class="div_avatar inline"><img class="avatar" src="../resources/images/dummy_news_image.png" /></div>
+						<div class="school inline"></div>
+						<div class="bar_right inline">
+							<div class="comments inline">
+								<i class="icon iconfont icon-xiaoxi1"></i>
+								<div class="comment_count inline">0</div>
+							</div>
+							<!--<div class="gengduo inline"><i class="icon iconfont icon-gengduo"></i></div>-->
+							<div class="gengduo inline">
+								<div class="like num inline">
+									<i class="iconfont icon-dianzan1 shoucang_xin"></i>
+									<span class="favorTimes"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="title">
+					</div>
+					<div class="content">
+
+					</div>
+				</div>
+				<div class="div_related" style="margin-top: 0.5rem;">
+					<div style="position: relative;">
+						<div class="detail_head_line"></div>
+						<div class="detail_head_title xiangguan">
+							<div>相关推荐</div>
+						</div>
+					</div>
+					<ul id="news_list" style="margin-top: 0.8rem;">
+						<li class="news_item news_img1 debug">
+							<div>
+								<div class="left">
+									<div class="title more2">
+										2018年高考艺考开幕 济南六千考生同场竞技2018年高考艺考开幕 济南六千考生同场竞技
+									</div>
+									<div class="subtitle">
+										<span class="author">高考百科</span>
+										<span class="time m-l-4">2018-08-22</span>
+									</div>
+								</div>
+								<img src="../resources/images/dummy_news_image.png" />
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="div_coments">
+					<div style="position: relative;">
+						<div class="detail_head_line"></div>
+						<div class="detail_head_title">
+							<div>热门跟帖</div>
+						</div>
+					</div>
+					<ul id="comment_list" style="margin-top: 1.6rem;">
+						<li class="comment_item debug">
+							<div>
+								<img class="comment_avatar" src="../resources/images/avatar.png" />
+								<div class="inline">
+									<div>
+										<span class="comment_name">汉翔书法</span>
+										<div class="comment_zan inline">
+											<i id="comment_zan_zan" class="iconfont icon-dianzan"></i>&nbsp;<span id="comment_dianzan">6</span>
+										</div>
+									</div>
+									<div class="comment_content">传承千古智慧</div>
+									<div class="comment_btn_bar">
+										<span id="comment_time" class="time">15小时前</span>
+										<div class="comment_reply inline">
+											<i class="iconfont icon-pinglun"></i>&nbsp;回复
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="comment_div">
+			<div class="comment_input inline"><i class="icon iconfont icon-fabiao"></i><input id="comment_content" type="text" placeholder="写评论..." /></div>
+			<div class="comment_right inline"><i class="icon iconfont icon-xiaoxi1"></i>
+				<div class="inline comment_commentTimes">0</div>
+				<button type="button" class="comment_submit inline" style="display: none;">发布</button>
+			</div>
+		</div>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.jplayer.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			function refresh() {
+				location.reload();
+			}
+			var ctime = 0;
+			var cdata, listItemObj = $(".comment_con"),
+				commentList = $(".comment_container"),
+				flag = 0,
+				pid = null,
+				page = 0,
+				pages = 1,
+				comentObj,
+				pid = null,
+				commentFpi,
+				typeId,
+				type = 2,
+				total = 0;
+			myFunc(function() {
+				if(mui.os.ios) { // ios系统静音，视频播放时依然出声音
+					var AVAudioSession = plus.ios.importClass("AVAudioSession");
+					var avSession = AVAudioSession.sharedInstance();
+					plus.ios.invoke(avSession, "setCategory:error:", "AVAudioSessionCategoryPlayback", "nil");
+				}
+
+				// 先禁用全屏显示，会导致窗口抖动
+				// 设置应用全屏显示（隐藏顶部状态条）
+				//				if(mui.os.ios) // ios全屏显示，android系统会导致输入法弹出遮挡评论框底部
+				//					plus.navigator.setFullscreen(true);
+				// 默认图片占位区高度
+				$(".div_img").css('height', 210 / 376 * plus.screen.resolutionWidth + 'px');
+
+				var liveId = osg.param("liveId");
+				getDetail(liveId);
+				typeId = liveId;
+				var news_list = $('#news_list');
+				osg.ajax('live/findByCategoryId', {
+					'id': liveId
+				}, function(data) {
+					var news = data.data;
+					if(news == null || news.length <= 0) {
+						$('.xiangguan').remove();
+					}
+					for(var i = 0; i < news.length; i++) {
+						var oneData = news[i];
+						news_list.append(getItem(oneData));
+					}
+				}, {
+					noload: true
+				});
+				//收藏
+				var user = osg.currentUser();
+				$(".gengduo").tap(function() {
+					if(osg.isLogined()) {
+						if(cdata.favored) {
+							osg.ajax('favor/deleFavor', {
+								'type': type,
+								'typeId': typeId
+							}, function(data) {
+								cdata.favored = false;
+								$(".favorTimes").text(data);
+								osg.toast("取消收藏成功！");
+								$(".shoucang_xin").attr("class", "iconfont icon-dianzan1 shoucang_xin");
+							}, {
+								noload: true
+							});
+						} else {
+							osg.ajax('favor/addFavor', {
+								'type': type,
+								'typeId': typeId
+							}, function(data) {
+								cdata.favored = true;
+								$(".favorTimes").text(data);
+								osg.toast("已添加至收藏！");
+								$(".shoucang_xin").attr("class", "iconfont icon-dianzandianjihou shoucang_xin");
+							}, {
+								noload: true
+							});
+						}
+					} else {
+						osg.confirm("请登录！", function() {
+							osg.open('../mine/login.html');
+						});
+					}
+				});
+
+			});
+
+			function getDetail(liveId) {
+				osg.ajax('live/findById', {
+					'deviceid': plus.device.uuid,
+					'id': liveId
+				}, function(data) {
+					cdata = data;
+					var liveItem = $(".live_detail"),
+						cover;
+					if(data.favored) {
+						$(".shoucang_xin").attr("class", "iconfont icon-dianzandianjihou shoucang_xin");
+					}
+					if(data.logo)
+						cover = qiniuRoot + data.logo + "!app.cover";
+					else
+						cover = data.appCoverUrl;
+
+					liveItem.find('.title').text(data.title);
+					liveItem.find('.favorTimes').text(data.favorTimes);
+					liveItem.find('.avatar').attr('src', qiniuRoot + data.teacherAvatar);
+					liveItem.find('.school').text(data.createSchoolName);
+					liveItem.find('.comment_count').text(data.commentTimes);
+					$('.comment_commentTimes').text(data.commentTimes);
+
+					if(data.started && data.living) { // 已经开始直播
+						if(data.pullUrl) {
+							if(!data.ended) { // 直播
+								liveItem.find(".div_img").append('<div class="prism-player" id="J_prismPlayer"></div>');
+								var player = new Aliplayer({
+									id: 'J_prismPlayer',
+									width: '100%',
+									autoplay: true,
+									preload: true,
+									cover: cover,
+									playsinline: true, // 移动端内联播放
+									//支持播放地址播放,此播放优先级最高
+									//								source: data.pullUrl,
+									isLive: !data.ended
+								}, function(player) {
+									console.log('播放器创建好了。')
+								});
+								// hack，解决华为荣耀4.4.2系统提示“浏览器不支持m3u8类型”的问题
+								player['_checkSupportVideoType'] = function() {
+									return "";
+								};
+								player.firstNewUrlloadByUrl(data.pullUrl);
+							}else { // 回放
+								var btnPlay = $('<div id="btnPlay"></div>');
+								btnPlay.attr("videoCover", cover);
+								liveItem.find(".div_img").append(btnPlay);
+								osg.video(btnPlay[0], data.pullUrl);
+							}
+						} else {
+							liveItem.find(".div_img").append('<img class="cover" src="' + cover + '" />');
+							liveItem.find(".div_img").append('<div class="time_div"><div><div class="inline icon iconfont icon-zhibo1"></div><span class="time">直播视频尚未生成，请稍后重试</span></div></div>');
+						}
+					} else { // 未开始直播
+						liveItem.find(".div_img").append('<img class="cover" src="' + cover + '" />');
+						liveItem.find(".div_img").append('<div class="time_div"><div><div class="inline icon iconfont icon-zhibo1"></div><span class="time">预告' + data.startTimeFormat + '</span></div></div>');
+					}
+
+					var maxw = plus.screen.resolutionWidth - 20;
+					$("#content img").each(function() {
+						$(this).css('max-width', maxw);
+					});
+				}, {
+					cache: true
+				});
+			}
+			var liveItemObj = $('.news_item');
+			liveItemObj.remove().removeClass("debug");
+
+			function getItem(oneData) {
+				var news_item = liveItemObj.clone();
+				news_item.find(".title").text(oneData.title);
+				news_item.find('.author').text(oneData.author);
+				news_item.find('.time').text(oneData.createTimeFormat);
+
+				var cover;
+				if(oneData.logo) {
+					cover = qiniuRoot + oneData.logo + "!app.cover";
+				} else {
+					cover = oneData.appCoverUrl;
+				}
+				news_item.find('img').attr('src', cover);
+				news_item.data('id', oneData._id);
+				news_item.tap(function(e) {
+					openDetail($(this).data('id'));
+				});
+				return news_item;
+			}
+
+			function openDetail(id) {
+				var extras = {
+					liveId: id
+				};
+				var options = {
+					'id': id
+				};
+				osg.open('./detail.html', extras, null, options);
+			}
+		</script>
+		<script src="../resources/js/comment.js"></script>
+	</body>
+
+</html>

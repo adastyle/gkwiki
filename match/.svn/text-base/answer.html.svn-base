@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.information {
+				width: 100%;
+			}
+			
+			.information li {
+				border-bottom: 1px solid #E5E5E5;
+				padding-bottom: 0.25rem;
+				padding: 0.3rem;
+			}
+			
+			.information li:last-child {
+				border-bottom: 0;
+			}
+			
+			.information span {
+				/*color: #D1D1D1;*/
+				/*color: #9f9fa3;
+				float: right;
+				margin-right: 0rem;*/
+			}
+			
+			.information input {
+				float: right;
+				width: 78%;
+				font-size: 14px;
+				padding: 0;
+				line-height: 20px;
+				height: 20px;
+				text-align: right;
+				margin-bottom: 0;
+				border: 0;
+			}
+			
+			.information a {
+				color: #f00;
+			}
+			
+			.content {
+				text-align: justify;
+				word-wrap: break-word;
+			}
+			
+			.newsReadDiv {
+				padding: 2rem 2.8rem 2rem 1.5rem;
+				position: absolute;
+				background-color: #fff;
+				z-index: 100;
+			}
+			
+			.newsReadBtnDiv {
+				text-align: center;
+				position: fixed;
+				left: 0;
+				right: 0;
+				bottom: 2rem;
+				z-index: 10000;
+			}
+			
+			#newsReadBtn {
+				color: #fff;
+				background-color: #2196F3;
+			}
+			
+			.work_form0 {
+				width: 100%;
+				min-height: 20rem;
+				margin-top: 0.5rem;
+			}
+			
+			.work_form1_pic {
+				width: 100%;
+				margin-top: 0.5rem;
+			}
+			
+			.work_form_btn {
+				float: right;
+				font-size: 1rem;
+				padding: 0.25rem 0.5rem;
+				margin-bottom: 0;
+				background-color: #2196F3;
+				color: #fff;
+				border: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav ">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">试题查看&作品提交</h1>
+			<span class="save_btn" style="float: right;padding: 10px;font-size: 0.825rem;">提交</span>
+		</header>
+
+		<div class="mui-scroll-wrapper">
+			<div id="student_info" class="mui-scroll">
+				<div class="match_title_bar" style="margin-top: 10px;">
+					<img class="region_logo" src="" />
+					<div class="name inline m-l-5 m-r-20"><span class="match_name"></span>
+						<span class="phase_name"></span>
+					</div>
+				</div>
+				<div style="background: #FFFFFF;margin: 0.5rem;border-radius: 10px;">
+					<div style="padding: 0.2rem 1rem 0.4rem;">
+						<ul class="information">
+							<li>
+								<h5>考试题目</h5>
+								<div class="question_div"></div>
+							</li>
+							<li>
+								<h5><a href="#" >*</a>作品名称 <input type="text" label="作品名称" class="answer_name" placeholder="点击输入" required="required"></h5></li>
+							<li>
+								<h5>参赛作品 <button class="work_form_btn work_form1 work_form1_btn" style="display:none;">选择图片</button>
+									<button class="work_form_btn work_form2 work_form2_btn" style="display:none;">选择视频</button>
+								</h5>
+								<div class="answer_div">
+									<textarea class="work_form0" style="display:none;"></textarea>
+									<img class="work_form1_pic" style="dispplay:none;" />
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.picker.min.js"></script>
+		<script src="../resources/js/mui.picker.js"></script>
+		<script src="../resources/js/mui.poppicker.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script src="../resources/division.js"></script>
+		<script type="text/javascript">
+			var data, answer;
+			myFunc(function() {
+				var enrollPhaseId = osg.param('enrollPhaseId');
+				$(".save_btn").tap(function() {
+					if($(".save_btn").hasClass('disabled'))
+						return;
+
+					var v = osg.validate('student_info');
+					if(v) {
+						if(data.workForm == 0) // 文本
+							answer = $(".work_form0").val();
+						if(!answer) {
+							if(data.workForm == 3) // 文件作品不支持app端提交
+								osg.toast('请通过网站提交参赛作品文件!');
+							else
+								osg.toast('请提交参赛作品!');
+							return;
+						}
+						var param = {
+							enrollPhaseId: enrollPhaseId,
+							answerName: $(".answer_name").val(),
+							answer: answer
+						};
+
+						osg.ajax('match/answer', param, function(d) {
+							osg.toast('作品提交成功！');
+							osg.closeMe();
+							osg.evtFireEvent('match_answer');
+						}, {
+							disableBtns: [$(".save_btn")]
+						});
+					}
+				});
+
+				/* 图片作品上传 */
+				$(".work_form1_btn").tap(function() {
+					plus.nativeUI.actionSheet({
+						cancel: "取消",
+						buttons: [{
+							title: "拍照"
+						}, {
+							title: "从相册选择"
+						}]
+					}, function(event) {
+						var index = event.index;
+						switch(index) {
+							case 1: // 拍照
+								osg.pickImageFromCamera(function(f) {
+									osg.uploadFile(f, function(fid) {
+										doPicUploaded(fid);
+									})
+								});
+								break;
+							case 2: // 从相册选择
+								osg.pickImageFromGallery(1, function(f) {
+									osg.uploadFile(f, function(fid) {
+										doPicUploaded(fid);
+									})
+								})
+								break;
+						}
+					});
+				});
+
+				function doPicUploaded(fileid) {
+					answer = fileid[0];
+					$(".work_form1_pic").show();
+					$(".work_form1_pic").attr("src", qiniuRoot + answer);
+				}
+
+				/* 视频作品上传 */
+				$(".work_form2_btn").tap(function() {
+					plus.nativeUI.actionSheet({
+						cancel: "取消",
+						buttons: [{
+							title: "拍摄"
+						}, {
+							title: "从相册选择"
+						}]
+					}, function(event) {
+						var index = event.index;
+						switch(index) {
+							case 1: // 拍摄
+								osg.pickVideoFromCamera(function(f) {
+									osg.uploadFile(f, function(fid) {
+										doVideoUploaded(fid);
+									})
+								});
+								break;
+							case 2: // 从相册选择
+								osg.pickVideoFromGallery(function(f) {
+									osg.uploadFile(f, function(fid) {
+										doVideoUploaded(fid);
+									})
+								})
+								break;
+						}
+					});
+				});
+
+				function doVideoUploaded(fileid) {
+					answer = fileid[0];
+					$(".work_form2_video").show();
+					$(".work_form2_video").attr("src", qiniuRoot + answer);
+				}
+
+				osg.ajax('match/toAnswer/' + enrollPhaseId, null, function(d) {
+					data = d, region = d.region, match = d.match, phase = d.phase;
+					$(".region_logo").attr('src', qiniuRoot + region.logo);
+					$(".match_name").text(match.name);
+					$(".phase_name").text('【' + phase.name + '】');
+					$(".question_div").html(phase.question);
+
+					$(".answer_name").val(d.answerName);
+					answer = d.answer;
+					if(data.workForm == 0) { // 文本
+						$(".work_form0").show();
+						$(".work_form0").text(answer);
+					} else if(data.workForm == 1) { // 图片
+						$(".work_form1").show();
+						if(answer) {
+							$(".work_form1_pic").show();
+							$(".work_form1_pic").attr("src", qiniuRoot + answer);
+						}
+					} else if(data.workForm == 2) { // 视频
+						$(".work_form2").show();
+						if(answer) {
+							$(".work_form2_video").show();
+							$(".work_form2_video").attr("src", qiniuRoot + answer);
+						}
+					} else if(data.workForm == 3) { // 文件
+						osg.toast('手机端不支持文件作品提交!');
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<link href="../resources/fonts/xyIconfonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.topPay{
+				width:100%;
+				padding:.1rem 0;
+				position:relative;
+				height:7rem;
+				background:#fff;
+				margin-bottom:.7rem;		
+			}
+			.leftImg{
+				display:inline-block;
+				width:48%;
+				text-align:left;
+				height:100%;
+				position: relative;
+			}
+			.leftImg>img{
+				width:100%;
+			}
+			.rightPayDetail{
+				display:inline-block;
+				width:50%;
+			}	
+			.rightPayDetail>.title{
+				height:3rem;
+				text-align: left;
+				line-height: 3rem;
+				margin:0;
+				font-size:1.3rem;
+				color:#222222;
+				padding:0;
+				padding:1.7rem .5rem;
+				padding-top:1rem;
+			}	
+			.rightPayDetail>.price{
+				font-size: 1.1rem;
+				color:#fea71d;
+				text-align: left;
+				padding-bottom:1rem;
+				padding-top:1rem;
+				padding-left:1rem;
+			}	
+			.rightPayDetail>.price>.yy{
+				color:#cdcdcd;
+				font-size: .8rem;
+			}
+			/*菜单的间距*/
+			.menus{
+				background:#fff;
+				min-height:5rem;
+			}
+			.courseMenuTitle{
+				height:3rem;
+				width:93%;
+				margin:.2rem .7rem;
+				border-bottom:1px solid #F0F0F0;
+				padding-top:1rem;
+				padding-left:.3rem;
+			}
+			.courseMenuTitle>span{
+				vertical-align: middle;
+			}
+			.courseMenuTitle>span.line{
+				display:inline-block;
+				width:.3rem;
+				height:1rem;
+				margin-right:.1rem;
+				background:#008fd3;
+				border-radius:6px;
+			}
+			
+			/*目录展示*/
+			.menuShow{
+				list-style: none;
+				background: #fff;
+				margin:0;
+				padding:0;
+				padding-bottom:1rem;
+			}
+			.menuShow>li{
+				padding-left:.4rem;
+				position: relative;
+				font-size:.8rem;
+			}
+			.menuShow>li>.splitLine{
+				display:inline-block;
+				height:2.8rem;
+				width:.8rem;
+				position: relative;
+			}
+			.menuShow>li>.splitLine>div{
+				width:1px;
+				height:2rem;
+				background:#F0F0F0;
+				margin-bottom:0;
+				position: absolute;
+				top:0;
+				left:50%;
+				transform: translateX(-50%);
+			}
+			.menuShow>li>.splitLine>img{
+				width:.8rem;
+				height:.8rem;
+				position: absolute;
+				bottom:0;
+				left:0;
+				
+			}
+			.menuColm{
+				position: absolute;
+				width:90%;
+				left:1.5rem;
+				bottom:-.25rem;
+				display: inline-block;
+			}
+			.menuColm .times{
+				position:absolute;
+				bottom:.1rem;
+				right:0;
+				display:inline-block;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">国学101讲</h1>
+		</header>
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll coment_scroll">
+				<div class="topPay">
+					<div class="leftImg">
+						<img src="../resources/images/guoxue101.png"></img>
+					</div>
+					<div class="rightPayDetail">
+						<p class="title"></p>
+						<p class="price">￥<span class="priceNum"></span><span class="yy">费用</span></p>
+					</div>
+				</div>
+				<!--目录-->
+				<div class="menus">
+					<!--标题-->
+					<div class="courseMenuTitle">
+						<span class="line"></span>
+						<span>目录</span>
+					</div>
+					<!--目录详情-->
+					<ul class="menuShow">
+						<li class="packMenu" data-videoId="">
+							<div class="splitLine">
+								<div></div>
+								<img src="../resources/images/aleadyPlay.jpg" alt="" />
+							</div>
+							<div class="menuColm">
+								<span class="menuTitle">101讲 为什么国学</span>
+								<div class="times">
+									<i class="icon iconfont icon-bofang"></i>
+									<span class="second"></span>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script src="../resources/js/mui.zoom.js"></script>
+		<script src="../resources/js/mui.previewimage.js"></script>
+		<script type="text/javascript">
+			myFunc(function() {
+				var menuLi=$(".packMenu").clone();
+				$(".packMenu").hide();
+				var resourcePackId = osg.param("resourcePackId");
+				osg.ajax('/resourcePack/resourcePackDetail.do',{"resourcePackId":resourcePackId},function(data){
+					var packs=data.data;
+					$(".leftImg>img").attr("src",qiniuRoot + packs.logo);
+					$(".rightPayDetail>.title").html(packs.name);
+					$(".rightPayDetail .priceNum").html(packs.price);
+					var packMenu=packs.videos["allVideo"];
+					for(var i=0;i<packMenu.length;i++){
+						var currMenu=menuLi.clone();
+						var isViewd=packMenu[i].isViewd;
+						if(isViewd)
+							currMenu.find(".splitLine>img").attr("src","../resources/images/aleadyPlay.png")
+						else
+							currMenu.find(".splitLine>img").attr("src","../resources/images/noPlay.png")
+						
+						currMenu.find(".menuTitle").html(packMenu[i].title);
+						currMenu.find(".second").html(packMenu[i].strDuration);
+						currMenu.attr("data-videoId",packMenu[i]._id);
+						$(".menuShow").append(currMenu);
+					}
+				})
+				
+				$(".menuShow").on("tap","li",function(){
+					var videTd=$(this).attr("data-videoId");
+					if(videTd){
+						osg.open('../video/detail.html',{'videoId':videTd}, null,{'id':videTd});
+					}
+				})
+				
+			})
+		</script>
+	</body>
+</html>
+
+

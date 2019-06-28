@@ -1,0 +1,649 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-bar .mui-title {
+				position: relative;
+				color: #fff;
+			}
+			
+			.bar_input {
+				position: absolute;
+				left: 2.75rem;
+				bottom: 0.5rem;
+				right: 3.375rem;
+				height: 1.75rem;
+			}
+			
+			.bar_input>input {
+				border: #026A7B;
+				font-size: 0.875rem;
+				height: 1.75rem;
+				border-radius: 0.875rem;
+				background-color: #f5f5f6;
+			}
+			
+			.bar_message_btn {
+				position: absolute;
+				bottom: 0.5rem;
+				right: 0.5rem;
+				height: 1.875rem;
+				width: 2.25rem;
+				text-align: center;
+			}
+			
+			.bar_message_btn i {
+				font-size: 1.375rem;
+				line-height: 1.875rem;
+				color: #fff;
+			}
+			
+			.badge_red {
+				position: absolute;
+				right: 0;
+				top: -2px;
+				background-color: #ce0b24;
+				border: 0.5px solid #fff;
+				border-radius: 6px;
+				font-size: 9px;
+				color: #fff;
+				line-height: 12px;
+				padding: 0 4px;
+				z-index: 100;
+			}
+			
+			.div_bar {
+				line-height: 2.125rem;
+				padding-left: 1.125rem;
+				margin-bottom: 0.125rem;
+			}
+			
+			.div_bar .school {
+				color: #9D9D9D;
+				font-size: 0.75rem;
+			}
+			
+			.div_bar .bar_right {
+				float: right;
+				color: #666;
+				font-size: 1rem;
+				width: 5rem;
+				text-align: center;
+			}
+			
+			.div_bar .comments>.comment_count {
+				margin-left: 4px;
+				margin-top: -1px;
+			}
+			/*解决css缓存问题，后续版本可删除*/
+			
+			.tag_keyword.tag_selected {
+				color: #ff0000 !important;
+			}
+			
+			#news_list>.live_item {
+				padding-top: 1rem;
+				border-top: 0.5px solid #e6e6e6;
+				border-bottom: 0.5px solid #e6e6e6;
+			}
+
+			#news_list>.live_item .title {
+				margin-left: 12px;
+			}
+			
+			#news_list>.live_item .time {
+				margin-right: 14px;
+			}
+			
+			#news_list>.live_item .div_avatar {
+				margin-left: 14px;
+			}
+			
+			#news_list>.live_item .div_img {
+				padding: 0rem 1rem;
+			}
+			
+			#news_list>.video_item {
+				padding-top: 1rem;
+				border-top: 0.5px solid #e6e6e6;
+				border-bottom: 0.5px solid #e6e6e6;
+			}
+			
+			#news_list>.video_item .title {
+				margin-left: 12px;
+			}
+			
+			#news_list>.video_item .time {
+				margin-right: 14px;
+			}
+			
+			#news_list>.video_item .div_avatar {
+				margin-left: 14px;
+			}
+			
+			#news_list>.video_item .div_img {
+				padding: 0rem 1rem;
+			}
+			
+			.search {
+				position: absolute;
+				background-color: transparent !important;
+				right: 0;
+				bottom: 0.45rem;
+				border: none;
+				color: #4A90E2;
+			}
+			/*解决css缓存问题结束*/
+		</style>
+	</head>
+
+	<body class="la">
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<div class="bar_input"><input id="search_put" type="text" placeholder="请输入查询内容"></div>
+			<button class="search" type="button" id="search_btn">搜索</button>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll" id="nav_fun">
+
+					</div>
+				</div>
+				<div class="mui-slider-group my-slider-group">
+
+				</div>
+			</div>
+		</div>
+		<div id="sliderContent" style="display: none;" class="mui-slider-item mui-control-content">
+			<div id="scroll1" class="mui-scroll-wrapper">
+				<div class="mui-scroll myscroll">
+					<div class="mui-slider my_slider">
+						<div class="mui-slider-group mui-slider-loop my-slider slider-height">
+
+						</div>
+						<div class="mui-slider-indicator mui-text-right" style="bottom:-0.2rem;">
+						</div>
+					</div>
+					<div class="">
+						<ul id="news_list">
+						</ul>
+						<input type="hidden" class="keywords" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--
+        	单图条目
+        -->
+		<li class="news_item news_img1 debug">
+			<div>
+				<div class="left">
+					<div class="title more2">
+						2018年高考艺考开幕 济南六千考生同场竞技2018年高考艺考开幕 济南六千考生同场竞技
+					</div>
+					<div class="subtitle">
+						<span class="author">高考百科</span>
+						<span class="time m-l-4">2018-08-22</span>
+					</div>
+				</div>
+				<img src="../resources/images/dummy_news_image.png" />
+			</div>
+		</li>
+		<!--
+        	三图及以上条目
+        -->
+		<li class="news_item news_img3 debug">
+			<div>
+				<div class="title more2">
+					2018年高考艺考开幕 济南六千考生同场竞技2018年高考艺考开幕 济南六千考生同场竞技
+				</div>
+				<div class="imgs">
+					<img class="img1" style="float: left;" src="../resources/images/dummy_news_image.png" />
+					<img class="img2" style="" src="../resources/images/dummy_news_image.png" />
+					<img class="img3" style="float:right;" src="../resources/images/dummy_news_image.png" />
+				</div>
+				<div class="subtitle">
+					<span class="author">高考百科</span>
+					<span class="time m-l-4">2018-08-22</span>
+				</div>
+			</div>
+		</li>
+		<!--
+        	banner条目
+        -->
+		<li class="news_item news_img1b debug">
+			<div>
+				<div class="title more2">
+					2018年高考艺考开幕 济南六千考生同场竞技2018年高考艺考开幕 济南六千考生同场竞技
+				</div>
+				<img src="../resources/images/dummy_news_image.png" />
+				<div class="subtitle">
+					<span class="author">高考百科</span>
+					<span class="time m-l-4">2018-08-22</span>
+				</div>
+			</div>
+		</li>
+		<!--
+        	无图条目
+        -->
+		<li class="news_item news_noimg debug">
+			<div>
+				<div class="title more2">
+					2018年高考艺考开幕 济南六千考生同场竞技2018年高考艺考开幕 济南六千考生同场竞技
+				</div>
+				<div class="subtitle">
+					<span class="author">高考百科</span>
+					<span class="time m-l-4">2018-08-22</span>
+				</div>
+			</div>
+		</li>
+		<!--
+			视频条目
+		-->
+		<li class="video_item debug">
+			<div>
+				<div class="div_img">
+					<div class="title">
+						2018年高考艺考开幕 济南六千考生同场竞技2018年高考艺考开幕 济南六千考生同场竞技
+					</div>
+					<img class="cover" src="../resources/images/dummy_news_image.png" />
+					<div class="play_btn">
+						<div>
+							<i class="icon iconfont icon-sanjiaoxing_bofang"></i>
+						</div>
+					</div>
+					<span class="time">21:23</span>
+					<div class="div_avatar"><img class="avatar" src="../resources/images/dummy_news_image.png" /></div>
+				</div>
+				<div class="div_bar">
+					<div class="school inline">哈尔滨师范大学</div>
+					<div class="bar_right inline">
+						<div class="comments inline">
+							<i class="icon iconfont icon-xiaoxi1"></i>
+							<div class="comment_count inline">320</div>
+						</div>
+						<!--<div class="gengduo inline"><i class="icon iconfont icon-gengduo"></i></div>-->
+					</div>
+				</div>
+			</div>
+		</li>
+		<!--直播条目-->
+		<li class="live_item debug">
+			<div>
+				<div class="div_img">
+					<div class="title">
+						2018年高考艺考开幕 济南六千考生同场竞技2018年高考艺考开幕 济南六千考生同场竞技
+					</div>
+					<img class="cover" src="../resources/images/dummy_news_image.png" />
+					<div class="time_div">
+						<div>
+							<div class="inline icon iconfont icon-zhibo1"></div><span class="time">直播中 237参与</span></div>
+					</div>
+					<div class="div_avatar"><img class="avatar" src="../resources/images/dummy_news_image.png" /></div>
+				</div>
+				<div class="div_bar">
+					<div class="school inline">哈尔滨师范大学</div>
+					<div class="bar_right inline">
+						<div class="comments inline">
+							<i class="icon iconfont icon-xiaoxi1"></i>
+							<div class="comment_count inline">320</div>
+						</div>
+						<!--<div class="gengduo inline"><i class="icon iconfont icon-gengduo"></i></div>-->
+					</div>
+				</div>
+			</div>
+		</li>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			var self, keywordsId, title;
+			myFunc(function() {
+				// 分类条
+				var navFun = $('#nav_fun');
+				// 分类条目
+				var navItemObj = $('<a class="mui-control-item" href="#"></a>');
+
+				var keywordsParam = osg.param("keywords");
+				//侧滑内容克隆
+				var sliderContentObj = $("#sliderContent");
+				sliderContentObj.attr("id", "").css("display", "").remove();
+				var radiusObj = $('<div class="mui-indicator"></div>');
+
+				osg.ajax('news/findAllKeywords', {}, function(data) {
+					for(var i = 0; i < data.length; i++) {
+						var newsKeywords = data[i];
+						if(newsKeywords.flipInfo.total == 0)
+							continue;
+
+						//添加功能导航条
+						var navItem = navItemObj.clone();
+						navItem.text(newsKeywords.name);
+						navItem.attr("href", '#' + newsKeywords._id);
+						navFun.append(navItem);
+						/*if(keywordsParam == newsKeywords.name) {
+							keywordsId = newsKeywords._id;
+							navItem.addClass("mui-active");
+						}*/
+						//添加侧滑项目
+						var sliderContent = sliderContentObj.clone();
+						sliderContent.attr('id', newsKeywords._id);
+						sliderContent.find(".keywords").val(newsKeywords._id);
+						sliderContent.data("data", newsKeywords.flipInfo);
+						/*if(i == 0) {
+							sliderContent.addClass("mui-active");
+						}*/
+						if(keywordsParam == newsKeywords.name) {
+							keywordsId = newsKeywords._id;
+							navItem.addClass("mui-active");
+							sliderContent.addClass("mui-active");
+						}
+						var myscroll = sliderContent.find(".myscroll")[0];
+						$(".my-slider-group").append(sliderContent);
+
+						// 添加列表数据
+						var $nl = sliderContent.find("#news_list"),
+							fpi = newsKeywords.flipInfo;
+						fpi.init = true;
+						for(var kk = 0; kk < fpi.data.length; kk++) {
+							var oneData = fpi.data[kk];
+							$nl.append(getItem(oneData));
+						}
+
+						mui(myscroll).pullToRefresh({
+							down: {
+								callback: function() {
+									self = this;
+									title = $("#search_put").val();
+									var keywords = $(self.element.innerHTML).find('.keywords').val();
+									findPage(1, {
+										'keywords': keywords,
+										'self': self,
+										'pullDown': true
+									}, title);
+								}
+							},
+							up: {
+								auto: true,
+								callback: function() {
+									self = this;
+									title = $("#search_put").val();
+									var keywords = $(self.element.innerHTML).find('.keywords').val();
+									var fpi = $("#" + keywords).data("data");
+									var page = fpi.page,
+										pages = fpi.pages;
+									var nextPage = page + 1;
+
+									if(page >= pages) {
+										self.endPullUpToRefresh(true);
+										return;
+									}
+									if(fpi.init) {
+										fpi.init = false;
+										self.endPullUpToRefresh(false);
+										return;
+									}
+									findPage(nextPage, {
+										'keywords': keywords,
+										'self': self
+									}, title);
+								}
+							},
+						});
+					}
+					mui('.mui-slider').slider().refresh();
+					mui('.mui-scroll-wrapper.mui-slider-indicator.mui-segmented-control').scroll({
+						scrollY: false,
+						scrollX: true,
+						indicators: false,
+						snap: '.mui-control-item'
+					}).refresh();
+
+					mui('.mui-scroll-wrapper').on('tap', '.tag_keyword', function(e) {
+						event.stopPropagation(); // 禁止事件冒泡到父节点点击事件
+						openKeywords($(this).text());
+					});
+					mui('.mui-scroll-wrapper').on('tap', '.news_item', function(e) {
+						openDetail($(this).data('id'), $(this).data('type'));
+					});
+					mui('.mui-scroll-wrapper').on('tap', '.video_item', function(e) {
+						openDetail($(this).data('id'), $(this).data('type'));
+					});
+					mui('.mui-scroll-wrapper').on('tap', '.live_item', function(e) {
+						openDetail($(this).data('id'), $(this).data('type'));
+					});
+				}, {
+					noload: true,
+					cache: true
+				});
+
+				$("#search_btn").tap(function() {
+					$('#search_put').blur();
+					title = $("#search_put").val();
+					$('.news_item').remove();
+					findPage(1, {
+						'keywords': keywordsId
+					}, title);
+				})
+				//分页函数
+				function findPage(page, param, title) {
+					var keywords = param.keywords;
+					fpi = $("#" + keywords).data("data"),
+						$newsList = $("#" + keywords).find("#news_list");
+					param.self = self;
+					if(page != 1) {
+						var pages = fpi.pages;
+						if(page > pages) {
+							return;
+						}
+					}
+					osg.ajax('news/queryByKeywords', {
+						'page': page,
+						'keyWord': keywords,
+						'regex:title': title
+					}, function(data) {
+						// 下拉的情况下，结束下拉刷新状态
+						if(param.pullDown) {
+							param.self.endPullDownToRefresh();
+							param.self.refresh(true);
+						}
+						if(!data) {
+							param.self.endPullUpToRefresh(true);
+							return;
+						}
+						if(page == 1) {
+							$newsList.html('');
+						}
+						$("#" + keywords).data("data", data);
+						for(var i = 0; i < data.data.length; i++) {
+							var oneData = data.data[i];
+							$newsList.append(getItem(oneData));
+						}
+						param.self.endPullUpToRefresh(data.page >= data.pages);
+					}, {
+						noload: true
+					});
+				}
+
+				// 单图条目模板
+				var newsImg1Obj = $('.news_img1');
+				newsImg1Obj.remove().removeClass("debug");
+				// banner条目模板
+				var newsImg1bObj = $('.news_img1b');
+				newsImg1bObj.remove().removeClass("debug");
+				// 3图及以上条目模板
+				var newsImg3Obj = $('.news_img3');
+				newsImg3Obj.remove().removeClass("debug");
+				// 无图条目模板
+				var newsNoimgObj = $('.news_noimg');
+				newsNoimgObj.remove().removeClass("debug");
+				// 视频条目模板
+				var videoItemObj = $('.video_item');
+				videoItemObj.remove().removeClass("debug");
+				// 直播条目模板
+				var liveItemObj = $('.live_item');
+				liveItemObj.remove().removeClass("debug");
+
+				// 用于判断是否上一条为单图或无图新闻条目，如果是则加border-top分隔样式
+				var flag = false;
+				// 获取新闻显示条目
+				function getItem(oneData) {
+					var listItem;
+					var imgCount = oneData.images.length;
+					var keywords = oneData.keywords;
+					var type = oneData.type;
+					if(type == 0) {
+						if(imgCount > 0 && imgCount < 3) { // 单图新闻
+							listItem = newsImg1Obj.clone();
+							listItem.find('img').attr('src', qiniuRoot + oneData.images[0] + '!app.news.img');
+							if(flag)
+								listItem.children().addClass('line');
+							flag = true;
+						} else if(imgCount >= 3) { // 三图新闻
+							listItem = newsImg3Obj.clone();
+							listItem.find('.img1').attr('src', qiniuRoot + oneData.images[0] + '!app.news.img');
+							listItem.find('.img2').attr('src', qiniuRoot + oneData.images[1] + '!app.news.img');
+							listItem.find('.img3').attr('src', qiniuRoot + oneData.images[2] + '!app.news.img');
+							flag = false;
+						} else if(oneData.banner) { // 有banner则为banner新闻
+							listItem = newsImg1bObj.clone();
+							listItem.find('img').attr('src', qiniuRoot + oneData.banner + '!app.news.bannerb');
+							flag = false;
+						} else { // 无图新闻
+							listItem = newsNoimgObj.clone();
+							if(flag)
+								listItem.children().addClass('line');
+							flag = true;
+						}
+						if(keywords.length > 0) {
+							for(var i = 0; i < keywords.length; i++) {
+								listItem.children('div').append('<div class="tag_keyword">' + keywords[i] + '</div>')
+							}
+						}
+						listItem.find('.title').text(oneData.title);
+						listItem.find('.author').text(oneData.author);
+						listItem.find('.time').text(oneData.createTimeFormat);
+
+						listItem.data('id', oneData._id); //新闻id
+						listItem.data('type', oneData.type); //type=0
+					} else if(type == 1) {
+						var listItem = videoItemObj.clone();
+						if(oneData.video.logo)
+							listItem.find('img').attr('src', qiniuRoot + oneData.video.logo + "!app.cover");
+						else
+							listItem.find('img').attr('src', oneData.video.appCoverUrl);
+
+						listItem.find('.title').text(oneData.title);
+						if(oneData.video.teacherAvatar)
+							listItem.find('.avatar').attr('src', qiniuRoot + oneData.video.teacherAvatar);
+						else
+							listItem.find('.div_avatar').hide();
+						listItem.find('.time').text(oneData.video.strDuration);
+						listItem.find('.school').text(oneData.video.createSchoolName);
+						listItem.find('.comment_count').text(oneData.video.commentTimes);
+
+						listItem.data('id', oneData.typeId);
+						listItem.data('type', oneData.type); //type=0
+					} else if(type == 2) {
+						flag = false;
+						var listItem = liveItemObj.clone();
+						if(oneData.live.logo)
+							listItem.find('img').attr('src', qiniuRoot + oneData.live.logo + "!app.cover");
+						else
+							listItem.find('img').attr('src', oneData.live.appCoverUrl);
+
+						listItem.find('.title').text(oneData.live.title);
+						listItem.find('.avatar').attr('src', qiniuRoot + oneData.live.teacherAvatar);
+						var timestr = '';
+						if(oneData.live.started) {
+							if(oneData.live.ended) { // 直播结束，回顾
+								timestr = '直播精彩回顾';
+							} else { // 直播中
+								listItem.find(".time_div .icon").addClass("live"); // 直播中
+								timestr = '直播中 ' + oneData.live.times + '参与';
+							}
+						} else {
+							timestr = '预告' + oneData.live.startTimeFormat;
+						}
+						listItem.find(".time_div .time").text(timestr);
+
+						listItem.find('.school').text(oneData.live.createSchoolName);
+						listItem.find('.comment_count').text(oneData.live.commentTimes);
+
+						listItem.data('id', oneData.typeId);
+						listItem.data('type', oneData.type);
+					}
+					return listItem;
+				}
+
+				function openDetail(id, type) {
+					if(type == 0) {
+						osg.open('detail.html', {
+							'newsId': id
+						}, null, {
+							im: 1
+						});
+					} else if(type == 1) {
+						osg.open('../video/detail.html', {
+							'videoId': id
+						}, {
+							hide: function() {
+								// 设置应用非全屏显示！
+								plus.navigator.setFullscreen(false);
+							}
+						}, {
+							im: 1,
+							notChangeStatusBar: true
+						});
+					} else {
+						osg.open('../live/detail.html', {
+							'liveId': id
+						}, {
+							hide: function() {
+								// 设置应用非全屏显示！
+								plus.navigator.setFullscreen(false);
+							}
+						}, {
+							im: 1,
+							notChangeStatusBar: true
+						});
+					}
+				}
+
+				function openKeywords(keywords) {
+					var options = {
+						'id': keywords,
+						'notChangeStatusBar': true
+					}
+					osg.open('key_index.html', {
+						'keywords': keywords
+					}, null, options);
+				}
+
+			});
+			//判断是否获取到元素
+			(function($) {
+				$.fn.exist = function() {
+					if($(this).length >= 1) {
+						return true;
+					}
+					return false;
+				};
+			})(jQuery);
+		</script>
+	</body>
+
+</html>

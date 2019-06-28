@@ -1,0 +1,373 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.avatar_img {
+				width: 4rem;
+				height: 4rem;
+			}
+			
+			.information {
+				width: 100%;
+			}
+			
+			.information li {
+				border-bottom: 1px solid #E5E5E5;
+				padding-bottom: 0.25rem;
+				padding: 0.6rem 0.3rem;
+			}
+			
+			.information li:last-child {
+				border-bottom: 0;
+			}
+			
+			.information span {
+				/*color: #D1D1D1;*/
+				color: #9f9fa3;
+				float: right;
+				margin-right: 0rem;
+			}
+			
+			.information input {
+				float: right;
+				width: 60%;
+				font-size: 14px;
+				padding: 0;
+				margin-top: -4px;
+				line-height: 20px;
+				height: 20px;
+				text-align: right;
+				border: 0;
+			}
+			
+			.information a {
+				color: #f00;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav ">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">我的信息</h1>
+			<span class="save_btn" style="float: right;padding: 10px;font-size: 0.825rem;">保存</span>
+		</header>
+
+		<div class="mui-scroll-wrapper">
+			<div id="student_info" class="mui-scroll">
+				<div style="background: #FFFFFF;margin: 0.5rem;border-radius: 10px;">
+					<div style="padding: 0.2rem 1rem 0.4rem;">
+						<ul class="information">
+							<li style="height: 5.5rem;">
+								<h5 style="line-height: 4rem;"><a href="#" >*</a>头像 <span style="line-height: 0;"><img class="avatar_img" src="../resources/images/camera.png" /></span></h5></li>
+							<li>
+								<h5>手机号 <input type="text" label="手机号" class="student_phone" readonly="readonly"></h5></li>
+							<li>
+								<h5><a href="#" >*</a>昵称 <input type="text" label="昵称" class="student_nick" placeholder="点击输入" required="required"></h5></li>
+							<li>
+								<h5><a href="#" >*</a>姓名 <input type="text" label="姓名" class="student_name" placeholder="点击输入" required="required"></h5></li>
+							<li>
+								<h5><a href="#" >*</a>身份证号 <input type="text" label="身份证号" class="student_idcard" placeholder="点击输入" required="required"></h5></li>
+							<li>
+								<h5><a href="#" >*</a>省、市、区 <span class="valid_readonly student_region" label="地区" required="required">点击选择</span></h5></li>
+							<li>
+								<h5><a href="#" >*</a>选择学校 <span class="valid_readonly student_school_id" label="学校">点击选择</span></h5></li>
+							<li class="student_school_name_li" style="display:none;">
+								<h5><a href="#" >*</a>学校名称 <input type="text" label="学校名称" class="valid_readonly student_school_name" placeholder="无可选择学校，可点击输入"></h5></li>
+							<li>
+								<h5><a href="#" >*</a>年级 <span class="valid_readonly student_grade_id" label="年级" required="required">点击选择</span></h5></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.picker.min.js"></script>
+		<script src="../resources/js/mui.picker.js"></script>
+		<script src="../resources/js/mui.poppicker.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script src="../resources/division.js"></script>
+		<script type="text/javascript">
+			var data, avatar, province, city, district;
+			var schoolPicker, gradePicker;
+			myFunc(function() {
+				$(".save_btn").tap(function() {
+					if($(".save_btn").hasClass('disabled'))
+						return;
+
+					var v = osg.validate('student_info');
+					if(v) {
+						var idcard = $('.student_idcard').val();
+						var inf = idCardNoUtil.getIdCardInfo(idcard);
+						var sex = inf.gender;
+						var birth = inf.birthday; // 出生日期(yyyy-mm-dd)
+
+						if(!avatar)
+							osg.toast("请上传头像！");
+						else if(!sex) { // 身份证校验不通过
+							osg.toast("请输入正确的身份证号！");
+						} else {
+							var param = {
+								nick: $('.student_nick').val(),
+								name: $('.student_name').val(),
+								idcard: idcard,
+								avatar: avatar,
+								province: province,
+								city: city,
+								district: district,
+								schoolId: $(".student_school_id").val(),
+								schoolName: $(".student_school_name").val(),
+								gradeId: $(".student_grade_id").val()
+							};
+
+							if(!param.schoolId && !param.schoolName) {
+								osg.toast("请选择学校或输入学校名称！");
+								return;
+							}
+
+							osg.ajax('student/update', param, function(d) {
+								osg.toast('保存成功！');
+								osg.closeMe();
+								osg.evtFireEvent('change_student');
+							}, {
+								disableBtns: [$(".save_btn")]
+							});
+						}
+					}
+				});
+
+				$(".student_phone").tap(function() {
+					osg.toast('手机号不能修改！');
+				});
+
+				/* 头像上传 */
+				$(".avatar_img").tap(function() {
+					plus.nativeUI.actionSheet({
+						cancel: "取消",
+						buttons: [{
+							title: "拍照"
+						}, {
+							title: "从相册选择"
+						}]
+					}, function(event) {
+						var index = event.index;
+						switch(index) {
+							case 1: // 拍照
+								osg.pickImageFromCamera(function(f) {
+									osg.uploadFile(f, function(fid) {
+										doAvatarUploaded(fid);
+									})
+								});
+								break;
+							case 2: // 从相册选择
+								osg.pickImageFromGallery(1, function(f) {
+									osg.uploadFile(f, function(fid) {
+										doAvatarUploaded(fid);
+									})
+								})
+								break;
+						}
+					});
+				});
+
+				function doAvatarUploaded(fileid) {
+					avatar = fileid[0];
+					$(".avatar_img").attr("src", qiniuRoot + avatar + '!user.avatar');
+				}
+
+				/* 地区选择 */
+				var cityPicker3 = new mui.PopPicker({
+					layer: 3
+				});
+				cityPicker3.setData(cityData);
+
+				$(".student_region").tap(function() {
+					var $t = $(this);
+					if($t.hasClass('disabled')) {
+						osg.toast('已与学校绑定，不能修改！');
+						return;
+					}
+					cityPicker3.show(function(items) {
+						province = items[0].text;
+						city = '';
+						district = '';
+						if(items.length > 1 && items[1].value != '0') {
+							city = items[1].text;
+							if(items.length > 2 && items[2].value != '0') {
+								district = items[2].text;
+							}
+						}
+
+						displayRegion();
+						loadSchools();
+					});
+				});
+
+				function displayRegion() {
+					var txt = '';
+					if(province)
+						txt += province;
+					if(city)
+						txt += '-' + city;
+					if(district)
+						txt += '-' + district;
+					$('.student_region').val(txt);
+					if(txt)
+						$('.student_region').text(txt);
+					else
+						$('.student_region').text('点击选择');
+				}
+
+				/* 学校选择 */
+				schoolPicker = new mui.PopPicker();
+				$('.student_school_id').tap(function() {
+					var $t = $(this);
+					if($t.hasClass('disabled')) {
+						osg.toast('已与学校绑定，不能修改！');
+						return;
+					}
+					schoolPicker.show(function(items) {
+						$t.val(items[0].value);
+						$t.text(items[0].text);
+						if(items[0].value)
+							$(".student_school_name_li").hide();
+						else
+							$(".student_school_name_li").show();
+
+						loadGrades();
+					});
+				});
+
+				function loadSchools() {
+					if($('.student_school_id').hasClass('disabled'))
+						return;
+					if(province && province != '' && city && city != '') {
+						osg.ajax('school/queryAbbr', {
+							'type|integer': 1,
+							province: province,
+							city: city,
+							district: district,
+							_all: '1'
+						}, function(data) {
+							var wts = [],
+								$t = $('.student_school_id'),
+								data = data.data;
+							wts.push({
+								value: '',
+								text: '请选择'
+							});
+							for(var i = 0; i < data.length; i++) {
+								var wt = data[i];
+								wts.push({
+									value: wt._id,
+									text: wt.name
+								});
+							}
+							schoolPicker.setData(wts);
+						}, {
+							noload: true
+						});
+					} else {
+						schoolPicker.setData([]);
+					}
+				}
+
+				/* 年级选择 */
+				gradePicker = new mui.PopPicker();
+				$('.student_grade_id').tap(function() {
+					var $t = $(this);
+					if($t.hasClass('disabled')) {
+						osg.toast('已与学校绑定，不能修改！');
+						return;
+					}
+					gradePicker.show(function(items) {
+						$t.val(items[0].value);
+						$t.text(items[0].text);
+					});
+				});
+
+				function loadGrades() {
+					if($('.student_grade_id').hasClass('disabled'))
+						return;
+					var schoolId = $('.student_school_id').val();
+					if(schoolId) {
+						osg.ajax('grade/queryAll', {
+							schoolId: schoolId
+						}, function(data) {
+							var wts = [],
+								$t = $('.student_grade_id');
+							for(var i = 0; i < data.length; i++) {
+								var wt = data[i];
+								wts.push({
+									value: wt._id,
+									text: wt.name
+								});
+							}
+							gradePicker.setData(wts);
+						}, {
+							noload: true
+						});
+					} else {
+						gradePicker.setData([]);
+					}
+				}
+
+				osg.ajax('user/mine', null, function(d) {
+					data = d;
+					avatar = data.avatar;
+					province = data.province;
+					city = data.city;
+					district = data.district;
+					if(data.avatar)
+						$(".avatar_img").attr("src", qiniuRoot + data.avatar + '!user.avatar');
+					$(".student_phone").val(data.phone);
+					$(".student_nick	").val(data.nick);
+					$(".student_name	").val(data.name);
+					if(data.name) {
+						//$(".student_name	").disable();
+					}
+					$(".student_idcard").val(data.idcard);
+					if(data.idcard) {
+						var inf = idCardNoUtil.getIdCardInfo(data.idcard);
+						var sex = inf.gender;
+						if(sex) { // 身份证号校验通过，则禁止修改
+							//$('.student_idcard').disable();
+						}
+					}
+					if(data.schoolId) {
+						$(".student_school_id").text(data.schoolName);
+						$(".student_school_id").val(data.schoolId);
+						$(".student_school_name").val(data.schoolName);
+						$(".student_school_name_li").hide();
+					} else
+						$(".student_school_name_li").show();
+					$(".student_grade_id").text(data.gradeName);
+					$(".student_grade_id").val(data.gradeId);
+
+					//if(data.schoolVerified == 1) {
+					if(data.schoolId) {
+						//$('.valid_readonly').disable();
+					}
+
+					displayRegion();
+					loadSchools();
+					loadGrades();
+				});
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,738 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.school {}
+			
+			.school_item {
+				background-color: #FFF;
+				padding: 1rem 1.5rem;
+			}
+			
+			.school_item .logo {
+				width: 3.875rem;
+				height: 3.875rem;
+				margin-top: 0.25rem;
+			}
+			
+			.school_item .div_detail {
+				position: absolute;
+				right: 20px;
+				left: 100px;
+			}
+			
+			.school_item .name {
+				font-size: 1.0625rem;
+				color: #282628;
+				line-height: 1.625rem;
+				width: 100%;
+			}
+			
+			.school_item .div_tag {
+				height: 21px;
+				margin-top: 0.25rem;
+			}
+			
+			.school_item .subtitle {
+				font-size: 0.8125rem;
+				color: #888888;
+			}
+			
+			.school_item .subtitle .spec {
+				margin-left: 0.25rem;
+			}
+			
+			.content {
+				margin-top: 6px;
+				border-top: 0.5px solid #e6e6e6;
+				background-color: #fff;
+			}
+			
+			.content .memo p {
+				margin-bottom: auto;
+			}
+			
+			.mui-segmented-control.mui-scroll-wrapper {
+				height: 2.2rem;
+				border-bottom: 1px solid #e6e6e6;
+			}
+			
+			.mui-segmented-control.mui-scroll-wrapper .mui-scroll {
+				height: 2.2rem;
+			}
+			
+			#content1 {
+				text-align: justify;
+			}
+			
+			#content1,
+			#content2 {
+				padding: 0.8rem 1.4rem;
+			}
+			
+			.video_item {
+				margin-bottom: 0.75rem;
+			}
+			
+			.live_item {
+				margin-bottom: 0.75rem;
+			}
+			
+			.dock {
+				display: none;
+				position: fixed;
+				z-index: 100;
+				top: 0;
+			}
+			
+			.subject_item {
+				margin-top: 0.625rem;
+			}
+			
+			.subject_item>.subject {
+				font-size: 0.8125rem;
+				display: inline-block;
+				width: 48%;
+			}
+			
+			.subject_item>.subject>div {
+				padding: 0.25rem 0;
+			}
+			
+			.subject_item>.subject .icon {
+				font-size: 0.8125rem;
+				color: #D8D8D8;
+			}
+			
+			.subject_item>.subject font {
+				color: #999999;
+			}
+			
+			.condition_bar {
+				background-color: #FCFBFB;
+				border-bottom: 0.5px solid #F5F5F5;
+			}
+			
+			.condition_bar div {
+				display: inline-block;
+				width: 23%;
+				text-align: center;
+				color: #282628;
+				line-height: 30px;
+				font-size: 0.875rem;
+			}
+			
+			.condition_bar .active {
+				font-weight: bold;
+			}
+			
+			.condition_bar i {
+				margin-left: 0.25rem;
+				font-size: 12px;
+			}
+			
+			.menu_group {
+				display: none;
+				top: 30px;
+				background-color: hsla(0, 0%, 0%, 0.7);
+			}
+			
+			.menu {
+				display: none;
+			}
+			
+			.menu.active {
+				display: block;
+			}
+			
+			.menu>div {
+				line-height: 36px;
+				font-size: 0.875rem;
+				padding: 0.25rem 1rem;
+				background-color: #FCFBFB;
+			}
+			
+			.menu>div.active {
+				color: #008FD3;
+			}
+			
+			.table_div {
+				margin: 1rem;
+			}
+			
+			.table {
+				border: 1px solid #cad9ea;
+				color: #666;
+				width: 100%;
+				font-size: 0.8725rem;
+			}
+			
+			.table th {
+				word-break: keep-all;
+			}
+			
+			.table td,
+			.table th {
+				border: 1px solid #cad9ea;
+				padding: 0 1em 0;
+				line-height: 2rem;
+			}
+			
+			.table tr.alter {
+				background-color: #f5fafe;
+			}
+			
+			tr td:first-child {
+				background-color: #EFF8FF;
+				font-weight: bold;
+				max-width: 78px;
+				line-height: 1.2rem;
+			}
+			
+			tr td:not(:first-child) {
+				text-align: center;
+			}
+			
+			thead tr {
+				background-color: #EFF8FF;
+				font-weight: bold;
+			}
+			
+			#content3 {
+				/*min-height: 300px;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+		</header>
+		<div class="my_scroll mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="school">
+					<div class="school_item">
+						<img class="logo" src="../resources/images/dummy_news_image.png" />
+						<div class="div_detail inline">
+							<div class="name inline more">北京协和医学院(清华大学医学部)</div>
+							<div class="div_tag more">
+								<div class="tag tag_green">211</div>
+								<div class="tag tag_orange">985</div>
+								<div class="tag tag_yellow">双一流</div>
+								<div class="tag tag_blue">...</div>
+							</div>
+							<div class="subtitle">
+								<span class="province">北京市</span><span class="spec">隶属教育部</span>
+							</div>
+						</div>
+					</div>
+					<div class="mui-content content">
+						<!--去掉横向滑动支持<div class="school mui-slider">-->
+						<div class="school">
+							<div class="my_bar mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+								<div class="mui-scroll">
+									<a class="mui-control-item mui-active" href="#content1">概况</a>
+									<a class="mui-control-item school-content2" href="#content2">专业</a>
+									<a class="mui-control-item school-content3" href="#content3">录取分数</a>
+									<a class="mui-control-item school-content4" href="#content4">视频</a>
+									<a class="mui-control-item school-content5" href="#content5">直播</a>
+								</div>
+							</div>
+							<div class="mui-slider-group">
+								<div id="content1" class="mui-slider-item mui-control-content mui-active memo ahref">
+								</div>
+								<div id="content2" class="mui-slider-item mui-control-content subject_scroll">
+									<ul class="subject_item">
+										<li class="subject debug">
+											<div class="more"><i class="icon iconfont icon-yuandianxiao"></i><span class="subject_name">哲学</span>
+												<font>(<span class="subject_type">国家A+重点学科</span>)</font>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div id="content3" class="mui-slider-item mui-control-content">
+									<div class="condition_bar menu_bar">
+										<div class="start_year">2017年<i class="font iconfont icon-xiangxiajiantou"></i></div>
+										<div class="start_province">北京<i class="font iconfont icon-xiangxiajiantou"></i></div>
+										<div class="start_batch">第一批次<i class="font iconfont icon-xiangxiajiantou"></i></div>
+										<div class="start_type">理科<i class="font iconfont icon-xiangxiajiantou"></i></div>
+									</div>
+									<div class="menu_group mui-scroll-wrapper">
+										<div class="mui-scroll">
+											<div class="menu menu_years">
+
+											</div>
+											<div class="menu menu_province">
+
+											</div>
+											<div class="menu menu_batch">
+
+											</div>
+											<div class="menu menu_type">
+
+											</div>
+										</div>
+									</div>
+									<div class="table_div">
+										<table class="table">
+											<thead>
+												<tr id="fenshu_four">
+													<th></th>
+													<th>最高</th>
+													<th>平均</th>
+													<th>最低</th>
+													<th>录取数</th>
+												</tr>
+											</thead>
+											<tbody id="subjectsearchline">
+												<tr id="fenshu_four">
+													<td>院校分</td>
+													<td>800</td>
+													<td>700</td>
+													<td>600</td>
+													<td>80</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div id="content4" class="mui-slider-item mui-control-content video_scroll">
+									<ul id="video_list">
+										<li class="video_item debug">
+											<div>
+												<div class="div_img">
+													<div class="title more2">
+													</div>
+													<img class="cover" src="../resources/images/dummy_news_image.png" />
+													<div class="play_btn">
+														<div>
+															<i class="icon iconfont icon-sanjiaoxing_bofang"></i>
+														</div>
+													</div>
+													<span class="time">21:23</span>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div id="content5" class="mui-slider-item mui-control-content live_scroll">
+									<ul id="live_list">
+										<li class="live_item debug">
+											<div>
+												<div class="div_img">
+													<div class="title more2">
+													</div>
+													<img class="cover" src="../resources/images/dummy_news_image.png" />
+													<div class="time_div">
+														<div>
+															<div class="inline icon iconfont icon-zhibo1"></div><span class="time">直播中 237参与</span></div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dock mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+			<div class="mui-scroll">
+				<a class="mui-control-item mui-active" href="#content1">概况</a>
+				<a class="mui-control-item school-content2" href="#content2">专业</a>
+				<a class="mui-control-item school-content3" href="#content3">录取分数</a>
+				<a class="mui-control-item school-content4" href="#content4">视频</a>
+				<a class="mui-control-item school-content5" href="#content5">直播</a>
+			</div>
+		</div>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			var cdata, videoFpi, liveFpi, search = {},
+				lastMenuIdx = -1;
+			// 菜单分类条点击事件
+			$(".menu_bar div").tap(function() {
+				var idx = $(".menu_bar div").index(this);
+				$(".menu_bar div").removeClass("active").find("i").removeClass("icon-xiangshangjiantou").addClass("icon-xiangxiajiantou");
+				$(".menu_group .menu").hide();
+				if(lastMenuIdx == idx) { // 二次点击收起所有菜单
+					$(".menu_group").fadeOut();
+					lastMenuIdx = -1;
+				} else { // 一次点击展开菜单
+					// 滚动菜单到顶部，避免第一个长菜单滚动到底部，短菜单不会显示的问题
+					mui('.menu_group').scroll().scrollTo(0, 0, 100);
+					$(".menu_group").fadeIn();
+					$(this).addClass("active").find("i").removeClass("icon-xiangxiajiantou").addClass("icon-xiangshangjiantou");
+					if(lastMenuIdx == -1) // 之前未展开菜单，则动画显示
+						$(".menu_group .menu").eq(idx).slideDown();
+					else // 之前已展开菜单，则不用动画直接显示
+						$(".menu_group .menu").eq(idx).show();
+					lastMenuIdx = idx;
+				}
+			});
+			// 菜单项点击事件
+			/*$(".menu_group .menu>div").tap(function() {
+				event.stopPropagation(); // 禁止事件冒泡到父节点点击事件
+				$(this).parent().children().removeClass("active");
+				$(this).addClass("active");
+				hideMenu();
+			});*/
+			// 菜单项点击事件
+			$(".menu_group .menu").on('tap', 'div', function() {
+				event.stopPropagation(); // 禁止事件冒泡到父节点点击事件
+				$(this).parent().children().removeClass("active");
+				$(this).addClass("active");
+				hideMenu();
+				var t = $(this);
+				search[t.attr("my_name")] = t.attr("my_val");
+				if(t.attr("my_name") == 'year') {
+					$('.start_year').html(t.attr("my_val") + '<i class="font iconfont icon-xiangxiajiantou"></i>');
+				}
+				if(t.attr("my_name") == 'province') {
+					$('.start_province').html(t.attr("my_val") + '<i class="font iconfont icon-xiangxiajiantou"></i>');
+				}
+				if(t.attr("my_name") == 'batch') {
+					$('.start_batch').html(t.attr("my_val") + '<i class="font iconfont icon-xiangxiajiantou"></i>');
+				}
+				if(t.attr("my_name") == 'type') {
+					$('.start_type').html(t.attr("my_val") + '<i class="font iconfont icon-xiangxiajiantou"></i>');
+				}
+				if(search.batch != "" && search.batch != undefined && search.batch != null &&
+					search.type != "" && search.type != undefined && search.type != null &&
+					search.year != "" && search.year != undefined && search.year != null &&
+					search.province != "" && search.province != undefined && search.province != null) {
+					searchAjax(search);
+				}
+
+			});
+
+			// 菜单背景点击事件
+			$(".menu_group").tap(function() {
+				hideMenu();
+			});
+
+			// 隐藏菜单函数
+			function hideMenu() {
+				// 隐藏全部菜单
+				$(".menu_bar div").removeClass("active").find("i").removeClass("icon-xiangshangjiantou").addClass("icon-xiangxiajiantou");
+				$(".menu_group .menu").hide();
+				$(".menu_group").fadeOut();
+				lastMenuIdx = -1;
+			}
+			myFunc(function() {
+				// 目前上架苹果不需要隐藏直播了
+				//				if(osg.settingValue('isPublish') == 1)
+				//					$("[href='#content5']").hide();
+				$(".school").css('min-height', plus.screen.resolutionHeight);
+				$("#content3").css('min-height', plus.screen.resolutionHeight - 208);
+				$(".school-content2").hide();
+				$(".school-content3").hide();
+				$(".school-content4").hide();
+				$(".school-content5").hide();
+				var schoolId = osg.param("schoolId");
+				osg.ajax('school/findById', {
+					'id': schoolId
+				}, function(data) {
+					cdata = data;
+
+					var $school = $(".school"),
+						imgs = data.images;
+					if(imgs.length > 0 && imgs[0])
+						$school.find('.img').attr('src', qiniuRoot + imgs[0] + "!app.school.img");
+					if(data.logo)
+						$school.find('.logo').attr('src', qiniuRoot + data.logo + "!school.logo");
+					$school.find('.name').text(data.name);
+					$school.find('.province').text(data.province);
+					$school.find('.spec').text(data.spec);
+					$school.find('.memo').html(data.memo);
+
+					// 内容如果有图片，则限制宽度
+					var maxw = plus.screen.resolutionWidth - 20;
+					$(".school .content .memo img").each(function() {
+						$(this).css('max-width', maxw);
+					});
+
+					var tagDiv = $school.find('.div_tag');
+					tagDiv.children().remove();
+					var propNames = data.propValuename;
+					if(propNames) {
+						if(propNames.length > 0) {
+							tagDiv.append('<div class="tag tag_green">' + propNames[0] + '</div>')
+						}
+						if(propNames.length > 1) {
+							tagDiv.append('<div class="tag tag_orange">' + propNames[1] + '</div>')
+						}
+						if(propNames.length > 2) {
+							tagDiv.append('<div class="tag tag_yellow">' + propNames[2] + '</div>')
+						}
+						if(propNames.length > 3) {
+							tagDiv.append('<div class="tag tag_blue">...</div>')
+						}
+					}
+
+				});
+
+				var myscroll = $(".video_scroll")[0];
+				mui(myscroll).pullToRefresh({
+					up: {
+						auto: true,
+						callback: function() {
+							var nextPage;
+							if(videoFpi)
+								nextPage = videoFpi.page + 1;
+							else
+								nextPage = 1;
+
+							findPage('video', nextPage, {
+								'self': this
+							});
+						}
+					},
+				});
+				var myscroll = $(".live_scroll")[0];
+				mui(myscroll).pullToRefresh({
+					up: {
+						auto: true,
+						callback: function() {
+							var nextPage;
+							if(liveFpi)
+								nextPage = liveFpi.page + 1;
+							else
+								nextPage = 1;
+
+							findPage('live', nextPage, {
+								'self': this
+							});
+						}
+					},
+				});
+
+				//分页函数
+				function findPage(type, page, param) {
+					osg.ajax(type + '/query', {
+						'page': page,
+						'createSchoolId': schoolId
+					}, function(data) {
+						//如果视频和直播为空则不显示
+						if(data.data.length > 0)
+							if(type == 'live')
+								$(".school-content5").show();
+							else
+								$(".school-content4").show();
+
+						// 下拉的情况下，结束下拉刷新状态
+						if(param.pullDown)
+							param.self.endPullDownToRefresh();
+						if(!data) {
+							param.self.endPullUpToRefresh(true);
+							return;
+						}
+						eval(type + "Fpi = data;");
+						for(var i = 0; i < data.data.length; i++) {
+							var oneData = data.data[i];
+							$("#" + type + "_list").append(getItem(type, oneData));
+						}
+						param.self.endPullUpToRefresh(data.page >= data.pages);
+					}, {
+						noload: true
+					});
+				}
+
+				// 条目模板
+				var videoItemObj = $('.video_item');
+				videoItemObj.remove().removeClass("debug");
+				var liveItemObj = $('.live_item');
+				liveItemObj.remove().removeClass("debug");
+
+				// 获取新闻显示条目
+				function getItem(type, oneData) {
+					var listItem;
+					if(type == 'video') { // 视频条目显示
+						listItem = videoItemObj.clone();
+						listItem.find('.time').text(oneData.strDuration);
+					} else { // 直播条目显示
+						listItem = liveItemObj.clone();
+						var timestr = '';
+						if(oneData.started) {
+							if(oneData.ended) { // 直播结束，回顾
+								timestr = '直播精彩回顾';
+							} else { // 直播中
+								listItem.find(".time_div .icon").addClass("live"); // 直播中
+								timestr = '直播中 ' + oneData.times + '参与';
+							}
+						} else {
+							timestr = '预告' + oneData.startTimeFormat;
+						}
+						listItem.find(".time_div .time").text(timestr);
+					}
+					if(oneData.logo)
+						listItem.find('img').attr('src', qiniuRoot + oneData.logo + "!app.cover");
+					else
+						listItem.find('img').attr('src', oneData.appCoverUrl);
+
+					listItem.find('.title').text(oneData.title);
+					//listItem.find('.avatar').attr('src', qiniuRoot + oneData.teacherAvatar);
+					//listItem.find('.school').text(oneData.createSchoolName);
+					//listItem.find('.comment_count').text(oneData.commentTimes);
+
+					listItem.data('id', oneData._id);
+					listItem.tap(function(e) {
+						openDetail(type, $(this).data('id'));
+					});
+					return listItem;
+				}
+
+				function openDetail(type, id) {
+					var param = {};
+					param[type + 'Id'] = id;
+					osg.open('../' + type + '/detail.html', param, {
+						hide: function() {
+							// 设置应用非全屏显示！
+							plus.navigator.setFullscreen(false);
+						}
+					});
+				}
+				//专业
+				var subjectItemObj = $('.subject_item');
+				var subjectObj = $(".subject");
+				subjectObj.remove().removeClass("debug");
+				osg.ajax('school/findById1', {
+					'id': schoolId
+				}, function(data) {
+					//专业为空则不显示
+					if(data.length > 0)
+						$(".school-content2").show();
+					for(var i = 0; i < data.length; i++) {
+						var subject = subjectObj.clone();
+						subject.find(".subject_name").text(data[i].name);
+						if(data[i].type)
+							subject.find(".subject_type").text(data[i].type);
+						else {
+							subject.find("font").remove();
+						}
+						subject.data('id', data[i]._id);
+						subject.tap(function() {
+							osg.open('detailSubject.html', {
+								'schoolSubjectId': $(this).data('id')
+							}, null);
+						})
+						subjectItemObj.append(subject);
+					}
+				})
+				//录取分数
+				osg.ajax('school/searchlineById', {
+					'schoolId': schoolId
+				}, function(data) {
+					var years = data['years'];
+					var provinces = data['provinces'];
+					var types = data['types'];
+					var batchs = data['batchs'];
+					//默认选择筛选条件的第一条查询
+					search["schoolId"] = schoolId;
+					search["year"] = years[0];
+					search["batch"] = batchs[0];
+					search["type"] = types[0];
+					search["province"] = provinces[0];
+					searchAjax(search);
+					$('.start_year').html(years[0] + '<i class="font iconfont icon-xiangxiajiantou"></i>');
+					$('.start_province').html(provinces[0] + '<i class="font iconfont icon-xiangxiajiantou"></i>');
+					$('.start_batch').html(batchs[0] + '<i class="font iconfont icon-xiangxiajiantou"></i>');
+					$('.start_type').html(types[0] + '<i class="font iconfont icon-xiangxiajiantou"></i>');
+					//录取分数的年限为空则不显示
+					if(years.length > 0)
+						$(".school-content3").show();
+					for(var i = 0; i < provinces.length; i++) {
+						$('.menu_province').append('<div my_name="province" my_val="' + provinces[i] + '">' + provinces[i] + '</div>')
+					}
+					for(var i = 0; i < years.length; i++) {
+						$('.menu_years').append('<div my_name="year" my_val="' + years[i] + '">' + years[i] + '</div>')
+					}
+					for(var i = 0; i < batchs.length; i++) {
+						$('.menu_batch').append('<div my_name="batch" my_val="' + batchs[i] + '">' + batchs[i] + '</div>')
+					}
+					for(var i = 0; i < types.length; i++) {
+						$('.menu_type').append('<div my_name="type" my_val="' + types[i] + '">' + types[i] + '</div>')
+					}
+				})
+
+			}, true);
+
+			function searchAjax(search) {
+				osg.ajax('school/searchline', search, function(data) {
+					var html3 = "";
+					for(var i = 0; i < data.length; i++) {
+						html3 += "<tr>"
+						html3 += "<td>" + data[i].majorName + "</td>"
+						html3 += "<td>" + data[i].scoreHigh + "</td>"
+						html3 += "<td>" + data[i].scoreAvg + "</td>"
+						html3 += "<td>" + data[i].scoreLow + "</td>"
+						html3 += "<td>" + data[i].passNum + "</td>"
+						html3 += "</tr>"
+						$("#subjectsearchline").html(html3);
+					}
+					if(Object.keys(data).length < 1) {
+						$("#subjectsearchline").html(html3);
+					}
+				})
+			}
+			// 以下为滚动事件对菜单的控制逻辑
+			mui('.my_scroll')[0].addEventListener("scroll", scrolled);
+
+			function scrolled() {
+				var t = $(this).find(".mui-scroll"),
+					offset = t.offset();
+				if(offset.top < -65)
+					$(".dock").show();
+				else
+					$(".dock").hide();
+			}
+			var scrollFlag = false;
+			mui('.dock')[0].addEventListener("scrollend", scrolledBar1);
+			mui('.my_bar')[0].addEventListener("scrollend", scrolledBar2);
+
+			function scrolledBar1() {
+				if(!scrollFlag) {
+					scrollFlag = true;
+					var t = $(this).find(".mui-scroll"),
+						offset = t.offset();
+					mui('.my_bar').scroll().scrollTo(offset.left, 0, 100);
+				} else
+					scrollFlag = false;
+			}
+
+			function scrolledBar2() {
+				if(!scrollFlag) {
+					scrollFlag = true;
+					var t = $(this).find(".mui-scroll"),
+						offset = t.offset();
+					mui('.dock').scroll().scrollTo(offset.left, 0, 100);
+				} else
+					scrollFlag = false;
+			}
+			$(".dock").find(".mui-control-item").tap(function() {
+				mui('.my_scroll').scroll().scrollTo(0, -116, 100);
+				var idx = $(".dock .mui-control-item").index(this);
+				$(".my_bar .mui-control-item").removeClass("mui-active").eq(idx).addClass("mui-active");
+			});
+			$(".my_bar").find(".mui-control-item").tap(function() {
+				var idx = $(".my_bar .mui-control-item").index(this);
+				$(".dock .mui-control-item").removeClass("mui-active").eq(idx).addClass("mui-active");
+			});
+		</script>
+	</body>
+
+</html>

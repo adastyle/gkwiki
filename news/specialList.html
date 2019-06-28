@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<style type="text/css">
+			/*相关推荐*/
+			.ost{
+				width:99%;
+				background:#fff;
+				/*height:5rem;*/
+				padding-top:.5rem;
+			}
+			.recommenndList {
+				list-style: none;
+				padding-top:.2rem;
+				background:#fff;
+				overflow: hidden;
+			}
+			.recommenndList>li{
+				padding:.2rem;
+				width:99%;
+				position: relative;
+				margin:1.5rem .5rem;
+				border-bottom: 0.5px solid #e6e6e6;
+			}
+			li{
+				height:6.5rem;
+			}
+			.recommenndList>li>.listTitle{
+				width:60%;
+				display:inline-block;
+				height:5rem;
+			}
+			.recommenndList>li>.listTitle .titleName{
+				font-size:1.1rem;
+				color:#373637;
+				margin-bottom:1rem;
+				padding-bottom:0;
+			}
+			.recommenndList>li>.listTitle span{
+				color:#939393;
+				font-size:.8rem;
+			}
+			.recommenndList>li>.listTitle .createSchoolName{
+				margin-right:.4rem;
+			}
+			.recommenndList>li .videoImg{
+				display:inline-block;
+				width:37%;
+				height:100%;
+				height:5rem;
+			}
+			.recommenndList>li .videoImg>img{
+				width:100%;
+				height:100%;
+			}
+			.bannerImg{
+				height:10rem;
+				width:100%;
+			}
+			.bannerImg img{
+				height:100%;
+				width:100%;
+			}
+			/*三张图显示*/
+			.threeImgLiShow{
+				width:100%;
+				margin-right:20px;
+				height:auto !important;
+			}
+			.threeImgLiShow>p{
+				font-size:1.1rem;
+			}
+			.threeImgLiShow .ImgShow{
+				width:99%;
+				text-align:center;
+				height:5rem;
+			}
+			.threeImgLiShow .ImgShow>img{
+				display:inline-block;
+				width:31%;
+				height:100%;
+				margin:0 .1rem;
+			}
+			.threeImgLiShow>.smallitleAndDate{
+				color:#939393;
+				padding-top:.2rem;
+				font-size:.8rem;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">高考百科</h1>
+		</header>
+		<div class="my_scroll mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="bannerImg">
+					<img src="../resources/images/bg.png" alt="" />
+				</div>
+				<div class="ost">
+					<ul class='recommenndList'>
+						<li class="recommenndLi" data-specialId="">
+							<div class="listTitle">
+								<p class="titleName more2">招生办老师说-国学101讲</p>
+								<span class="createSchoolName">高考百科</span>
+								<span class="date">2018年4月3号</span>
+							</div>
+							<div class="videoImg"><img src="../resources/images/dummy_news_image.png" /></div>
+						</li>
+						<li class="threeImgLiShow" data-specialId="">
+							<p class="titleName more2">招生办老师说-国学101讲</p>
+							<div class="ImgShow">
+								<img class="img1" src="../resources/images/dummy_news_image.png" />
+								<img class="img2" src="../resources/images/dummy_news_image.png" />
+								<img class="img3" src="../resources/images/dummy_news_image.png" />
+							</div>
+							<div class="smallitleAndDate" style="padding-bottom:1rem;">
+								<span class="createSchoolName">高考百科</span>
+								<span class="date">2018年4月3号</span>
+							</div>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			/*mui('.mui-scroll-wrapper').scroll({
+							//indicators: true
+						});*/
+			var specialId="",specilList="",ThreeImg="";
+			myFunc(function() {
+				specilList=$(".recommenndLi").clone();
+				ThreeImg=$(".threeImgLiShow").clone();
+				specialId=osg.param("specialId"); 
+				$(".threeImgLiShow").hide();
+				$(".recommenndLi").hide();
+				osg.ajax('special/queryList.do',{specialId:specialId},function(data){
+					var spList=data.flipInfo.data;
+					$(".bannerImg img").attr("src",qiniuRoot+data.banner+'!app.news.bannerb');
+					for(var i=0;i<spList.length;i++){
+						currList=specilList.clone();
+						var type = spList[i].type;
+						if(type ==0){
+							if(spList[i].images.length==1)
+							currList.find(".videoImg img").attr("src",qiniuRoot+spList[i].images[0]+'!app.cover');
+							else if(spList[i].images.length>=3){
+								currList=ThreeImg.clone();
+								currList.find(".ImgShow .img1").attr("src",qiniuRoot+spList[i].images[0]+'!app.cover');
+								currList.find(".ImgShow .img2").attr("src",qiniuRoot+spList[i].images[1]+'!app.cover');
+								currList.find(".ImgShow .img3").attr("src",qiniuRoot+spList[i].images[2]+'!app.cover');
+							}
+							else{
+								currList.find(".videoImg").hide();
+								currList.find(".listTitle").css("width","96%");
+								currList.find(".listTitle .titleName").css({
+									height:"auto",
+									marginBottom:".2rem"
+								});
+								currList.css("height","auto")
+							}
+						}else if(type ==1){
+							currList.find(".videoImg img").attr("src",spList[i].images[0]);
+						}
+						currList.find(".titleName").html(spList[i].title);
+						currList.find(".createSchoolName").html(spList[i].author);
+						currList.find(".date").html(spList[i].createTimeFormat);
+						currList.attr("data-specialId",spList[i].typeId);
+						currList.attr("data-typeId",spList[i].type);
+						$(".recommenndList").append(currList);
+					}
+				})
+			});
+			
+			/*相关专题详情的点击事件*/
+			$(".recommenndList").on("tap","li",function(){
+				var vId=$(this).attr("data-specialId");
+				var typeId=$(this).attr("data-typeId");
+				if(vId){
+					if(typeId==1)
+						osg.open('../video/detail.html', {'videoId': vId},null,{im:1});
+					else if(typeId==0)
+						osg.open('detail.html', {"newsId":vId}, null, {im:1});
+				}
+			})
+		</script>
+	</body>
+
+</html>

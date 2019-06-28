@@ -1,0 +1,424 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<link href="../resources/fonts/xyIconfonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-bar-nav {
+				background-color: #008FD3;
+			}
+			
+			.mui-bar .mui-title {
+				position: relative;
+				color: #fff;
+			}
+			
+			.div_bar {
+				line-height: 3.125rem;
+				padding-left: 1.125rem;
+				margin-top: -0.375rem;
+				margin-bottom: 0.125rem;
+			}
+			
+			.div_bar .school {
+				color: #312825;
+				font-size: 0.875rem;
+				font-weight: bold;
+			}
+			
+			.div_bar .bar_right {
+				float: right;
+				color: #666;
+				font-size: 1rem;
+				width: 5rem;
+				text-align: center;
+			}
+			
+			.div_bar .comments>.comment_count {
+				margin-left: 4px;
+				margin-top: -1px;
+			}
+			
+			.div_bar .gengduo {
+				margin-left: 10px;
+				width: 52px;
+				text-align: center;
+				font-weight: 700;
+			}
+			
+			.bar_logo {
+				width: 7rem;
+				margin: 0.375rem;
+			}
+			
+			.bar_input {
+				position: absolute;
+				left: 7.75rem;
+				bottom: 0.5rem;
+				right: 3.375rem;
+				height: 1.75rem;
+			}
+			
+			.bar_input>input {
+				border: #026A7B;
+				font-size: 0.875rem;
+				height: 1.75rem;
+			}
+			
+			.bar_message_btn {
+				position: absolute;
+				bottom: 0.5rem;
+				right: 0.5rem;
+				height: 1.875rem;
+				width: 2.25rem;
+				text-align: center;
+			}
+			
+			.bar_message_btn i {
+				font-size: 1.375rem;
+				line-height: 1.875rem;
+				color: #fff;
+			}
+			
+			.badge_red {
+				position: absolute;
+				right: 0;
+				top: -2px;
+				background-color: #ce0b24;
+				border: 0.5px solid #fff;
+				border-radius: 6px;
+				font-size: 9px;
+				color: #fff;
+				line-height: 12px;
+				padding: 0 4px;
+				z-index: 100;
+			}
+			/*解决css缓存问题，后续版本可删除*/
+			/*解决css缓存问题结束*/
+			.xyResourcePage{
+				display:inline-block;
+				float:right;
+				font-size:.8rem;
+				padding:0 .5rem;
+				border-radius: 14px;
+				height:2rem;
+				vertical-align:middle;
+				margin-top:.65rem;
+				line-height:2rem;
+			}
+			.xyResourcePage i{
+				font-size:1rem;
+				margin-right:.3rem;
+			}
+			.xyResourcePage.blueBg{
+				background:#e7f4ff;
+				color:#319cfd;
+			}
+			.xyResourcePage.yellowBg{
+				background:#fff6e8;
+				color:#fea71d;
+			}
+			.xyResourcePage.yellowBg>iconfont{
+				color:#fea71d;
+			}
+			
+		</style>
+	</head>
+
+	<body class="la">
+		<header class="mui-bar mui-bar-nav">
+			<img class="bar_logo" src="../resources/images/logo_bar.svg">
+			<img style="width:0; height:2.5rem;">
+			<div class="bar_input"><input type="text" placeholder="请输入查询内容" readonly="readonly"></div>
+			<div class="bar_message_btn"><i class="icon iconfont icon-xiaoxi"></i>
+				<div class="badge_red" style="display: none;">0</div>
+			</div>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll" id="nav_fun">
+
+					</div>
+				</div>
+				<div class="mui-slider-group my-slider-group">
+
+				</div>
+			</div>
+		</div>
+		<div id="sliderContent" style="display: none;" class="mui-slider-item mui-control-content">
+			<div id="scroll1" class="mui-scroll-wrapper">
+				<div class="mui-scroll myscroll">
+					<div class="">
+						<ul id="video_list">
+						</ul>
+						<input type="hidden" class="categoryId" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--
+        条目
+        -->
+		<li class="video_item debug">
+			<div>
+				<div class="div_img">
+					<div class="title">
+						2018年高考艺考开幕 济南六千考生同场竞技2018年高考艺考开幕 济南六千考生同场竞技
+					</div>
+					<img class="cover" src="../resources/images/dummy_news_image.png" />
+					<div class="play_btn">
+						<div>
+							<i class="icon iconfont icon-sanjiaoxing_bofang"></i>
+						</div>
+					</div>
+					<span class="time">21:23</span>
+					<div class="div_avatar"><img class="avatar" src="../resources/images/dummy_news_image.png" /></div>
+				</div>
+				<div class="div_bar needAddRe">
+					<div class="school inline">哈尔滨师范大学</div>
+					<div class="bar_right inline">
+						<div class="comments inline">
+							<i class="icon iconfont icon-xiaoxi1"></i>
+							<div class="comment_count inline">320</div>
+						</div>
+						<!--<div class="gengduo inline"><i class="icon iconfont icon-gengduo"></i></div>-->
+					</div>
+					
+				</div>
+			</div>
+		</li>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			myFunc(function() {
+				osg.evtAddListener(function(d) {
+					if(d && d == 'messageCounts') { // 更新未读消息数量
+						initMessageCounts();
+					}
+				});
+
+				function initMessageCounts() {
+					var c = osg.get('messageCounts');
+					if(!c || '0' == c || 'null' == c)
+						$(".badge_red").hide();
+					else {
+						try {
+							var cint = parseInt(c);
+							$(".badge_red").text(cint + '');
+							$(".badge_red").show();
+						}catch(e){
+							$(".badge_red").hide();
+						}
+					}
+				}
+				initMessageCounts();
+
+				$(".bar_input").tap(function() {
+					osg.open('../search.html', null, null, {
+						im: 1
+					});
+				});
+
+				$(".bar_message_btn").tap(function() {
+					osg.open('../mine/message.html', null, null, {
+						im: 1
+					});
+				});
+
+				// 分类条
+				var navFun = $('#nav_fun');
+				// 分类条目
+				var navItemObj = $('<a class="mui-control-item" href="#"></a>');
+
+				//侧滑内容克隆
+				var sliderContentObj = $("#sliderContent");
+				sliderContentObj.attr("id", "").css("display", "").remove();
+
+				osg.ajax('video/findAllCategories', {}, function(data) {
+					for(var i = 0; i < data.length; i++) {
+						var newCategory = data[i];
+						if(newCategory.flipInfo.total == 0)
+							continue;
+
+						//添加功能导航条
+						var navItem = navItemObj.clone();
+						navItem.text(newCategory.name);
+						navItem.attr("href", '#' + newCategory._id);
+						if(i == 0) navItem.addClass("mui-active");
+						navFun.append(navItem);
+
+						//添加侧滑项目
+						var sliderContent = sliderContentObj.clone();
+						sliderContent.attr('id', newCategory._id);
+						sliderContent.find(".categoryId").val(newCategory._id);
+						sliderContent.data("data", newCategory.flipInfo);
+						if(i == 0) {
+							sliderContent.addClass("mui-active");
+						}
+
+						var myscroll = sliderContent.find(".myscroll")[0];
+						$(".my-slider-group").append(sliderContent);
+
+						// 添加列表数据
+						var $nl = sliderContent.find("#video_list"),
+							fpi = newCategory.flipInfo;
+						fpi.init = true;
+						for(var kk = 0; kk < fpi.data.length; kk++) {
+							var oneData = fpi.data[kk];
+							$nl.append(getItem(oneData));
+						}
+
+						mui(myscroll).pullToRefresh({
+							down: {
+								callback: function() {
+									var self = this;
+									var categoryId = $(self.element.innerHTML).find('.categoryId').val();
+									findPage(1, {
+										'categoryId': categoryId,
+										'self': self,
+										'pullDown': true
+									});
+								}
+							},
+							up: {
+								auto: true,
+								callback: function() {
+									var self = this;
+									var categoryId = $(self.element.innerHTML).find('.categoryId').val();
+									var fpi = $("#" + categoryId).data("data");
+									var page = fpi.page,
+										pages = fpi.pages;
+									var nextPage = page + 1;
+
+									if(page >= pages) {
+										self.endPullUpToRefresh(true);
+										return;
+									}
+									if(fpi.init) {
+										fpi.init = false;
+										self.endPullUpToRefresh(false);
+										return;
+									}
+									findPage(nextPage, {
+										'categoryId': categoryId,
+										'self': self
+									});
+								}
+							},
+						});
+					}
+					mui('.mui-slider').slider().refresh();
+					mui('.mui-scroll-wrapper.mui-slider-indicator.mui-segmented-control').scroll({
+						scrollY: false,
+						scrollX: true,
+						indicators: false,
+						snap: '.mui-control-item'
+					}).refresh();
+				}, {
+					noload: true,
+					cache: true
+				});
+
+				//分页函数
+				function findPage(page, param) {
+					var categoryId = param.categoryId,
+						fpi = $("#" + categoryId).data("data"),
+						$newsList = $("#" + categoryId).find("#video_list");
+					if(page != 1) {
+						var pages = fpi.pages;
+						if(page > pages) {
+							return;
+						}
+					}
+					osg.ajax('video/query', {
+						'page': page,
+						'categoryId': categoryId
+					}, function(data) {
+						// 下拉的情况下，结束下拉刷新状态
+						if(param.pullDown) {
+							param.self.endPullDownToRefresh();
+							param.self.refresh(true);
+						}
+						if(!data) {
+							param.self.endPullUpToRefresh(true);
+							return;
+						}
+						if(page == 1) {
+							$newsList.html('');
+						}
+						$("#" + categoryId).data("data", data);
+						for(var i = 0; i < data.data.length; i++) {
+							var oneData = data.data[i];
+							$newsList.append(getItem(oneData));
+						}
+						param.self.endPullUpToRefresh(data.page >= data.pages);
+					}, {
+						noload: true
+					});
+				}
+
+				// 条目模板
+				var videoItemObj = $('.video_item');
+				videoItemObj.remove().removeClass("debug");
+
+				// 获取新闻显示条目
+				function getItem(oneData) {
+					var listItem = videoItemObj.clone();
+					if(oneData.logo)
+						listItem.find('img').attr('src', qiniuRoot + oneData.logo + "!app.cover");
+					else
+						listItem.find('img').attr('src', oneData.appCoverUrl);
+
+					listItem.find('.title').text(oneData.title);
+					if(oneData.teacherAvatar)
+						listItem.find('.avatar').attr('src', qiniuRoot + oneData.teacherAvatar);
+					else
+						listItem.find('.div_avatar').hide();
+					listItem.find('.time').text(oneData.strDuration);
+					listItem.find('.school').text(oneData.createSchoolName);
+					listItem.find('.comment_count').text(oneData.commentTimes);
+					if(oneData.resourcePackageName){
+						if(oneData.resourceIds.length>0)
+							listItem.find(".needAddRe").append("<span class='xyResourcePage yellowBg'><i class='iconfont icon-shipin2'></i>"+oneData.resourcePackageName+"</span>");
+						else
+							listItem.find(".needAddRe").append("<span class='xyResourcePage blueBg'><i class='iconfont icon-shipin2'></i>"+oneData.resourcePackageName+"</span>")
+					}
+						
+					listItem.data('id', oneData._id);
+					listItem.tap(function(e) {
+						openDetail($(this).data('id'));
+					});
+					return listItem;
+				}
+
+				function openDetail(id) {
+					osg.open('detail.html', {
+						'videoId': id
+					}, {
+						hide: function() {
+							// 设置应用非全屏显示！
+							plus.navigator.setFullscreen(false);
+						}
+					}, {
+						im: 1,
+						notChangeStatusBar: true
+					});
+				}
+			
+
+			});
+		</script>
+	</body>
+
+</html>

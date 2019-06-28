@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,user-scalable=yes" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+
+		</div>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script>
+			(function(mui, doc) {
+				mui.plusReady(function() {
+					var docUrl = osg.param("docUrl");
+					//fileid = osg.param("fileid");
+
+					//var url;
+					// ios可以直接打开office和pdf，android会下载，因此针对office暂时使用微软的转换html服务
+					//if(mui.os.ios || fileid.endsWith('pdf'))
+					var url = docUrl;
+					//else
+					//url = docUrl;
+
+					var nwss = plus.webview.currentWebview().nativeInstanceObject();
+					plus.ios.invoke(nwss, "setScalesPageToFit:", true);
+
+					window.location.href = url;
+
+					mui.back = function(event) {
+						plus.webview.getTopWebview().close();
+					}
+				});
+			}(mui, document));
+		</script>
+	</body>
+
+</html>

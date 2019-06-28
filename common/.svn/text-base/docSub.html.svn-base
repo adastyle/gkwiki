@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.logo_region {
+				margin-bottom: 20px;
+			}
+			
+			.logo_doc {
+				margin-top: 80px;
+				margin-bottom: 10px;
+				text-align: center;
+			}
+			
+			.logo_doc i {
+				font-size: 30px;
+			}
+			
+			.mui-content .btn_region {
+				width: 80%;
+				margin: 0 auto;
+				padding-bottom: 40px;
+			}
+
+			.doc_name {
+				text-align: center;
+			}
+			
+			.doc_size {
+				text-align: center;
+			}
+			
+			.logo_region .icon {
+				width: 4em;
+				height: 4em;
+				vertical-align: -0.15em;
+				fill: currentColor;
+				overflow: hidden;
+			}
+			
+			.mui-scroll {
+				background-color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title"></h1>
+		</header>
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="mui-content">
+					<div class="logo_region">
+						<div class="logo_doc">
+							<svg class="icon ico-file" aria-hidden="true" style="display: none;">
+								<use xlink:href="#icon-file"></use>
+							</svg>
+							<svg class="icon ico-word" aria-hidden="true" style="display: none;">
+								<use xlink:href="#icon-WORD"></use>
+							</svg>
+							<svg class="icon ico-ppt" aria-hidden="true" style="display: none;">
+								<use xlink:href="#icon-PPT"></use>
+							</svg>
+							<svg class="icon ico-pdf" aria-hidden="true" style="display: none;">
+								<use xlink:href="#icon-PDF"></use>
+							</svg>
+							<svg class="icon ico-excel" aria-hidden="true" style="display: none;">
+								<use xlink:href="#icon-dashboard_excel"></use>
+							</svg>
+						</div>
+						<div class="font-c9">
+							<div class="doc_name"></div>
+							<!--<div class="doc_size">5.3M</div>-->
+						</div>
+					</div>
+
+					<div class="btn_region">
+						<button id="btn_open" type="button" class="mui-btn mui-btn-block mui-btn-primary">打开</button>
+						<!--<button id="btn_download" type="button" class="mui-btn mui-btn-block mui-btn-danger mui-btn-outlined">下载</button>-->
+						<button id="btn_share" type="button" class="mui-btn mui-btn-block  mui-btn-outlined share" style="background:red;color:#fff !important;">分享下载链接</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/fonts/iconfont.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			var mimeObj = {
+				doc: 'application/msword',
+				docx: 'application/msword',
+				xls: 'application/vnd.ms-excel',
+				xlsx: 'application/vnd.ms-excel',
+				htm: 'text/html',
+				html: 'text/html',
+				jpeg: 'image/jpeg',
+				jpg: 'image/jpeg',
+				mov: 'video/quicktime',
+				mp3: 'audio/x-mpeg',
+				mp4: 'video/mp4',
+				mpe: 'video/mpeg',
+				mpeg: 'video/mpeg',
+				pdf: 'application/pdf',
+				png: 'image/png',
+				pps: 'application/vnd.ms-powerpoint',
+				ppt: 'application/vnd.ms-powerpoint',
+				pptx: 'application/vnd.ms-powerpoint',
+				rtf: 'application/rtf',
+				txt: 'text/plain',
+				wav: 'audio/x-wav',
+				wmv: 'audio/x-ms-wmv',
+				wps: 'application/vnd.ms-works',
+				zip: 'application/x-zip-compressed'
+			};
+			var nw;
+			var Intent = null,
+            	File = null,
+            	Uri = null,
+            	main = null;
+        	var shares = null,shareImageUrl = '',shareUrl ="",
+        		shareTitle="",shareContent="",sharePictures="",typeId="";
+			myFunc(function() {
+				var _id = osg.param("_id");
+				var title = osg.param("name");
+				var url = osg.param("url");
+				shareUrl = url;
+				shareTitle = title;
+				var fileid = url,
+					idx = fileid.indexOf('?');
+				if(idx != -1)
+					fileid = fileid.substring(0, idx);
+				idx = fileid.lastIndexOf('/');
+				if(idx != -1)
+					fileid = fileid.substring(idx, fileid.length);
+				//				var s = osg.param("size");
+				//				if(s > 1024)
+				//					s = (s / 1024).toFixed(2) + 'M';
+				//				else
+				//					s = s.toFixed(2) + 'KB';
+				if(fileid.endsWith('doc') || fileid.endsWith('docx'))
+					$(".logo_doc").find(".ico-word").show();
+				else if(fileid.endsWith('xls') || fileid.endsWith('xlsx'))
+					$(".logo_doc").find(".ico-excel").show();
+				else if(fileid.endsWith('pdf'))
+					$(".logo_doc").find(".ico-pdf").show();
+				else if(fileid.endsWith('ppt') || fileid.endsWith('pptx'))
+					$(".logo_doc").find(".ico-ppt").show();
+				else
+					$(".logo_doc").find(".ico-file").show();
+
+				$(".doc_name").text(title);
+				//				$(".doc_size").text(s);
+				/*document.getElementById('btn_download').addEventListener('tap', function(e) {
+					download();
+				});*/
+				document.getElementById('btn_open').addEventListener('tap', function(e) {
+					download(function(uu) {
+						if(!mui.os.ios) {
+							var Intent = plus.android.importClass("android.content.Intent");
+							var Uri = plus.android.importClass("android.net.Uri");
+							var File = plus.android.importClass("java.io.File");
+							var main = plus.android.runtimeMainActivity();
+							var intent = new Intent(Intent.ACTION_VIEW);
+							var fl = new File(uu);
+							intent.addCategory("android.intent.category.DEFAULT");
+							intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+							var uuri = Uri.fromFile(fl);
+							var idx = uu.lastIndexOf('.');
+							var mime;
+							if(idx != -1)
+								mime = mimeObj[uu.substring(idx + 1)];
+							if(!mime)
+								mime = 'application/octet-stream';
+							intent.setDataAndType(uuri, mime);
+							main.startActivity(intent);
+						} else {
+							nw = osg.openWithTitle('docViewer.html', "doc_" + _id, {
+								docUrl: uu
+							}, title);
+						}
+					});
+				});
+
+				function download(callback) {
+					var ff = null;
+					// 是否已经下载过
+					var cd = osg.get(cacheKeys.downloads);
+					if(cd) {
+						cd = JSON.parse(cd);
+						for(var j = 0; j < cd.length; j++) {
+							if(_id == cd[j].typeId) {
+								ff = cd[j].url;
+								ff = plus.io.convertLocalFileSystemURL(ff);
+								break;
+							}
+						}
+					}
+					if(ff) {
+						var rff = ff;
+						if(mui.os.ios) {
+							if(!rff.indexOf('file://') == 0)
+								rff = 'file://' + rff;
+						}
+						plus.io.resolveLocalFileSystemURL(rff, function(entry) {
+							if(callback)
+								callback(ff);
+							else
+								osg.toast("已下载成功过!");
+						}, function(e) {
+							// 文件不存在或其他原因
+							doDownload(callback);
+						});
+					} else
+						doDownload(callback);
+				}
+
+				function doDownload(callback) {
+					osg.download(url, function(fn) {
+						plus.io.resolveLocalFileSystemURL(fn, function(file) {
+							plus.io.resolveLocalFileSystemURL('_downloads', function(dir) {
+								var cd = osg.get(cacheKeys.downloads);
+								if(!cd)
+									cd = [];
+								else
+									cd = JSON.parse(cd);
+								file.moveTo(dir, fileid);
+								var ul = '_downloads/' + fileid;
+								cd.push({
+									type: 1,
+									typeId: _id,
+									title: title,
+									fileid: fileid,
+									url: ul
+								});
+								osg.set(cacheKeys.downloads, cd);
+								if(callback) {
+									ul = plus.io.convertLocalFileSystemURL(ul);
+									callback(ul);
+								}
+							});
+						});
+
+					});
+				}
+
+				// 进入查看界面后的返回事件处理
+				var oback = mui.back;
+				mui.back = function(event) {
+					if(nw) {
+						nw.close();
+						nw = null;
+					} else {
+						oback();
+					}
+				}
+
+			});
+		</script>
+		<script src="../resources/js/share.js"></script>
+	</body>
+
+</html>

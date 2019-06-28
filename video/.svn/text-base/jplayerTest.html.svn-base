@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-bar {
+				background: #fff0;
+				-webkit-box-shadow: 0 0 0px #d6d6d6;
+			}
+			
+			.mui-bar-nav {
+				color: #fff;
+				background: transparent;
+			}
+			
+			.mui-bar~.mui-scroll-wrapper {
+				margin-top: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="jp_container_1" class="jp-container">
+			<div class="jp-gui jp-controll-div">
+				<div class="icon iconfont jp-play" role="button" tabindex="0"></div>
+				<div class="jp-bottom-bar">
+					<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+					<div class="jp-progress">
+						<div class="jp-seek-bar">
+							<div class="jp-play-bar">
+								<div class="jp-play-bar-dot"></div>
+							</div>
+						</div>
+					</div>
+					<div class="jp-bottom-bar-right">
+						<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+						<div class="jp-full-screen"><i class="icon iconfont icon-full-screen"></i></div>
+					</div>
+				</div>
+			</div>
+			<div id="jp_btnPlay">
+			</div>
+		</div>
+
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.jplayer.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			$().ready(function() {
+				var url = 'http://qiniu-gkwiki-priv.gxstar.cn/5097838568861774092.mp4?e=1526887688&token=zV7loQsfSqqy9BB-ZBvwmQ5AKtVwkoMyO6Utkbp1:vmRBObeNjXA4BeQjzwxDh_GY0QQ=';
+				var cover = 'http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png';
+				var jp = $("#jp_btnPlay").jPlayer({
+					cssSelectorAncestor: "#jp_container_1",
+					supplied: "webmv, ogv, m4v",
+					size: {
+						width: "100%",
+						height: "auto"
+					},
+					fullScreen: false,
+					fullWindow: true,
+					useStateClassSkin: true,
+					smoothPlayBar: true,
+					autohide: {
+						restored: false,
+						full: true,
+						hold: 2000
+					},
+					ready: function() {
+						jp.jPlayer("setMedia", {
+							m4v: url,
+							poster: cover
+						});
+					}
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

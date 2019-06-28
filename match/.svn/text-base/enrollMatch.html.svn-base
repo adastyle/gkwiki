@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.information {
+				width: 100%;
+			}
+			
+			.information li {
+				border-bottom: 1px solid #E5E5E5;
+				padding-bottom: 0.25rem;
+				padding: 0.3rem;
+			}
+			
+			.information li:last-child {
+				border-bottom: 0;
+			}
+			
+			.information span {
+				/*color: #D1D1D1;*/
+				color: #9f9fa3;
+				float: right;
+				margin-right: 0rem;
+			}
+			
+			.information input {
+				float: right;
+				width: 60%;
+				font-size: 14px;
+				padding: 0;
+				line-height: 20px;
+				height: 20px;
+				text-align: right;
+				margin-bottom: 0;
+				border: 0;
+			}
+			
+			.information a {
+				color: #f00;
+			}
+			
+			.content {
+				text-align: justify;
+				word-wrap: break-word;
+			}
+			
+			.newsReadDiv {
+				padding: 2rem 2.8rem 2rem 1.5rem;
+				position: absolute;
+				background-color: #fff;
+				z-index: 100;
+			}
+			
+			.newsReadBtnDiv {
+				text-align: center;
+				position: fixed;
+				left: 0;
+				right: 0;
+				bottom: 2rem;
+				z-index: 10000;
+			}
+			
+			#newsReadBtn {
+				color: #fff;
+				background-color: #2196F3;
+				border: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav ">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">参赛报名</h1>
+			<span class="save_btn" style="display:none;float: right;padding: 10px;font-size: 0.825rem;">报名</span>
+		</header>
+
+		<div class="mui-scroll-wrapper">
+			<div id="student_info" class="mui-scroll">
+				<div class="match_title_bar" style="margin-top: 10px;">
+					<img class="region_logo" src="" />
+					<div class="name inline m-l-5 m-r-20"><span class="match_name"></span>
+						<span class="phase_name"></span>
+					</div>
+				</div>
+				<div style="background: #FFFFFF;margin: 0.5rem;border-radius: 10px;">
+					<div style="padding: 0.2rem 1rem 0.4rem;">
+						<ul class="information">
+							<li>
+								<h5>报名费 <input type="text" label="昵称" class="enroll_price" readonly="readonly"></h5></li>
+							<li class="matchPlace_select_li" style="display:none;">
+								<h5><a href="#" >*</a>赛点 <span class="matchPlace_id" label="赛点" required="required">点击选择</span></h5></li>
+							<li class="teacher_select_li teacher_li" style="display:none;">
+								<h5><a href="#" >*</a>辅导老师 <span class="teacher_id" label="辅导老师">点击选择</span></h5></li>
+							<li class="teacher_name_li teacher_li">
+								<h5><a href="#" >*</a>辅导老师名称 <input type="text" label="辅导老师名称" class="teacher_name" placeholder="点击输入" required="required"></h5></li>
+							<li class="teacher_li">
+								<h5><a href="#" >*</a>辅导老师电话 <input type="text" label="辅导老师电话" class="teacher_phone" placeholder="点击输入" required="required"></h5></li>
+							<li class="enroll_field_item debug">
+								<h5><a href="#" >*</a><div class="enroll_field_name inline">字段名称</div> <input class="enroll_field_input" type="text" label="字段名称" placeholder="点击输入" required="required"></h5></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mui-scroll-wrapper newsReadDiv dock news_read" style="display: none;">
+			<div class="mui-scroll" style="width: 88%;">
+				<div class="content"></div>
+			</div>
+		</div>
+		<div class="newsReadBtnDiv news_read" style="display:none;">
+			<button id="newsReadBtn" class="btn btn-primary" type="button">请仔细阅读(10秒)</button>
+		</div>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.picker.min.js"></script>
+		<script src="../resources/js/mui.picker.js"></script>
+		<script src="../resources/js/mui.poppicker.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script src="../resources/division.js"></script>
+		<script type="text/javascript">
+			var data, teacherPicker, matchPlacePicker;
+			myFunc(function() {
+				var phaseId = osg.param('phaseId');
+				$(".save_btn").tap(function() {
+					if($(".save_btn").hasClass('disabled'))
+						return;
+
+					var v = osg.validate('student_info');
+					if(v) {
+						var enrollForms = {};
+						$(".enroll_field_input").each(function() {
+							var $t = $(this);
+							enrollForms[$t.attr('label')] = $t.val();
+						});
+						var param = {
+							phaseId: phaseId,
+							matchPlaceId: $('.matchPlace_id').val(),
+							teacherId: $(".teacher_id").val(),
+							teacherName: $(".teacher_name").val(),
+							teacherPhone: $(".teacher_phone").val(),
+							enrollFormsStr: JSON.stringify(enrollForms)
+						};
+
+						osg.ajax('match/enrollMatch', param, function(d) {
+							var enrollPhase = d.entity;
+							if(enrollPhase) {
+								osg.toast('报名成功！');
+								osg.closeMe();
+								osg.evtFireEvent('match_enroll|' + enrollPhase._id);
+							} else
+								osg.toast('报名失败！');
+						}, {
+							disableBtns: [$(".save_btn")]
+						});
+					}
+				});
+
+				/* 赛点选择 */
+				matchPlacePicker = new mui.PopPicker();
+				$('.matchPlace_id').tap(function() {
+					var $t = $(this);
+					matchPlacePicker.show(function(items) {
+						var id = items[0].value,
+							name = items[0].text;
+						$t.val(id);
+						$t.text(name);
+					});
+				});
+
+				/* 老师选择 */
+				teacherPicker = new mui.PopPicker();
+				$('.teacher_id').tap(function() {
+					var $t = $(this);
+					teacherPicker.show(function(items) {
+						var id = items[0].value,
+							name = items[0].text;
+						$t.val(id);
+						$t.text(name);
+						$(".teacher_name").val(name);
+						var teachers = data.teachers;
+						for(var i = 0; i < teachers.length; i++) {
+							if(teachers[i]._id == id) {
+								$('.teacher_phone').val(teachers[i].phone);
+								break;
+							}
+						}
+					});
+				});
+
+				var enrollFieldItem = $(".enroll_field_item");
+				enrollFieldItem.removeClass('debug').remove();
+
+				osg.ajax('match/toEnrollMatch/' + phaseId, null, function(d) {
+					data = d, teachers = d.teachers, region = d.region, match = d.match, zone = d.zone, phase = d;
+					if(match.enrollNeedTeacher == 0) // 不需要填写老师信息，则删除相关字段
+						$('.teacher_li').remove();
+					$(".region_logo").attr('src', qiniuRoot + region.logo);
+					$(".match_name").text(match.name);
+					$(".zone_name").text(zone.name);
+					$(".phase_name").text('【' + phase.name + '】');
+					$(".enroll_price").val(phase.price);
+
+					if(phase.type == 1) { // 线下比赛，选择赛点
+						$(".matchPlace_select_li").show();
+						var wts = [];
+						for(var i = 0; i < phase.matchPlaceList.length; i++) {
+							var wt = phase.matchPlaceList[i];
+							wts.push({
+								value: wt._id,
+								text: wt.name
+							});
+						}
+						matchPlacePicker.setData(wts);
+					} else
+						$(".matchPlace_select_li").remove();
+
+					// 扩展报名字段输出显示
+					for(var i = 0; i < match.enrollForms.length; i++) {
+						var ef = match.enrollForms[i],
+							enrollFieldItemObj = enrollFieldItem.clone();
+						enrollFieldItemObj.find('.enroll_field_name').text(ef.name);
+						enrollFieldItemObj.find('.enroll_field_input').attr("label", ef.name);
+						$('.information').append(enrollFieldItemObj);
+					}
+
+					// 必读10秒
+					var nr = match.newsRead;
+					if(nr) {
+						var nrd = $(".newsReadDiv");
+						nrd.find('.content').html(nr.content);
+						$("#newsReadBtn").disable();
+						var c = 9;
+						var si = setInterval(function() {
+							if(c == 0) {
+								clearInterval(si);
+								$("#newsReadBtn").enable();
+								$("#newsReadBtn").text("我已阅读并同意相关条款");
+							} else {
+								$("#newsReadBtn").text(
+									"请仔细阅读(" + c + "秒)");
+								c--;
+							}
+						}, 1000);
+
+						$("#newsReadBtn").click(function() {
+							$(".news_read").hide();
+							$('.save_btn').enable();
+							$(".save_btn").show();
+						});
+						$(".news_read").show();
+						$('.save_btn').disable();
+					}else{
+						$(".save_btn").show();
+					}
+
+					if(teachers.length > 0) {
+						$(".teacher_name").attr('placeholder', '无可选老师可在此输入');
+						$(".teacher_select_li").show();
+
+						var wts = [];
+						for(var i = 0; i < teachers.length; i++) {
+							var wt = teachers[i];
+							wts.push({
+								value: wt._id,
+								text: wt.name
+							});
+						}
+						teacherPicker.setData(wts);
+					}
+
+				});
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,1163 @@
+{
+  "main.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "news/main.html",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui-icons-extra.ttf",
+      "css/icons-extra.css",
+      "css/style.css",
+      "js/common.js",
+      "news/tab-webview-subpage-news.html",
+      "js/mui.min.js",
+      "login.html",
+      "iconfont/iconfont.woff",
+      "iconfont/iconfont.css",
+      "js/jquery.min.js"
+    ],
+    "refer": [
+      "news/main.html",
+      "tab-webview-subpage-about.html",
+      "tab-webview-subpage-setting.html",
+      "tab-webview-subpage-chat.html",
+      "tab-webview-subpage-contact.html",
+      "test/tab-webview-subpage-about.html",
+      "news/tab-webview-subpage-news.html",
+      "study/tab-webview-subpage-study.html",
+      "mine/tab-webview-subpage-mine.html",
+      "tab-webview-subpage-mine.html",
+      "manage/tab-webview-subpage-manage.html",
+      "forum/tab-webview-subpage-forum.html",
+      "news/detail.html",
+      "video/tab-webview-subpage-video.html",
+      "school/tab-webview-subpage-school.html",
+      "live/tab-webview-subpage-live.html"
+    ]
+  },
+  "login.html": {
+    "resources": [
+      "js/app.js",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/mui.enterfocus.js",
+      "fonts/mui.ttf",
+      "images/logo.png",
+      "images/login_phone.png",
+      "images/login_password.png",
+      "js/mui.min.js",
+      "js/jquery.min.js"
+    ],
+    "refer": [
+      "main.html",
+      "news/main.html",
+      "forget.html",
+      "unlock.html"
+    ]
+  },
+  "news/main.html": {
+    "resources": [
+      "images/2.jpg",
+      "images/speaker.png",
+      "images/1.jpg",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/3.jpg",
+      "images/4.jpg",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "images/eye.png",
+      "js/common.js"
+    ],
+    "refer": [
+      "news/detail.html"
+    ]
+  },
+  "news/detail.html": {
+    "resources": [
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/zan.png",
+      "images/share.png",
+      "images/messege.png",
+      "js/jquery.min.js",
+      "images/collection.png",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "iconfont/logo/iconfont.woff",
+      "iconfont/logo/iconfont.css",
+      "images/logo.png"
+    ],
+    "refer": [
+      "news/comDetail.html",
+      "commentDetail.html",
+      "news/addComments.html",
+      "news/report.html",
+      "news/reply.html"
+    ]
+  },
+  "tab-webview-subpage-setting.html": {
+    "resources": [
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "tab-webview-subpage-chat.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "tab-webview-subpage-contact.html": {
+    "resources": [
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "tab-webview-subpage-about.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "test/tab-webview-subpage-about.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "js/common.js"
+    ],
+    "refer": []
+  },
+  "news/tab-webview-subpage-news.html": {
+    "resources": [
+      "css/mui.min.css",
+      "images/2.jpg",
+      "images/speaker.png",
+      "images/1.jpg",
+      "images/eye.png",
+      "images/3.jpg",
+      "images/4.jpg",
+      "fonts/mui.ttf",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/style.css",
+      "js/mui.min.js",
+      "news/listItems.html",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "js/jquery.min.js",
+      "js/jquery.marquee.js"
+    ],
+    "refer": [
+      "news/detail.html",
+      "news/listItems.html",
+      "news/detailMarquee.html",
+      "news/librarydetail.html",
+      "news/search.html"
+    ]
+  },
+  "study/tab-webview-subpage-study.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/test02.png",
+      "js/common.js",
+      "js/mui.min.js",
+      "images/2.jpg",
+      "images/video.png",
+      "images/exam.png",
+      "images/1.jpg",
+      "images/doc.png",
+      "images/gain.png",
+      "images/voice.png",
+      "images/3.jpg",
+      "images/4.jpg",
+      "fonts/mui.ttf",
+      "js/mui.enterfocus.js",
+      "js/jquery.min.js",
+      "js/jquery.jplayer.min.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/style.css"
+    ],
+    "refer": [
+      "study/voiceList.html",
+      "study/videoList.html",
+      "study/docList.html",
+      "study/videoSub.html",
+      "study/voiceSub.html",
+      "study/gain.html",
+      "study/docViewer.html",
+      "study/docSub.html",
+      "study/gainedList.html",
+      "study/examList.html"
+    ]
+  },
+  "mine/tab-webview-subpage-mine.html": {
+    "resources": [
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "js/app.js",
+      "mine/js/feedback.js",
+      "js/mui.locker.js",
+      "css/feedback-page.css",
+      "js/mui.view.js",
+      "images/iconfont-tianjia.png",
+      "js/common.js",
+      "js/mui.min.js",
+      "images/next_pre.png",
+      "images/my_settings.png",
+      "images/my_publish_message.png",
+      "images/my_collection.png",
+      "images/work.png",
+      "images/next_pro.png",
+      "images/activity.png",
+      "images/test.jpg",
+      "images/test02.png",
+      "images/my_reply_message.png",
+      "images/learn.png",
+      "js/mui.pullToRefresh.js",
+      "js/jquery.jplayer.min.js",
+      "js/jquery.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/mine.png",
+      "images/logo.png",
+      "css/style.css",
+      "images/yu.png",
+      "images/zanL.png"
+    ],
+    "refer": [
+      "login.html",
+      "mine/myScore.html",
+      "mine/replayMessage.html",
+      "mine/publishMessage.html",
+      "mine/myCollection.html",
+      "mine/settings.html",
+      "mine/material.html",
+      "mine/bumenMine.html",
+      "mine/personList.html",
+      "mine/scoreRank.html",
+      "manage/noticeList.html",
+      "mine/scoreRankUser.html",
+      "mine/scoreRankBumen.html",
+      "search.html",
+      "myCompetition/myCompetition.html",
+      "myCompetition/hahaha.html",
+      "mine/message.html",
+      "mine/setting.html",
+      "match/match.html"
+    ]
+  },
+  "tab-webview-subpage-mine.html": {
+    "resources": [
+      "js/app.js",
+      "js/mui.locker.js",
+      "js/feedback.js",
+      "css/feedback-page.css",
+      "js/feedback-page.js",
+      "js/mui.view.js",
+      "images/iconfont-tianjia.png"
+    ],
+    "refer": []
+  },
+  "forget.html": {
+    "resources": [
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/mui.enterfocus.js",
+      "js/mui.min.js",
+      "css/style.css"
+    ],
+    "refer": [
+      "main.html"
+    ]
+  },
+  "news/listItems.html": {
+    "resources": [
+      "images/speaker.png",
+      "images/eye.png",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "news/detail.html"
+    ]
+  },
+  "news/comDetail.html": {
+    "resources": [
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "study/voiceList.html": {
+    "resources": [
+      "js/common.js",
+      "js/mui.min.js",
+      "images/pause.png",
+      "css/mui.min.css",
+      "js/mui.enterfocus.js",
+      "js/jquery.min.js",
+      "images/start.png",
+      "js/jquery.jplayer.min.js",
+      "js/mui.min.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/style.css",
+      "images/download2.png"
+    ],
+    "refer": [
+      "study/voiceSub.html"
+    ]
+  },
+  "study/videoList.html": {
+    "resources": [
+      "js/jquery.jplayer.min.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/collection.png",
+      "images/share_video.png",
+      "images/video_start.png",
+      "images/collection_pre.png",
+      "images/pause_small.png",
+      "images/fullscreen.png",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "iconfont/logo/iconfont.woff",
+      "iconfont/logo/iconfont.css",
+      "css/style.css",
+      "images/download.png",
+      "fonts/mui.ttf",
+      "images/downloaded.png"
+    ],
+    "refer": [
+      "study/videoSub.html"
+    ]
+  },
+  "study/docList.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/jquery.jplayer.min.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "fonts/mui.ttf",
+      "css/style.css"
+    ],
+    "refer": [
+      "study/docViewer.html",
+      "study/docSub.html"
+    ]
+  },
+  "study/docViewer.html": {
+    "resources": [
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/style.css"
+    ],
+    "refer": []
+  },
+  "study/voiceSub.html": {
+    "resources": [
+      "images/start_small.png",
+      "css/mui.min.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/jquery.jplayer.min.js",
+      "js/common.js",
+      "images/pause_small.png",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "iconfont/logo/iconfont.css",
+      "iconfont/logo/iconfont.woff",
+      "images/messege.png",
+      "css/style.css",
+      "images/logo.png"
+    ],
+    "refer": [
+      "commentDetail.html"
+    ]
+  },
+  "study/videoSub.html": {
+    "resources": [
+      "images/fullscreen.png",
+      "images/collection.png",
+      "images/pause_small.png",
+      "css/mui.min.css",
+      "images/video_start.png",
+      "images/zan.png",
+      "images/messege.png",
+      "js/jquery.jplayer.min.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "iconfont/logo/iconfont.css",
+      "iconfont/logo/iconfont.woff",
+      "css/style.css",
+      "images/logo.png"
+    ],
+    "refer": [
+      "commentDetail.html"
+    ]
+  },
+  "mine/myScore.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "mine/replayMessage.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "mine/publishMessage.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "mine/myCollection.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "js/jquery.min.js"
+    ],
+    "refer": []
+  },
+  "mine/settings.html": {
+    "resources": [
+      "js/common.js",
+      "js/mui.min.js",
+      "mine/js/feedback.js",
+      "css/mui.min.css",
+      "js/mui.locker.js",
+      "css/feedback-page.css",
+      "js/mui.view.js",
+      "images/iconfont-tianjia.png",
+      "css/style.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "mine/aboutUs.html",
+      "mine/password.html"
+    ]
+  },
+  "mine/aboutUs.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "css/style.css",
+      "images/logo.png"
+    ],
+    "refer": []
+  },
+  "commentDetail.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/mui.pullToRefresh.js",
+      "js/jquery.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/user-photo.png",
+      "images/zan.png",
+      "iconfont/logo/iconfont.css",
+      "css/style.css",
+      "images/logo.png"
+    ],
+    "refer": []
+  },
+  "study/gain.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "images/add_gain.png",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "mine/material.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "images/test.jpg",
+      "js/common.js",
+      "js/jquery.min.js",
+      "fonts/mui.ttf",
+      "css/style.css",
+      "images/logo.png"
+    ],
+    "refer": []
+  },
+  "study/docSub.html": {
+    "resources": [
+      "images/office.jpeg",
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "css/style.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "study/docViewer.html"
+    ]
+  },
+  "manage/tab-webview-subpage-manage.html": {
+    "resources": [
+      "images/activities.png",
+      "images/blod_next_pre.png",
+      "images/voting.png",
+      "js/mui.locker.js",
+      "images/email.png",
+      "images/notice.png",
+      "js/mui.view.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/bumen.png"
+    ],
+    "refer": [
+      "manage/mailboxList.html",
+      "manage/noticeList.html",
+      "manage/activityList.html",
+      "manage/researchList.html"
+    ]
+  },
+  "forum/tab-webview-subpage-forum.html": {
+    "resources": [
+      "iconfont/logo/iconfont.woff",
+      "images/test.jpg",
+      "images/messege.png",
+      "iconfont/logo/iconfont.css",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/logo.png",
+      "js/mui.zoom.js",
+      "css/mui.previewimage.css",
+      "js/mui.previewimage.js",
+      "css/style.css"
+    ],
+    "refer": [
+      "forum/groupSearh.html",
+      "forum/messagePublish.html",
+      "forum/groupMessage.html",
+      "forum/messageDetail.html"
+    ]
+  },
+  "forum/groupSearh.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/logo.png"
+    ],
+    "refer": [
+      "forum/groupMore.html",
+      "forum/groupDetail.html"
+    ]
+  },
+  "forum/messagePublish.html": {
+    "resources": [
+      "images/icon_more.png",
+      "js/mui.min.js",
+      "images/add_picture.png",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/style.css"
+    ],
+    "refer": []
+  },
+  "manage/mailboxList.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/style.css"
+    ],
+    "refer": [
+      "manage/mailboxNew.html",
+      "manage/mailboxDetail.html"
+    ]
+  },
+  "manage/noticeDetail.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "css/mui.previewimage.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "images/logo.png"
+    ],
+    "refer": [
+      "mine/userSelf.html"
+    ]
+  },
+  "manage/noticeList.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js"
+    ],
+    "refer": [
+      "manage/noticeDetail.html"
+    ]
+  },
+  "manage/researchList.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js"
+    ],
+    "refer": []
+  },
+  "mine/bumenMine.html": {
+    "resources": [
+      "css/mui.min.css",
+      "iconfont/logo/iconfont.woff",
+      "images/messege.png",
+      "iconfont/logo/iconfont.css",
+      "fonts/mui.ttf",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "images/logo.png",
+      "css/style.css",
+      "css/mui.previewimage.css"
+    ],
+    "refer": [
+      "forum/messageDetail.html",
+      "mine/userSelf.html"
+    ]
+  },
+  "forum/groupMore.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/logo.png"
+    ],
+    "refer": [
+      "forum/groupDetail.html"
+    ]
+  },
+  "forum/groupMessage.html": {
+    "resources": [
+      "css/mui.min.css",
+      "iconfont/logo/iconfont.woff",
+      "iconfont/logo/iconfont.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/logo.png",
+      "css/style.css"
+    ],
+    "refer": [
+      "forum/messagePublish.html",
+      "forum/groupSearh.html",
+      "forum/messageDetail.html"
+    ]
+  },
+  "news/detailMarquee.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "iconfont/logo/iconfont.css",
+      "css/style.css"
+    ],
+    "refer": []
+  },
+  "mine/personList.html": {
+    "resources": [
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/test.jpg",
+      "css/mui.indexedlist.css",
+      "js/mui.indexedlist.js",
+      "css/style.css",
+      "images/logo.png"
+    ],
+    "refer": []
+  },
+  "forum/messageDetail.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "iconfont/logo/iconfont.css",
+      "fonts/mui.ttf",
+      "css/style.css",
+      "images/logo.png",
+      "iconfont/logo/iconfont.woff",
+      "images/messege.png",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "css/mui.previewimage.css"
+    ],
+    "refer": [
+      "commentDetail.html",
+      "mine/userSelf.html"
+    ]
+  },
+  "manage/mailboxNew.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/style.css"
+    ],
+    "refer": []
+  },
+  "study/gainedPublish.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "css/style.css"
+    ],
+    "refer": []
+  },
+  "study/gainedList.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "iconfont/logo/iconfont.css",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "images/logo.png",
+      "css/style.css",
+      "css/mui.previewimage.css"
+    ],
+    "refer": [
+      "study/gainedPublish.html",
+      "study/gainedGroup.html",
+      "study/gainedDetail.html",
+      "study/gainedGroupList.html"
+    ]
+  },
+  "forum/groupDetail.html": {
+    "href": "forum/groupDetail.html",
+    "resources": [
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "images/logo.png",
+      "css/mui.min.css",
+      "css/style.css",
+      "iconfont/logo/iconfont.css",
+      "images/test.jpg"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "mine/userSelf.html": {
+    "href": "mine/userSelf.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "iconfont/logo/iconfont.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "images/logo.png"
+    ],
+    "refer": [
+      "forum/messageDetail.html"
+    ],
+    "priority": 0
+  },
+  "mine/scoreDetailUser.html": {
+    "href": "mine/scoreDetailUser.html",
+    "resources": [
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/echarts.min.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "iconfont/logo/iconfont.css"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "mine/scoreDetailBumen.html": {
+    "href": "mine/scoreDetailBumen.html",
+    "resources": [
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "images/logo.png",
+      "css/mui.min.css",
+      "css/style.css",
+      "iconfont/logo/iconfont.css"
+    ],
+    "refer": [
+      "mine/scoreDetailUser.html"
+    ],
+    "priority": 0
+  },
+  "mine/scoreRank.html": {
+    "href": "mine/scoreRank.html",
+    "resources": [
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "images/logo.png",
+      "css/mui.min.css",
+      "css/style.css",
+      "iconfont/logo/iconfont.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "mine/scoreDetailBumen.html",
+      "mine/scoreDetailUser.html"
+    ],
+    "priority": 0
+  },
+  "mine/password.html": {
+    "href": "mine/password.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/mui.enterfocus.js",
+      "js/common.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "study/gainedDetail.html": {
+    "href": "study/gainedDetail.html",
+    "resources": [
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "images/logo.png",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/mui.previewimage.css",
+      "iconfont/logo/iconfont.css"
+    ],
+    "refer": [
+      "commentDetail.html"
+    ],
+    "priority": 0
+  },
+  "study/gainedGroup.html": {
+    "href": "study/gainedGroup.html",
+    "resources": [
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/logo.png",
+      "css/mui.min.css",
+      "css/style.css",
+      "iconfont/logo/iconfont.css"
+    ],
+    "refer": [
+      "study/gainedPublish.html",
+      "study/gainedDetail.html"
+    ],
+    "priority": 0
+  },
+  "study/gainedGroupList.html": {
+    "href": "study/gainedGroupList.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/logo.png"
+    ],
+    "refer": [
+      "study/gainedGroup.html"
+    ],
+    "priority": 0
+  },
+  "study/examList.html": {
+    "href": "study/examList.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "manage/mailboxDetail.html": {
+    "href": "manage/mailboxDetail.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "css/mui.previewimage.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "images/logo.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "manage/activityEnrollDetail.html": {
+    "href": "manage/activityEnrollDetail.html",
+    "resources": [
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/logo.png",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/test.jpg"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "manage/activityDetail.html": {
+    "href": "manage/activityDetail.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/jquery.min.js",
+      "js/common.js",
+      "images/logo.png",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/category.png",
+      "images/location.png",
+      "images/time.png",
+      "images/next_next.png"
+    ],
+    "refer": [
+      "manage/activityEnrollDetail.html"
+    ],
+    "priority": 0
+  },
+  "manage/activityList.html": {
+    "href": "manage/activityList.html",
+    "resources": [
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "css/mui.min.css",
+      "css/style.css"
+    ],
+    "refer": [
+      "manage/activityDetail.html"
+    ],
+    "priority": 0
+  },
+  "unlock.html": {
+    "href": "unlock.html",
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "js/mui.locker.js"
+    ],
+    "refer": [
+      "login.html",
+      "main.html"
+    ],
+    "priority": 0
+  },
+  "mine/scoreRankUser.html": {
+    "resources": [
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "iconfont/logo/iconfont.css"
+    ],
+    "refer": []
+  },
+  "mine/scoreRankBumen.html": {
+    "resources": [
+      "js/common.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "iconfont/logo/iconfont.css"
+    ],
+    "refer": [
+      "mine/scoreDetailBumen.html"
+    ]
+  },
+  "news/librarydetail.html": {
+    "href": "news/librarydetail.html",
+    "priority": 0
+  },
+  "news/addComments.html": {
+    "href": "news/addComments.html",
+    "resources": [],
+    "refer": [
+      "news/detail.html"
+    ],
+    "priority": 0
+  },
+  "news/report.html": {
+    "href": "news/report.html",
+    "resources": [],
+    "refer": [
+      "news/detail.html"
+    ],
+    "priority": 0
+  },
+  "news/reply.html": {
+    "href": "news/reply.html",
+    "resources": [],
+    "refer": [
+      "news/detail.html"
+    ],
+    "priority": 0
+  },
+  "news/search.html": {
+    "href": "news/search.html",
+    "resources": [],
+    "refer": [
+      "news/librarydetail.html",
+      "news/detail.html",
+      "news/detailMarquee.html"
+    ],
+    "priority": 0
+  },
+  "school/tab-webview-subpage-school.html": {
+    "refer": [
+      "school/detail.html"
+    ]
+  },
+  "myCompetition/myCompetition.html": {
+    "resources": [
+      "resources/css/myCompetition.css",
+      "resources/images/cctvLogo.png",
+      "resources/js/jquery.min.js",
+      "resources/css/mui.min.css",
+      "resources/js/mui.min.js",
+      "resources/js/common.js",
+      "resources/images/logo.png"
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			
+			.information {
+				width: 100%;
+			}
+			
+			.information li {
+				border-bottom: 1px solid #E5E5E5;
+				padding-bottom: 0.25rem;
+				padding: 0.6rem 0.3rem;
+			}
+			
+			.information li:last-child {
+				border-bottom: 0;
+			}
+			
+			.information span {
+				/*color: #D1D1D1;*/
+				color: #9f9fa3;
+				float: right;
+				margin-right: 0rem;
+			}
+			
+			.information input {
+				float: right;
+				width: 60%;
+				font-size: 14px;
+				padding: 0;
+				margin-top: -4px;
+				line-height: 20px;
+				height: 20px;
+				text-align: right;
+				border: 0;
+			}
+			
+			.information a {
+				color: #f00;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav ">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">老师信息</h1>
+			<span class="save_btn" style="float: right;padding: 10px;font-size: 0.825rem;">保存</span>
+		</header>
+
+		<div class="mui-scroll-wrapper">
+			<div id="student_info" class="mui-scroll">
+				<div style="background: #FFFFFF;margin: 0.5rem;border-radius: 10px;">
+					<div style="padding: 0.2rem 1rem 0.4rem;">
+						<ul class="information">
+							<li>
+								<h5><a href="#" >*</a>辅导老师姓名 <input type="text" label="辅导老师姓名" class="teacherName" placeholder="点击输入" required="required"></h5></li>
+							<li>
+								<h5><a href="#" >*</a>辅导老师手机号 <input type="text" label="辅导老师手机号" class="teacherPhone" ></h5></li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.picker.min.js"></script>
+		<script src="../resources/js/mui.picker.js"></script>
+		<script src="../resources/js/mui.poppicker.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script src="../resources/division.js"></script>
+		<script type="text/javascript">
+			var data, avatar, province, city, district;
+			var schoolPicker, gradePicker;
+			myFunc(function() {
+				var matchId = osg.param("matchId");
+				var teacherName = osg.param("teacherName");
+				var teacherPhone = osg.param("teacherPhone");
+				$('.teacherName').val(teacherName.substr(5,teacherName.length));
+				$('.teacherPhone').val(teacherPhone.substring(5,teacherPhone.length));
+				$(".save_btn").tap(function() {
+					var teacherName = $('.teacherName').val();
+					var teacherPhone = $('.teacherPhone').val();
+					
+					osg.ajax('match/updateTeacher', {'matchId':matchId,
+					'teacherName':teacherName,'teacherPhone':teacherPhone}
+					, function(data) {
+						if(data.status==1){
+							osg.open('tab-webview-subpage-match.html', null, null, {
+								im: 1
+							});
+						}else{
+							osg.alert('修改失败！');
+						}
+					});
+					
+				});
+				
+			});
+		</script>
+	</body>
+
+</html>

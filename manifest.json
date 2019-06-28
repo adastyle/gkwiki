@@ -1,0 +1,4212 @@
+{
+	"@platforms": [
+		"android",
+		"iPhone",
+		"iPad"
+	],
+	"id": "gkwiki",
+	"name": "高考百科",
+	"version": {
+		"name": "1.58",
+		"code": "1"
+	},
+	"description": "",
+	"icons": {
+		"72": "icon.png"
+	},
+	"fullscreen": false,
+	"launch_path": "main.html",
+	"developer": {
+		"email": "",
+		"name": "",
+		"url": ""
+	},
+	"permissions": {
+
+
+		"Device": {
+			"description": "访问设备信息"
+		},
+		"Events": {
+			"description": "应用扩展事件"
+		},
+		"File": {
+			"description": "访问本地文件系统"
+		},
+		"Gallery": {
+			"description": "访问系统相册"
+		},
+		"Storage": {
+			"description": "管理应用本地数据"
+		},
+		"Runtime": {
+			"description": "访问运行期环境"
+		},
+		"XMLHttpRequest": {
+			"description": "跨域网络访问"
+		},
+
+		"Zip": {
+			"description": "文件压缩与解压缩"
+		},
+		
+		"Webview": {
+			"description": "窗口管理"
+		},
+		"NativeUI": {
+			"description": "原生UI控件"
+		},
+		"Navigator": {
+			"description": "浏览器信息"
+		},
+
+
+		"Uploader": {},
+
+		"NativeObj": {},
+		"Invocation": {},
+		"UI": {},
+		"Downloader": {},
+		"Geolocation": {},
+		"Barcode": {},
+		"Maps": {},
+		"Statistic": {},
+		"Push": {},
+		"Payment": {},"Share":{}
+	},
+	"plus": {
+		"statusbar": {
+			"immersed": true
+		},
+		"popGesture": "close",
+		"splashscreen": {
+			"autoclose": true,
+			"waiting": false,
+			"delay": "3000"
+		},
+		"runmode": "liberate",
+		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",
+		"distribute": {
+			"plugins": {
+				"payment": {
+					"alipay": {
+						"description": "支付宝",
+						"scheme": ""
+					},
+					"weixin": {
+						"description": "微信支付",
+						"appid": "wxe5e172d9b76b5a09"
+					}
+				},
+				"push": {
+					"igexin": {
+						"appid": "FCJvR9ssPx6h4Yk2PP7pV1",
+						"appkey": "3EBTpwWVtI8wSbguKK2vV6",
+						"appsecret": "RgkZdOUkTx5KVRd2cZmJl6"
+					}
+				},
+				"share": {"weixin":{"appid":"wxe5e172d9b76b5a09","appsecret":"f381bc1177dc5da049eb2571914e1942","description":"可选，微信分享"}
+					
+				},
+				"statics": {
+					"umeng": {
+						"appkey_ios": "5ac7588d8f4a9d357f000282",
+						"channelid_ios": "App Store",
+						"appkey_android": "5ac757eda40fa3535f000024",
+						"channelid_android": "应用宝"
+					}
+				}
+			},
+			"debug": "",
+			"apple": {
+				"appid": "cn.gaokaobaike",
+				"mobileprovision": "gkwikiDistribution.mobileprovision",
+				"password": "gkwiki123",
+				"p12": "gkwikiDistribute.p12",
+				"devices": "iphone",
+				"frameworks": []
+			},
+			"google": {
+				"packagename": "cn.gaokaobaike",
+				"keystore": "sign.key",
+				"password": "gkwiki123",
+				"aliasname": "gkwiki",
+				"permissions": [
+					"<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+					"<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>",
+					"<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+					"<uses-permission android:name=\"android.permission.INTERNET\"/>",
+					"<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+					"<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+					"<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+					"<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+					"<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+					"<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+					"<uses-permission android:name=\"android.permission.SYSTEM_ALERT_WINDOW\"/>",
+					"<uses-feature android:name=\"android.hardware.camera\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+					"<uses-permission android:name=\"android.permission.RECEIVE_USER_PRESENT\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
+					"<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>",
+					"<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>",
+					"<uses-permission android:name=\"android.permission.CAMERA\"/>"
+				]
+			},
+			"orientation": [
+				"portrait-primary"
+			],
+			"icons": {
+				"ios": {
+					"prerendered": "",
+
+					"iphone": {
+						"normal": "unpackage/res/icons/57x57.png",
+						"retina": "unpackage/res/icons/114x114.png",
+
+						"spotlight-normal": "unpackage/res/icons/29x29.png",
+						"spotlight-retina": "unpackage/res/icons/58x58.png",
+
+						"settings-normal": "unpackage/res/icons/29x29.png",
+
+
+						"app@3x": "unpackage/res/icons/180x180.png",
+						"app@2x": "unpackage/res/icons/120x120.png",
+						"settings@2x": "unpackage/res/icons/58x58.png",
+						"settings@3x": "unpackage/res/icons/87x87.png",
+						"spotlight@2x": "unpackage/res/icons/80x80.png",
+						"spotlight@3x": "unpackage/res/icons/120x120.png",
+						"notification@2x": "unpackage/res/icons/40x40.png",
+						"notification@3x": "unpackage/res/icons/60x60.png"
+					},
+					"ipad": {
+						"normal": "unpackage/res/icons/72x72.png",
+						"retina": "unpackage/res/icons/144x144.png",
+
+
+						"spotlight-normal": "unpackage/res/icons/50x50.png",
+						"spotlight-retina": "unpackage/res/icons/100x100.png",
+
+
+
+						"app": "unpackage/res/icons/76x76.png",
+						"app@2x": "unpackage/res/icons/152x152.png",
+						"settings": "unpackage/res/icons/29x29.png",
+						"spotlight": "unpackage/res/icons/40x40.png",
+						"proapp@2x": "unpackage/res/icons/167x167.png",
+						"settings@2x": "unpackage/res/icons/58x58.png",
+						"spotlight@2x": "unpackage/res/icons/80x80.png",
+						"notification": "unpackage/res/icons/20x20.png",
+						"notification@2x": "unpackage/res/icons/40x40.png"
+					},
+					"appstore": "unpackage/res/icons/1024x1024.png"
+				},
+				"android": {
+					"mdpi": "unpackage/res/icons/48x48.png",
+					"ldpi": "unpackage/res/icons/48x48.png",
+					"hdpi": "unpackage/res/icons/72x72.png",
+					"xhdpi": "unpackage/res/icons/96x96.png",
+					"xxhdpi": "unpackage/res/icons/144x144.png",
+					"xxxhdpi": "unpackage/res/icons/192x192.png"
+				}
+			},
+			"splashscreen": {
+				"ios": {
+					"iphone": {
+						"default": "",
+						"retina35": "",
+						"retina40": ""
+					},
+					"ipad": {
+						"portrait": "",
+						"portrait-retina": "",
+						"landscape": "",
+						"landscape-retina": "",
+						"portrait7": "",
+						"portrait-retina7": "",
+						"landscape7": "",
+						"landscape-retina7": ""
+					}
+				},
+				"android": {
+					"mdpi": "",
+					"ldpi": "",
+					"hdpi": "/Volumes/space/MyProjects/gkwiki/code/app/resources/480x800.png",
+					"xhdpi": "/Volumes/space/MyProjects/gkwiki/code/app/resources/720x1280.png",
+					"xxhdpi": "/Volumes/space/MyProjects/gkwiki/code/app/resources/1080x1920.png"
+				}
+			}
+		},
+		"ads": {
+			"rp": false,
+			"splash": false,
+			"push": false
+		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/update.js",
+					"list.html"
+				],
+				"refer": [
+					"index-menu.html",
+					"examples/tab-webview-main.html"
+				],
+				"priority": 0
+			},
+			"examples/tab-webview-subpage-contact.html": {
+				"resources": [
+					"images/60x60.gif",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tab-webview-main.html": {
+				"resources": [
+					"examples/tab-webview-subpage-setting.html",
+					"examples/tab-webview-subpage-chat.html",
+					"examples/tab-webview-subpage-contact.html",
+					"examples/tab-webview-subpage-about.html",
+					"fonts/mui.ttf",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"list.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"examples/template.html",
+					"examples/tab-webview-main.html",
+					"examples/pullrefresh_main.html",
+					"examples/ajax.html",
+					"examples/accordion.html",
+					"examples/buttons.html",
+					"examples/guide.html",
+					"examples/badges.html",
+					"examples/actionsheet.html",
+					"examples/actionsheet-plus.html",
+					"examples/ad.html",
+					"examples/buttons-with-icons.html",
+					"examples/buttons-with-badges.html",
+					"examples/buttons-with-block.html",
+					"examples/checkbox.html",
+					"examples/clouddb_wilddog.html",
+					"examples/dtpicker.html",
+					"examples/date.html",
+					"examples/dialog.html",
+					"examples/slider-default.html",
+					"examples/slider-with-title.html",
+					"examples/slider-table-default.html",
+					"examples/slider-table-pagination.html",
+					"examples/grid-default.html",
+					"examples/grid-pagination.html",
+					"examples/icons.html",
+					"examples/input.html",
+					"examples/echarts.html",
+					"examples/imageviewer.html",
+					"examples/indexed-list.html",
+					"examples/indexed-list-select.html",
+					"examples/lazyload-image.html",
+					"examples/locker-dom.html",
+					"examples/login.html",
+					"examples/setting.html",
+					"examples/offcanvas-drag-right-plus-main.html",
+					"examples/offcanvas-drag-left-plus-main.html",
+					"examples/offcanvas-drag-right.html",
+					"examples/offcanvas-drag-left.html",
+					"examples/offcanvas-drag-down.html",
+					"examples/picker.html",
+					"examples/pagination.html",
+					"examples/popovers.html",
+					"examples/pullrefresh_with_tab.html",
+					"examples/radio.html",
+					"examples/range.html",
+					"examples/switches.html",
+					"examples/tabbar.html",
+					"examples/tabbar-with-submenus.html",
+					"examples/tab-with-viewpagerindicator.html",
+					"examples/tab-with-segmented-control.html",
+					"examples/tab-with-segmented-control-vertical.html",
+					"examples/typography.html",
+					"examples/im-chat.html",
+					"examples/info.html",
+					"examples/tableviews.html",
+					"examples/tableviews-with-badges.html",
+					"examples/list-with-input.html",
+					"examples/list-triplex-row.html",
+					"examples/tableviews-with-collapses.html",
+					"examples/tableviews-with-swipe.html",
+					"examples/media-list.html",
+					"examples/nav.html",
+					"examples/numbox.html"
+				],
+				"priority": 0
+			},
+			"examples/pullrefresh_main.html": {
+				"resources": [
+					"examples/pullrefresh_sub.html",
+					"fonts/mui.ttf",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/ajax.html": {
+				"resources": [
+					"css/app.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/accordion.html": {
+				"resources": [
+					"images/cbd.jpg",
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"images/shuijiao.jpg",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tab-webview-subpage-setting.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"index-menu.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"examples/offcanvas-drag-left.html"
+				],
+				"priority": 0
+			},
+			"examples/template.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tab-webview-subpage-about.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/guide.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/badges.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/actionsheet.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/actionsheet-plus.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/ad.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/ad.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/buttons.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/buttons-with-icons.html": {
+				"resources": [
+					"css/app.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/buttons-with-badges.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/buttons-with-block.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/checkbox.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tab-webview-subpage-chat.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/clouddb_wilddog.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/dtpicker.html": {
+				"resources": [
+					"js/mui.picker.min.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/mui.picker.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/date.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/dialog.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/slider-default.html": {
+				"resources": [
+					"images/cbd.jpg",
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"images/shuijiao.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/slider-with-title.html": {
+				"resources": [
+					"images/cbd.jpg",
+					"images/yuantiao.jpg",
+					"images/muwu.jpg",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"images/shuijiao.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/slider-table-default.html": {
+				"resources": [
+					"images/cbd.jpg",
+					"images/yuantiao.jpg",
+					"images/muwu.jpg",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/shuijiao.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/slider-table-pagination.html": {
+				"resources": [
+					"images/cbd.jpg",
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/shuijiao.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/grid-default.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/grid-pagination.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/icons.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/input.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/pullrefresh_sub.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/echarts.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"libs/echarts-all.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/imageviewer.html": {
+				"resources": [
+					"js/mui.zoom.js",
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/mui.previewimage.js",
+					"images/shuijiao.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/indexed-list.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/mui.indexedlist.css",
+					"js/mui.indexedlist.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/indexed-list-select.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/mui.indexedlist.css",
+					"js/mui.indexedlist.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/lazyload-image.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"images/60x60.gif",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/mui.lazyload.js",
+					"js/mui.lazyload.img.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/locker-dom.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/mui.locker.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/login.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"images/login-1.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/setting.html": {
+				"resources": [
+					"images/logo.png",
+					"libs/easymob-webim-sdk/easemob.im-1.0.5.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"libs/easymob-webim-sdk/json2.js",
+					"libs/easymob-webim-sdk/jquery-1.11.1.js",
+					"js/feedback.js",
+					"css/feedback-page.css",
+					"js/feedback-page.js",
+					"libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
+					"js/mui.view.js",
+					"images/iconfont-tianjia.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/offcanvas-drag-right-plus-main.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"examples/offcanvas-drag-right-plus-menu.html"
+				],
+				"priority": 0
+			},
+			"examples/offcanvas-drag-right-plus-menu.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/offcanvas-drag-left-plus-menu.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/offcanvas-drag-left-plus-main.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"examples/offcanvas-drag-left-plus-menu.html"
+				],
+				"priority": 0
+			},
+			"examples/offcanvas-drag-right.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/offcanvas-drag-left.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/offcanvas-drag-down.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/picker.html": {
+				"resources": [
+					"js/mui.picker.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"js/mui.poppicker.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/city.data.js",
+					"css/mui.poppicker.css",
+					"css/mui.picker.css",
+					"js/city.data-3.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/pagination.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/popovers.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/pullrefresh_with_tab.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/radio.html": {
+				"resources": [
+					"css/app.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/range.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/switches.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tabbar.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"images/60x60.gif",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tabbar-with-submenus.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tab-with-viewpagerindicator.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tab-with-segmented-control.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tab-with-segmented-control-vertical.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/typography.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/im-chat.html": {
+				"resources": [
+					"js/mui.imageViewer.js",
+					"images/logo.png",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/mui.imageviewer.css",
+					"js/arttmpl.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/info.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"images/qrcode.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/beecloud.html": {
+				"resources": [
+					"js/mui.min.js",
+					"js/beecloud.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tableviews.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tableviews-with-badges.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/list-with-input.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/list-triplex-row.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tableviews-with-collapses.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/tableviews-with-swipe.html": {
+				"resources": [
+					"css/app.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/media-list.html": {
+				"resources": [
+					"images/cbd.jpg",
+					"images/yuantiao.jpg",
+					"images/muwu.jpg",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/shuijiao.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/nav.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"examples/numbox.html": {
+				"resources": [
+					"css/app.css",
+					"css/mui.min.css",
+					"js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"login.html": {
+				"resources": [
+					"js/common.js",
+					"images/logo.png",
+					"js/mui.min.js",
+					"images/login_phone.png",
+					"images/login_password.png",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/mui.enterfocus.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"js/jquery.min.js",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png"
+				],
+				"refer": [
+					"main.html",
+					"forget.html",
+					"unlock.html",
+					"main1.html"
+				],
+				"priority": 0
+			},
+			"study/tab-webview-subpage-study.html": {
+				"resources": [
+					"images/test02.png",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/mui.min.js",
+					"images/2.jpg",
+					"images/video.png",
+					"images/exam.png",
+					"images/1.jpg",
+					"images/doc.png",
+					"images/gain.png",
+					"images/voice.png",
+					"images/3.jpg",
+					"images/4.jpg",
+					"fonts/mui.ttf",
+					"js/mui.enterfocus.js",
+					"js/jquery.min.js",
+					"js/jquery.jplayer.min.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png"
+				],
+				"refer": [
+					"study/voiceList.html",
+					"study/videoList.html",
+					"study/docList.html",
+					"study/videoSub.html",
+					"study/voiceSub.html",
+					"study/gain.html",
+					"study/docViewer.html",
+					"study/docSub.html",
+					"study/gainedList.html",
+					"study/examList.html"
+				],
+				"priority": 0
+			},
+			"main.html": {
+				"resources": [
+					"fonts/mui-icons-extra.ttf",
+					"news/tab-webview-subpage-news.html",
+					"css/icons-extra.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					null,
+					"js/mui.min.js",
+					"login.html",
+					"css/style.css",
+					"iconfont/iconfont.woff",
+					"iconfont/iconfont.css",
+					"js/jquery.min.js",
+					"fonts/mui.ttf",
+					"iconfont/iconfont.eot",
+					"iconfont/iconfont.ttf",
+					"iconfont/iconfont.svg",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png"
+				],
+				"refer": [
+					"study/tab-webview-subpage-study.html",
+					"mine/tab-webview-subpage-mine.html",
+					"manage/tab-webview-subpage-manage.html",
+					"forum/tab-webview-subpage-forum.html",
+					"study/tab-webview-subpage-study1.html",
+					"news/detail.html",
+					"video/tab-webview-subpage-video.html",
+					"school/tab-webview-subpage-school.html",
+					"live/tab-webview-subpage-live.html",
+					"match/tab-webview-subpage-match.html"
+				],
+				"priority": 0
+			},
+			"news/tab-webview-subpage-news.html": {
+				"resources": [
+					"images/2.jpg",
+					"images/speaker.png",
+					"fonts/mui.ttf",
+					"images/1.jpg",
+					"images/eye.png",
+					"css/mui.min.css",
+					"images/3.jpg",
+					"images/4.jpg",
+					"js/common.js",
+					"js/mui.min.js",
+					"js/mui.min.js",
+					"news/listItems.html",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/style.css",
+					null,
+					"js/jquery.min.js",
+					"js/jquery.marquee.js",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/searchW.png",
+					"images/myeye1.png"
+				],
+				"refer": [
+					"news/detail.html",
+					"news/detailMarquee.html",
+					"news/search.html",
+					"news/librarydetail.html",
+					"tools/barcode_scan2.html",
+					"search.html"
+				],
+				"priority": 0
+			},
+			"mine/tab-webview-subpage-mine.html": {
+				"resources": [
+					"js/app.js",
+					"mine/js/feedback.js",
+					"js/mui.locker.js",
+					"css/feedback-page.css",
+					"js/mui.view.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/common.js",
+					"js/mui.min.js",
+					null,
+					"fonts/mui.ttf",
+					"images/next_pre.png",
+					"images/my_settings.png",
+					"images/my_publish_message.png",
+					"images/my_collection.png",
+					"images/work.png",
+					"images/next_pro.png",
+					"images/activity.png",
+					"images/test.jpg",
+					"images/test02.png",
+					"images/my_reply_message.png",
+					"images/learn.png",
+					"js/mui.pullToRefresh.js",
+					"js/jquery.jplayer.min.js",
+					"js/jquery.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"images/mine.png",
+					"images/logo.png",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/yu.png",
+					"images/zanL.png"
+				],
+				"refer": [
+					"login.html",
+					"mine/myScore.html",
+					"mine/replayMessage.html",
+					"mine/publishMessage.html",
+					"mine/myCollection.html",
+					"mine/settings.html",
+					"mine/material.html",
+					"mine/bumenMine.html",
+					"mine/personList.html",
+					"mine/scoreRank.html",
+					"manage/noticeList.html",
+					"mine/scoreRankUser.html",
+					"mine/scoreRankBumen.html",
+					"mine/mycomment.html",
+					"mine/myMessage.html",
+					"mine/myfavor.html",
+					"mine/myzan.html",
+					"manage/Newnotice.html",
+					"mine/tab-with-publishMessage.html",
+					"search.html",
+					"myCompetition/myCompetition.html",
+					"myCompetition/hahaha.html",
+					"mine/message.html",
+					"mine/setting.html",
+					"match/match.html",
+					"video/myCourse.html",
+					"mine/login.html",
+					"mine/update.html"
+				],
+				"priority": 0
+			},
+			"forget.html": {
+				"resources": [
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/mui.enterfocus.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png"
+				],
+				"refer": [
+					"main.html"
+				],
+				"priority": 0
+			},
+			"news/listItems.html": {
+				"resources": [
+					"images/speaker.png",
+					"images/eye.png",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"news/detail.html"
+				],
+				"priority": 0
+			},
+			"news/detail.html": {
+				"resources": [
+					"css/mui.min.css",
+					"images/zan.png",
+					"images/share.png",
+					"images/messege.png",
+					"js/common.js",
+					"js/mui.min.js",
+					"js/jquery.min.js",
+					"images/collection.png",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"images/logo.png",
+					"images/messege1.png"
+				],
+				"refer": [
+					"news/comDetail.html",
+					"commentDetail.html",
+					"news/addComments.html",
+					"news/report.html",
+					"news/reply.html"
+				],
+				"priority": 0
+			},
+			"news/comDetail.html": {
+				"resources": [
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"study/voiceList.html": {
+				"resources": [
+					"js/common.js",
+					"js/mui.min.js",
+					"images/pause.png",
+					"css/mui.min.css",
+					"js/mui.enterfocus.js",
+					"js/jquery.min.js",
+					"images/start.png",
+					"js/jquery.jplayer.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/download2.png"
+				],
+				"refer": [
+					"study/voiceSub.html"
+				],
+				"priority": 0
+			},
+			"study/videoList.html": {
+				"resources": [
+					"js/jquery.jplayer.min.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/collection.png",
+					"images/share_video.png",
+					"images/video_start.png",
+					"images/collection_pre.png",
+					"images/pause_small.png",
+					null,
+					"images/fullscreen.png",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.css",
+					"fonts/mui.ttf",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/download.png",
+					"images/downloaded.png"
+				],
+				"refer": [
+					"study/videoSub.html"
+				],
+				"priority": 0
+			},
+			"study/docList.html": {
+				"resources": [
+					"css/mui.min.css",
+					"js/jquery.jplayer.min.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png"
+				],
+				"refer": [
+					"study/docViewer.html",
+					"study/docSub.html"
+				],
+				"priority": 0
+			},
+			"study/docViewer.html": {
+				"resources": [
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"study/voiceSub.html": {
+				"resources": [
+					"images/start_small.png",
+					"css/mui.min.css",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/jquery.jplayer.min.js",
+					"js/common.js",
+					"images/pause_small.png",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"iconfont/logo/iconfont.css",
+					"iconfont/logo/iconfont.woff",
+					"images/messege.png",
+					"fonts/mui.ttf",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/logo.png",
+					"images/messege1.png"
+				],
+				"refer": [
+					"commentDetail.html"
+				],
+				"priority": 0
+			},
+			"study/videoSub.html": {
+				"resources": [
+					"images/fullscreen.png",
+					"images/collection.png",
+					"images/pause_small.png",
+					"css/mui.min.css",
+					"images/video_start.png",
+					"images/zan.png",
+					"images/messege.png",
+					"js/jquery.jplayer.min.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"iconfont/logo/iconfont.css",
+					"iconfont/logo/iconfont.woff",
+					"fonts/mui.ttf",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/logo.png"
+				],
+				"refer": [
+					"commentDetail.html"
+				],
+				"priority": 0
+			},
+			"mine/myScore.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/mui.min.css",
+					"js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine/replayMessage.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/mui.min.css",
+					"js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine/publishMessage.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/mui.min.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.previewimage.css",
+					"iconfont/logo/iconfont.css",
+					"css/style.css",
+					"iconfont/logo/iconfont.woff",
+					"js/mui.zoom.js",
+					"images/message.png",
+					"js/mui.previewimage.js",
+					"images/zanL.png",
+					"images/yu.png"
+				],
+				"refer": [
+					"mine/publishMessages.html"
+				],
+				"priority": 0
+			},
+			"mine/myCollection.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/mui.min.css",
+					"js/mui.min.js",
+					"js/jquery.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine/settings.html": {
+				"resources": [
+					"js/common.js",
+					"js/mui.min.js",
+					"mine/js/feedback.js",
+					"css/mui.min.css",
+					"js/mui.locker.js",
+					"css/feedback-page.css",
+					"js/mui.view.js",
+					"images/iconfont-tianjia.png",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"js/jquery.min.js"
+				],
+				"refer": [
+					"mine/aboutUs.html",
+					"mine/password.html"
+				],
+				"priority": 0
+			},
+			"mine/aboutUs.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/mui.min.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/logo.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"commentDetail.html": {
+				"resources": [
+					"css/mui.min.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.js",
+					"js/jquery.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"images/user-photo.png",
+					"images/zan.png",
+					"iconfont/logo/iconfont.css",
+					"fonts/mui.ttf",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/logo.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"study/gain.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"images/add_gain.png",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine/material.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/mui.min.css",
+					"js/mui.min.js",
+					"images/test.jpg",
+					"js/common.js",
+					"js/jquery.min.js",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/logo.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"study/docSub.html": {
+				"resources": [
+					"images/office.jpeg",
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/mui.min.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png"
+				],
+				"refer": [
+					"study/docViewer.html"
+				],
+				"priority": 0
+			},
+			"manage/tab-webview-subpage-manage.html": {
+				"resources": [
+					"images/activities.png",
+					"images/blod_next_pre.png",
+					"images/voting.png",
+					"js/mui.locker.js",
+					"images/email.png",
+					"images/notice.png",
+					"js/mui.view.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/bumen.png",
+					"images/meetActi.png",
+					"js/jquery.min.js",
+					"iconfont/dangpay/iconfont.css",
+					"images/builderL.png",
+					"images/timinNotice.png",
+					"images/work.png",
+					"images/jianduCheck.png",
+					"images/team.png"
+				],
+				"refer": [
+					"manage/mailboxList.html",
+					"manage/noticeList.html",
+					"manage/activityList.html",
+					"manage/researchList.html",
+					"manage/Newnotice.html",
+					"manage/bumenList.html",
+					"manage/MeetNotice.html",
+					"manage/Party_pay.html",
+					"manage/trans/TransferofParty.html"
+				],
+				"priority": 0
+			},
+			"forum/tab-webview-subpage-forum.html": {
+				"resources": [
+					"iconfont/logo/iconfont.woff",
+					"images/test.jpg",
+					"images/messege.png",
+					"iconfont/logo/iconfont.css",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/logo.png",
+					"js/mui.zoom.js",
+					"css/mui.previewimage.css",
+					"js/mui.previewimage.js",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"images/message.png",
+					"images/video_start1.png"
+				],
+				"refer": [
+					"forum/groupSearh.html",
+					"forum/messagePublish.html",
+					"forum/groupMessage.html",
+					"forum/messageDetail.html",
+					"forum/publish.html"
+				],
+				"priority": 0
+			},
+			"forum/groupSearh.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/logo.png"
+				],
+				"refer": [
+					"forum/groupMore.html",
+					"forum/groupDetail.html"
+				],
+				"priority": 0
+			},
+			"forum/messagePublish.html": {
+				"resources": [
+					"images/icon_more.png",
+					"js/mui.min.js",
+					"images/add_picture.png",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/next_white.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"manage/mailboxList.html": {
+				"resources": [
+					"css/mui.min.css",
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png"
+				],
+				"refer": [
+					"manage/mailboxNew.html",
+					"manage/mailboxDetail.html"
+				],
+				"priority": 0
+			},
+			"manage/noticeDetail.html": {
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"css/mui.previewimage.css",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"images/logo.png"
+				],
+				"refer": [
+					"mine/userSelf.html"
+				],
+				"priority": 0
+			},
+			"manage/noticeList.html": {
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js"
+				],
+				"refer": [
+					"manage/noticeDetail.html"
+				],
+				"priority": 0
+			},
+			"manage/researchList.html": {
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine/bumenMine.html": {
+				"resources": [
+					"css/mui.min.css",
+					"iconfont/logo/iconfont.woff",
+					"images/messege.png",
+					"iconfont/logo/iconfont.css",
+					"fonts/mui.ttf",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"images/logo.png",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"css/mui.previewimage.css",
+					"images/message.png"
+				],
+				"refer": [
+					"forum/messageDetail.html",
+					"mine/userSelf.html",
+					"mine/branchShaft.html"
+				],
+				"priority": 0
+			},
+			"forum/groupMore.html": {
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"images/logo.png"
+				],
+				"refer": [
+					"forum/groupDetail.html"
+				],
+				"priority": 0
+			},
+			"forum/groupMessage.html": {
+				"resources": [
+					"css/mui.min.css",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.css",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"images/logo.png",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg"
+				],
+				"refer": [
+					"forum/messagePublish.html",
+					"forum/groupSearh.html",
+					"forum/messageDetail.html",
+					"forum/publish.html"
+				],
+				"priority": 0
+			},
+			"news/detailMarquee.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"iconfont/logo/iconfont.css",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine/personList.html": {
+				"resources": [
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/test.jpg",
+					"css/mui.indexedlist.css",
+					"js/mui.indexedlist.js",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/logo.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"forum/messageDetail.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/mui.min.css",
+					"iconfont/logo/iconfont.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/logo.png",
+					"iconfont/logo/iconfont.woff",
+					"images/messege.png",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"css/mui.previewimage.css",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"images/messege1.png"
+				],
+				"refer": [
+					"commentDetail.html",
+					"mine/userSelf.html"
+				],
+				"priority": 0
+			},
+			"manage/mailboxNew.html": {
+				"resources": [
+					"css/mui.min.css",
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"study/gainedPublish.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png"
+				],
+				"refer": [
+					"study/classify.html"
+				],
+				"priority": 0
+			},
+			"study/gainedList.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/mui.min.css",
+					"iconfont/logo/iconfont.css",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"images/logo.png",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"css/mui.previewimage.css",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"images/message.png"
+				],
+				"refer": [
+					"study/gainedPublish.html",
+					"study/gainedGroup.html",
+					"study/gainedDetail.html",
+					"study/gainedGroupList.html",
+					"study/publish.html"
+				],
+				"priority": 0
+			},
+			"forum/groupDetail.html": {
+				"href": "forum/groupDetail.html",
+				"resources": [
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"images/logo.png",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"iconfont/logo/iconfont.css",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"images/test.jpg"
+				],
+				"priority": 2
+			},
+			"mine/userSelf.html": {
+				"href": "mine/userSelf.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"iconfont/logo/iconfont.css",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"images/logo.png"
+				],
+				"refer": [
+					"forum/messageDetail.html"
+				],
+				"priority": 5
+			},
+			"mine/scoreDetailUser.html": {
+				"href": "mine/scoreDetailUser.html",
+				"resources": [
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/echarts.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"iconfont/logo/iconfont.css",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg"
+				],
+				"priority": 5,
+				"refer": []
+			},
+			"mine/scoreDetailBumen.html": {
+				"href": "mine/scoreDetailBumen.html",
+				"resources": [
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"images/logo.png",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"iconfont/logo/iconfont.css",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg"
+				],
+				"refer": [
+					"mine/scoreDetailUser.html"
+				],
+				"priority": 5
+			},
+			"mine/scoreRank.html": {
+				"href": "mine/scoreRank.html",
+				"resources": [
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"images/logo.png",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"iconfont/logo/iconfont.css",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg"
+				],
+				"refer": [
+					"mine/scoreDetailBumen.html",
+					"mine/scoreDetailUser.html"
+				],
+				"priority": 5
+			},
+			"mine/password.html": {
+				"href": "mine/password.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.enterfocus.js",
+					"js/common.js"
+				],
+				"priority": 7
+			},
+			"study/gainedDetail.html": {
+				"href": "study/gainedDetail.html",
+				"resources": [
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"images/logo.png",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"css/mui.previewimage.css",
+					"iconfont/logo/iconfont.css",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"images/messege1.png"
+				],
+				"refer": [
+					"commentDetail.html"
+				],
+				"priority": 11
+			},
+			"study/gainedGroup.html": {
+				"href": "study/gainedGroup.html",
+				"resources": [
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"images/logo.png",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"iconfont/logo/iconfont.css",
+					"iconfont/logo/iconfont.eot",
+					"iconfont/logo/iconfont.woff",
+					"iconfont/logo/iconfont.ttf",
+					"iconfont/logo/iconfont.svg",
+					"images/message.png"
+				],
+				"refer": [
+					"study/gainedPublish.html",
+					"study/gainedDetail.html"
+				],
+				"priority": 10
+			},
+			"study/gainedGroupList.html": {
+				"href": "study/gainedGroupList.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"images/logo.png"
+				],
+				"refer": [
+					"study/gainedGroup.html"
+				],
+				"priority": 13
+			},
+			"study/examList.html": {
+				"href": "study/examList.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js"
+				],
+				"priority": 11,
+				"refer": [
+					"formDetail.html"
+				]
+			},
+			"manage/mailboxDetail.html": {
+				"href": "manage/mailboxDetail.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"css/mui.previewimage.css",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"images/logo.png"
+				],
+				"priority": 6,
+				"refer": []
+			},
+			"manage/activityEnrollDetail.html": {
+				"href": "manage/activityEnrollDetail.html",
+				"resources": [
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"images/logo.png",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/test.jpg"
+				],
+				"priority": 8
+			},
+			"manage/activityDetail.html": {
+				"href": "manage/activityDetail.html",
+				"resources": [
+					"js/mui.min.js",
+					"js/jquery.min.js",
+					"js/common.js",
+					"images/logo.png",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png",
+					"images/category.png",
+					"images/location.png",
+					"images/time.png",
+					"images/next_next.png"
+				],
+				"refer": [
+					"manage/activityEnrollDetail.html"
+				],
+				"priority": 8
+			},
+			"manage/activityList.html": {
+				"href": "manage/activityList.html",
+				"resources": [
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/common.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/speaker.png",
+					"images/eye.png",
+					"images/share.png",
+					"images/messege.png",
+					"images/zan.png",
+					"images/video.png",
+					"images/voice.png",
+					"images/doc.png",
+					"images/exam.png",
+					"images/gain.png",
+					"images/add_gain.png",
+					"images/fullscreen.png",
+					"images/video_start.png",
+					"images/pause_small.png",
+					"images/collection.png",
+					"images/collection_pre.png",
+					"images/share_video.png",
+					"images/pause.png",
+					"images/start.png",
+					"images/start_small.png",
+					"images/mine.png",
+					"images/next_pre.png",
+					"images/next_pro.png",
+					"images/office.jpeg",
+					"images/blod_next_pre.png",
+					"images/add_picture.png",
+					"images/icon_more.png",
+					"images/next_white.png"
+				],
+				"refer": [
+					"manage/activityDetail.html"
+				],
+				"priority": 8
+			},
+			"unlock.html": {
+				"href": "unlock.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"js/mui.min.js",
+					"js/mui.locker.js"
+				],
+				"refer": [
+					"login.html",
+					"main.html"
+				],
+				"priority": 1
+			},
+			"mine/scoreRankUser.html": {
+				"resources": [
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"iconfont/logo/iconfont.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine/scoreRankBumen.html": {
+				"resources": [
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"iconfont/logo/iconfont.css",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/next_pre.png"
+				],
+				"refer": [
+					"mine/scoreDetailBumen.html"
+				],
+				"priority": 0
+			},
+			"mine/mycomment.html": {
+				"resources": [
+					"css/mui.min.css",
+					"iconfont/logo/iconfont.css",
+					"css/style.css",
+					"fonts/mui.ttf",
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"images/logo.png",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine/myMessage.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js"
+				],
+				"refer": [
+					"manage/commentNotice.html",
+					"manage/mailboxDetail.html",
+					"manage/AnnouncDetail.html"
+				],
+				"priority": 0
+			},
+			"manage/commentNotice.html": {
+				"resources": [
+					"css/mui.min.css",
+					"css/mui.previewimage.css",
+					"css/style.css",
+					"js/mui.zoom.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"images/blod_next_pre.png",
+					"js/mui.previewimage.js"
+				],
+				"refer": [
+					"manage/presentP.html"
+				],
+				"priority": 0
+			},
+			"news/search.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/gar.png",
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"images/myeye1.png",
+					"js/mui.pullToRefresh.material.js",
+					"js/jquery.marquee.js"
+				],
+				"refer": [
+					"news/detail.html",
+					"news/librarydetail.html",
+					"news/detailMarquee.html"
+				],
+				"priority": 0
+			},
+			"manage/Newnotice.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"images/place.png",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"images/ti.png",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [
+					"manage/AnnouncDetail.html",
+					"manage/commentNotice.html",
+					"manage/newNoticeList.html"
+				],
+				"priority": 0
+			},
+			"manage/AnnouncDetail.html": {
+				"resources": [
+					"js/mui.zoom.js",
+					"images/box_03.png",
+					"images/blod_next_pre.png",
+					"css/mui.previewimage.css",
+					"js/mui.previewimage.js",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/jquery.min.js",
+					"images/place.png",
+					"fonts/mui.ttf",
+					"images/ti.png",
+					"js/common.js",
+					"js/mui.min.js"
+				],
+				"refer": [
+					"manage/mettingP.html"
+				],
+				"priority": 0
+			},
+			"manage/mettingP.html": {
+				"resources": [
+					"images/logo.png",
+					"css/mui.previewimage.css",
+					"css/mui.min.css",
+					"js/mui.zoom.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"js/mui.previewimage.js",
+					"css/style.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"manage/presentP.html": {
+				"resources": [
+					"images/logo.png",
+					"css/mui.previewimage.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/mui.zoom.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"js/mui.previewimage.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"formDetail.html": {
+				"resources": [
+					"js/jquery.form.min.js",
+					"css/mui.min.css",
+					"js/jquery.jsonsubmit.js",
+					"iconfont/logo/iconfont.css",
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"css/style.css",
+					"images/setTime.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine/publishMessages.html": {
+				"resources": [
+					"css/mui.previewimage.css",
+					"css/mui.min.css",
+					"iconfont/logo/iconfont.css",
+					"css/style.css",
+					"js/mui.pullToRefresh.js",
+					"js/jquery.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"iconfont/logo/iconfont.woff",
+					"js/common.js",
+					"js/mui.zoom.js",
+					"js/mui.min.js",
+					"images/message.png",
+					"js/mui.previewimage.js"
+				],
+				"refer": [
+					"mine/publishMessage.html"
+				],
+				"priority": 0
+			},
+			"mine/myfavor.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"images/myeye1.png",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"iconfont/logo/iconfont.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"manage/bumenList.html": {
+				"resources": [
+					"images/next_pre.png",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"iconfont/logo/iconfont.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"manage/MeetNotice.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"images/place.png",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"images/ti.png",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [
+					"manage/MeetN.html"
+				],
+				"priority": 0
+			},
+			"mine/myzan.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"images/logo.png",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"iconfont/logo/iconfont.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"manage/Party_pay.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.previewimage.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/mui.zoom.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"js/mui.previewimage.js",
+					"js/laydate.js",
+					"css/laydate.css",
+					"css/font/iconfont.woff"
+				],
+				"refer": [
+					"manage/payCertificate.html"
+				],
+				"priority": 0
+			},
+			"manage/payCertificate.html": {
+				"resources": [
+					"css/mui.previewimage.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/mui.zoom.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"js/mui.previewimage.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"main1.html": {
+				"resources": [
+					"js/jquery.min.js",
+					"css/mui.min.css",
+					"css/style.css",
+					"iconfont/iconfont.woff",
+					"news/tab-webview-subpage-news.html",
+					"iconfont/iconfont.css"
+				],
+				"refer": [
+					"study/tab-webview-subpage-study1.html",
+					"manage/tab-webview-subpage-manage.html",
+					"forum/tab-webview-subpage-forum.html",
+					"mine/tab-webview-subpage-mine.html"
+				],
+				"priority": 0
+			},
+			"study/tab-webview-subpage-study1.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/jquery.jplayer.min.js",
+					"images/video.png",
+					"images/exam.png",
+					"js/mui.pullToRefresh.material.js",
+					"images/doc.png",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/gain.png",
+					"images/voice.png",
+					"images/newsSource.png",
+					"js/jquery.min.js",
+					"js/common.js",
+					"js/mui.min.js"
+				],
+				"refer": [
+					"study/examList.html",
+					"study/gainedList.html",
+					"study/videoList.html",
+					"study/classifyList.html"
+				],
+				"priority": 0
+			},
+			"manage/MeetN.html": {
+				"resources": [],
+				"refer": [
+					"manage/bumen-list-select.html",
+					"manage/person-List-select.html"
+				],
+				"priority": 0
+			},
+			"mine/tab-with-publishMessage.html": {
+				"resources": [],
+				"refer": [
+					"forum/groupMessage.html"
+				],
+				"priority": 0
+			},
+			"manage/newNoticeList.html": {
+				"resources": [],
+				"refer": [
+					"manage/mettingN.html"
+				],
+				"priority": 0
+			},
+			"manage/mettingN.html": {
+				"resources": [],
+				"refer": [
+					"manage/person-List-select.html"
+				],
+				"priority": 0
+			},
+			"news/librarydetail.html": {
+				"href": "news/librarydetail.html",
+				"priority": 0
+			},
+			"news/addComments.html": {
+				"href": "news/addComments.html",
+				"resources": [],
+				"refer": [
+					"news/detail.html"
+				],
+				"priority": 2
+			},
+			"news/report.html": {
+				"href": "news/report.html",
+				"resources": [],
+				"refer": [
+					"news/detail.html"
+				],
+				"priority": 3
+			},
+			"news/reply.html": {
+				"href": "news/reply.html",
+				"resources": [],
+				"refer": [
+					"news/detail.html"
+				],
+				"priority": 4
+			},
+			"school/tab-webview-subpage-school.html": {
+				"resources": [],
+				"refer": [
+					"school/detail.html"
+				],
+				"priority": 0
+			},
+			"myCompetition/myCompetition.html": {
+				"resources": [
+					"resources/css/myCompetition.css",
+					"resources/images/cctvLogo.png",
+					"resources/js/jquery.min.js",
+					"resources/css/mui.min.css",
+					"resources/js/mui.min.js",
+					"resources/js/common.js",
+					"resources/images/logo.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"video/tab-webview-subpage-video.html": {
+				"resources": [],
+				"refer": [
+					"video/detail.html"
+				],
+				"priority": 0
+			},
+			"video/detail.html": {
+				"resources": [],
+				"refer": [
+					"mine/login.html",
+					"video/payResourcePackage.html"
+				],
+				"priority": 0
+			},
+			"mine/login.html": {
+				"resources": [],
+				"refer": [
+					"video/detail.html"
+				],
+				"priority": 0
+			},
+			"video/myCourse.html": {
+				"resources": [],
+				"refer": [
+					"video/CourseDetail.html"
+				],
+				"priority": 0
+			},
+			"video/CourseDetail.html": {
+				"resources": [],
+				"refer": [
+					"video/detail.html"
+				],
+				"priority": 0
+			},
+			"video/payResourcePackage.html": {
+				"resources": [],
+				"refer": [
+					"video/CourseDetail.html",
+					"video/detail.html"
+				],
+				"priority": 0
+			},
+			"match/tab-webview-subpage-match.html": {
+				"resources": [
+					"resources/images/piece_gray.png",
+					"resources/images/piece_blue.png",
+					"resources/images/piece_green.png"
+				],
+				"refer": [
+					"match/enrollZone.html",
+					"common/docSub.html"
+				],
+				"priority": 0
+			},
+			"match/enrollZone.html": {
+				"resources": [],
+				"refer": [
+					"match/enrollMatch.html"
+				],
+				"priority": 0
+			},
+			"mine/setting.html": {
+				"resources": [],
+				"refer": [
+					"mine/passwordChange.html"
+				],
+				"priority": 0
+			},
+			"search.html": {
+				"resources": [],
+				"refer": [
+					"news/detail.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"resources/css/mui.poppicker.css",
+				"resources/js/jquery.jplayer.js",
+				"resources/js/mui.zoom.js",
+				"resources/fonts/iconfont.css",
+				"resources/js/mui.locker.js",
+				"resources/css/mui.picker.min.css",
+				"resources/fonts/iconfont.eot",
+				"resources/css/laydate.css",
+				"resources/fonts/mui.ttf",
+				"resources/js/laydate.js",
+				"resources/js/mui.view.js",
+				"resources/fonts/iconfont.svg",
+				"resources/css/style.css",
+				"resources/js/jquery.jsonsubmit.js",
+				"resources/js/mui.picker.min.js",
+				"resources/js/mui.previewimage.js",
+				"resources/fonts/iconfont.woff",
+				"resources/js/GpsConversion.js",
+				"resources/js/mui.pullToRefresh.js",
+				"resources/fonts/iconfont.ttf",
+				"resources/js/jquery.form.min.js",
+				"resources/js/jquery.jplayer.min.js",
+				"resources/css/mui.indexedlist.css",
+				"resources/js/mui.poppicker.js",
+				"resources/js/immersed.js",
+				"resources/js/mui.enterfocus.js",
+				"resources/js/jquery.marquee.js",
+				"resources/js/mui.pullToRefresh.material.js",
+				"resources/js/echarts.min.js",
+				"resources/js/mui.indexedlist.js",
+				"resources/css/mui.previewimage.css"
+			]
+		}
+	},
+	"unpackage": [
+		"images/my_activity.png",
+		"images/my_meeting.png",
+		"images/my_task.png",
+		"images/person.png",
+		"images/qihoo.png",
+		"images/qq.png",
+		"images/sinaweibo.png",
+		"images/star_pre.png",
+		"images/telephone.png",
+		"images/weixin.png",
+		"mine/gain.html",
+		"mine/mine.html",
+		"js/jquery.jplayer.js",
+		"README.md"
+	]
+}

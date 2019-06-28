@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="resources/css/mui.min.css">
+		<link rel="stylesheet" href="resources/fonts/iconfont.css">
+		<link rel="stylesheet" href="resources/css/style.css">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" data-id="0" href="news/tab-webview-subpage-news.html">
+				<span class="icon iconfont icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" data-id="1" href="video/tab-webview-subpage-video.html">
+				<span class="icon iconfont icon-shipin"><!--<span class="mui-badge" style="margin-left: -5px;">9</span>--></span>
+				<span class="mui-tab-label">视频</span>
+			</a>
+			<!--<a class="mui-tab-item" data-id="2" href="live/tab-webview-subpage-live.html">
+				<span class="icon iconfont icon-zhibo"></span>
+				<span class="mui-tab-label">直播</span>
+			</a>-->
+			<a class="mui-tab-item" data-id="2" href="match/tab-webview-subpage-match.html">
+				<span class="icon iconfont icon-wodebisai"></span>
+				<span class="mui-tab-label">竞赛</span>
+			</a>
+			<a class="mui-tab-item" data-id="3" href="school/tab-webview-subpage-school.html">
+				<span class="icon iconfont icon-zexiao"></span>
+				<span class="mui-tab-label">择校</span>
+			</a>
+			<a class="mui-tab-item" data-id="4" href="mine/tab-webview-subpage-mine.html">
+				<span class="icon iconfont icon-wode"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
+		</nav>
+		<script src="resources/js/mui.min.js"></script>
+		<script src="resources/js/jquery.min.js"></script>
+		<script src="resources/js/common.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			var isActive = true,
+				resuming = false;
+			myFunc(function() {
+				var bottompx = '49px';
+				if(mui.os.ios && plus.display.resolutionHeight > 750) { //iphoneX 768、iphone8 plus 716
+					$(".mui-bar-tab").css("padding-bottom", '16px');
+					bottompx = '62px';
+				}
+				// 检查是否有新的安装包
+				checkWgt();
+				// 监听点击消息事件
+				plus.push.addEventListener("click", function(msg) {
+					openPushMsg(msg);
+				}, false);
+				// 监听在线消息事件
+				plus.push.addEventListener("receive", function(msg) {
+					if(mui.os.ios && isActive) {
+						createLocalMessage(msg);
+						return;
+					}
+					openPushMsg(msg);
+				}, false);
+				document.addEventListener("pause", onAppPause, false);
+
+				function onAppPause() {
+					isActive = false;
+				}
+				// app每次激活时调用
+				document.addEventListener("resume", onAppReume, false);
+
+				function onAppReume() {
+					isActive = true;
+					plus.runtime.setBadgeNumber(0);
+					// 初始化时更新未读消息数量
+					messageCounts();
+					if(!resuming)
+						resuming = true;
+					else
+						return;
+					checkWgt();
+					// 上次请求失败的缓存请求，重新提交服务器
+					var af = osg.get(cacheKeys.ajaxForce);
+					if(af) {
+						af = JSON.parse(af);
+						for(var i = 0; i < af.length; i++) {
+							var afd = af[i];
+							osg.ajax(afd.url, afd.data, null, {
+								forceid: afd.forceid,
+								noload: true
+							});
+						}
+					}
+					osg.set(cacheKeys.ajaxForce, null);
+				}
+
+				//mui初始化
+				mui.init({
+					swipeBack: false //禁用右滑关闭功能
+				});
+				// 根据分辨率计算tabbar像素高度
+				//				var x = parseInt(46 / 320 * plus.screen.resolutionWidth);
+				//				if(x > 50) x = x - 1;
+				var subpage_style = {
+					top: '0px',
+					bottom: bottompx,
+					popGesture: 'none' // 禁用侧滑返回
+				};
+
+				var subpages = ['news/tab-webview-subpage-news.html', 'video/tab-webview-subpage-video.html', 'match/tab-webview-subpage-match.html', 'school/tab-webview-subpage-school.html', 'mine/tab-webview-subpage-mine.html'];
+				var user = osg.currentUser();
+				//创建子页面，首个选项卡页面显示，其它均隐藏；
+				var self = plus.webview.currentWebview();
+				for(var i = 0; i < subpages.length; i++) {
+					var temp = {};
+					var sub = osg.createWebview(subpages[i], subpages[i], subpage_style);
+					if(i > 0) {
+						sub.hide();
+					} else {
+						temp[subpages[i]] = "true";
+						mui.extend(aniShow, temp);
+					}
+					self.append(sub);
+				}
+
+				var aniShow = {};
+
+				//当前激活选项
+				var activeTab = subpages[0];
+				//选项卡点击事件
+				mui('.mui-bar-tab').on('tap', 'a', function(e) {
+					var targetTab = this.getAttribute('href');
+					if(targetTab == activeTab) {
+						return;
+					}
+					//显示目标选项卡
+					//若为iOS平台或非首次显示，则直接显示
+					if(mui.os.ios || aniShow[targetTab]) {
+						plus.webview.show(targetTab);
+					} else {
+						//否则，使用fade-in动画，且保存变量
+						var temp = {};
+						temp[targetTab] = "true";
+						mui.extend(aniShow, temp);
+						plus.webview.show(targetTab, "fade-in", 300);
+					}
+					//隐藏当前;
+					plus.webview.hide(activeTab);
+					//更改当前活跃的选项卡
+					activeTab = targetTab;
+				});
+
+				// android返回按钮事件，两次点击退出app
+				var backButtonPress = 0;
+				mui.back = function(event) {
+					if(plus.webview.getTopWebview() != plus.webview.currentWebview()) {
+						plus.webview.getTopWebview().close();
+						return;
+					}
+
+					backButtonPress++;
+					if(backButtonPress > 1) {
+						plus.runtime.quit();
+					} else {
+						osg.toast('再按一次退出应用');
+					}
+					setTimeout(function() {
+						backButtonPress = 0;
+					}, 1000);
+					return false;
+				};
+			});
+
+			function checkWgt() {
+				// 检查是否有新的wgt资源包
+				plus.runtime.getProperty(plus.runtime.appid, function(wgtinfo) {
+					osg.ajax('user/appResume', {
+						cv: wgtinfo.version
+					}, function(data) {
+						if(data) {
+							// 目前苹果商店上架不需要隐藏直播了
+							// 应用市场发布审核时，隐藏直播相关菜单
+							if((mui.os.android && data.isPublishAndroid == 1) || (mui.os.ios && data.isPublishIos == 1)) {
+								osg.settingSet('isPublish', 1);
+								//$("[data-id=2]").hide();
+							} else {
+								osg.settingSet('isPublish', 0);
+								//$("[data-id=2]").show();
+							}
+
+							if(data.fileidUrl) { // 有升级包
+								var fileid = data.fileid,
+									url = data.fileidUrl,
+									st = osg.networkState();
+								if(st == 'wifi') {
+									downloadWgt(fileid, url);
+								} else if(st == '4g' || st == '3g' || st == '2g') {
+									osg.confirm("有新的升级包，目前网络是" + st + "，是否现在下载？", function() {
+										downloadWgt(fileid, url);
+									}, function() {
+										resuming = false;
+									});
+								} else
+									resuming = false;
+							} else
+								resuming = false;
+						} else
+							resuming = false;
+					}, {
+						noload: true
+					});
+				});
+			}
+
+			function downloadWgt(fileid, url) {
+				osg.download(url, function(fn) {
+					plus.io.resolveLocalFileSystemURL(fn, function(file) {
+						plus.io.resolveLocalFileSystemURL('_downloads', function(dir) {
+							file.moveTo(dir, fileid);
+							var ul = '_downloads/' + fileid;
+							//ul = plus.io.convertLocalFileSystemURL(ul);
+							//alert(ul);
+							plus.runtime.install(ul, {
+								force: true
+							}, function() {
+								//更新完成，重启应用
+								osg.confirm("升级包下载完成，是否立即重启？", function() {
+									setTimeout(function() {
+										plus.runtime.restart();
+									}, 1000);
+
+								}, function() {
+									resuming = false;
+								});
+							}, function(e) {
+								resuming = false;
+								alert("更新失败(" + e.code + "): " + e.message);
+							});
+						});
+					});
+
+				}, true);
+			}
+
+			function createLocalMessage(pushMsg) {
+				if(!pushMsg)
+					return;
+				var msg;
+				if(mui.os.ios) {
+					if(pushMsg.aps)
+						msg = JSON.parse(pushMsg.payload.content);
+					else if(typeof pushMsg.payload == 'string')
+						msg = JSON.parse(pushMsg.payload);
+					else
+						msg = pushMsg.payload;
+				} else
+					msg = JSON.parse(pushMsg.payload);
+				if(msg.localMsg)
+					return;
+				var options = {
+					cover: false,
+					title: pushMsg.title
+				};
+				msg.localMsg = true;
+				if(mui.os.ios) // ios不支持title标题，则直接拼在内容中
+					msg.text = pushMsg.title + ":" + msg.text;
+				plus.push.createMessage(msg.text, JSON.stringify(msg), options);
+			}
+
+			function openPushMsg(pushMsg) {
+				if(!pushMsg)
+					return;
+				var msg;
+				if(mui.os.ios) {
+					if(pushMsg.aps)
+						msg = JSON.parse(pushMsg.payload.content);
+					else if(typeof pushMsg.payload == 'string')
+						msg = JSON.parse(pushMsg.payload);
+					else
+						msg = pushMsg.payload;
+				} else
+					msg = JSON.parse(pushMsg.payload);
+				var type = msg.type,
+					id = msg.typeId,
+					msgId = msg.msgId;
+				if(type == 0) { // 新闻
+					osg.open('news/detail.html', {
+						'newsId': id
+					});
+				} else if(1 == type) { // 视频
+					osg.open('video/detail.html', {
+						'videoId': id
+					}, {
+						hide: function() {
+							// 设置应用非全屏显示！
+							plus.navigator.setFullscreen(false);
+						}
+					});
+				} else if(2 == type) { // 直播
+					osg.open('live/detail.html', {
+						'liveId': id
+					}, {
+						hide: function() {
+							// 设置应用非全屏显示！
+							plus.navigator.setFullscreen(false);
+						}
+					});
+				}
+				// 更新未读消息数量
+				messageCounts(msgId);
+			}
+
+			function messageCounts(msgId) {
+				osg.ajax('message/counts', {
+					msgId: msgId
+				}, function(data) {
+					osg.set('messageCounts', data + '');
+					osg.evtFireEvent('messageCounts');
+				}, {
+					noload: true
+				});
+			}
+		</script>
+	</body>
+
+</html>

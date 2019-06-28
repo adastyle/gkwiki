@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.us_logo {
+				height: 11.77rem;
+				text-align: center;
+			}
+			
+			.us_logo>img {
+				margin-top: 3.705rem;
+				width: 4.36rem;
+				height: 4.36rem;
+				border-radius: 0.8rem;
+			}
+			
+			.profile {
+				padding: 0 0.59rem;
+			}
+			
+			.version {
+				height: 10.59rem;
+				/*line-height: 10.59rem;*/
+				margin-top: 5rem;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">关于</h1>
+		</header>
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="mui-content">
+					<div class="us_logo">
+						<img src="../resources/images/logo.png" />
+					</div>
+					<div class="profile font-c9" style="text-align: center;">
+						<span>北京黉门优途教育科技有限公司</span>
+					</div>
+					<div class="tel font-c9" style="text-align: center;margin-top:4px;">
+						<span>联系电话: <font color="blue">010-84097195</font></span>
+					</div>
+					<div class="version font-c9">
+						<span id="version"></span><br>
+						<span style="font-size: 1rem;" id="version2"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+
+		<script type="text/javascript">
+			myFunc(function() {
+				$("#version").text("主版本:" + plus.runtime.version);
+				plus.runtime.getProperty(plus.runtime.appid, function(wgtinfo) {
+					$("#version2").text("小版本:" + wgtinfo.version);
+				});
+
+				$(".tel").tap(function() {
+					plus.device.dial('01084097195', true);
+				});
+			});
+		</script>
+	</body>
+
+</html>

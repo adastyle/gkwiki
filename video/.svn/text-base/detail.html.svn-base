@@ -1,0 +1,695 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<link href="../resources/fonts/xyIconfonts/iconfont.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-bar {
+				background: #fff0;
+				-webkit-box-shadow: 0 0 0px #d6d6d6;
+			}
+			
+			.mui-bar-nav {
+				color: #fff;
+				background: transparent;
+			}
+			
+			.mui-bar~.mui-scroll-wrapper {
+				margin-top: 0;
+			}
+			
+			.video_detail {
+				width: 100%;
+				background-color: #fff;
+			}
+			
+			.video_detail .div_img {
+				background-color: #000;
+				position: relative;
+			}
+			
+			.video_detail .cover {
+				width: 100%;
+			}
+			
+			.video_detail .title {
+				border-top: 0.5px solid #e6e6e6;
+				font-size: 1.0625rem;
+				padding: 10px 18px;
+				line-height: 1.6rem;
+				color: #282628;
+			}
+			
+			.video_detail .div_avatar {
+				left: 14px;
+				border: 1px solid #fff;
+				border-radius: 19px;
+			}
+			
+			.video_detail .div_avatar>.avatar {
+				width: 26px;
+				height: 26px;
+				border-radius: 13px;
+				margin-top: 2px;
+			}
+			
+			.video_detail .time {
+				padding: 2px 12px;
+				background-color: #00000070;
+				border-radius: 9.375rem;
+				position: absolute;
+				right: 14px;
+				bottom: 14px;
+				font-size: 0.813rem;
+				color: #fff;
+				line-height: 1.4rem;
+				text-align: center;
+			}
+			
+			.div_bar {
+				line-height: 34px;
+				padding-left: 18px;
+			}
+			
+			.div_bar .school {
+				color: #312825;
+				font-size: 14px;
+			}
+			
+			.div_bar .bar_right {
+				float: right;
+				color: #666;
+				font-size: 1rem;
+			}
+			
+			.div_bar .comments>.comment_count {
+				margin-left: 4px;
+				margin-top: -1px;
+			}
+			
+			.div_bar .gengduo {
+				margin-left: 10px;
+				width: 52px;
+				text-align: center;
+			}
+			
+			.div_bar .gengduo i {
+				font-weight: bold;
+			}
+			
+			.news_item {
+				padding: 0;
+			}
+			
+			.news_item>div {
+				padding: 0.5rem 0rem;
+			}
+			/*评论表情大小*/
+			
+			.emoji-img {
+				width: 6vw;
+			}
+			
+			.mui-scroll-wrapper {
+				margin-bottom: 48px;
+			}
+			/*收藏颜色*/
+			
+			.shoucang_xin {
+				color: #D0021B;
+			}
+			/*评论点赞颜色*/
+			
+			.icon-dianzan_dianji {
+				color: #008FD3;
+			}
+			
+			.comment_submit {
+				position: absolute;
+				background-color: transparent !important;
+				right: 0;
+				bottom: 0.45rem;
+				border: none;
+				color: #4A90E2;
+			}
+			/*字幕样式*/
+			
+			.srtDiv {
+				z-index: 1;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				font-size: 1.125rem;
+				color: #fdfeff;
+				text-align: center;
+				margin-bottom: 2rem;
+			}
+			/*目录相关*/
+			.menus{
+				background:#fff;
+				min-height:5rem;
+				margin-top:.5rem;
+			}
+			.courseMenuTitle{
+				height:3rem;
+				width:93%;
+				margin:.2rem .7rem;
+				border-bottom:1px solid #F0F0F0;
+				padding-top:1rem;
+				padding-left:.3rem;
+				position:relative;
+			}
+			.courseMenuTitle>span{
+				vertical-align: middle;
+			}
+			.courseMenuTitle>span.line{
+				display:inline-block;
+				width:.3rem;
+				height:1rem;
+				margin-right:.1rem;
+				background:#008fd3;
+				border-radius:6px;
+			}
+			.courseMenuTitle .moreMenu{
+				position:absolute;
+				bottom:.5rem;
+				right:.2rem;
+				color:#008fd3;
+				font-size:.8rem;
+			}
+			.menuShow{
+				list-style: none;
+				background: #fff;
+				margin:0;
+				padding:0;
+				padding-bottom:1rem;
+			}
+			.menuShow>li{
+				padding-left:.4rem;
+				position: relative;
+				font-size:.8rem;
+			}
+			.menuShow>li>.splitLine{
+				display:inline-block;
+				height:2.8rem;
+				width:.8rem;
+				position: relative;
+			}
+			.menuShow>li>.splitLine>div{
+				width:1px;
+				height:2rem;
+				background:#F0F0F0;
+				margin-bottom:0;
+				position: absolute;
+				top:0;
+				left:50%;
+				transform: translateX(-50%);
+			}
+			.menuShow>li>.splitLine>img{
+				width:.8rem;
+				height:.8rem;
+				position: absolute;
+				bottom:0;
+				left:0;
+				
+			}
+			.menuColm{
+				position: absolute;
+				width:90%;
+				left:1.5rem;
+				bottom:-.25rem;
+				display: inline-block;
+			}
+			.menuColm .times{
+				position:absolute;
+				bottom:.1rem;
+				right:0;
+				display:inline-block;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+		</header>
+		<div class="mui-scroll-wrapper" top="true">
+			<div class="mui-scroll coment_scroll">
+				<div class="video_detail">
+					<div class="div_img">
+						<div id="player_1" class="btnPlay"></div>
+						<div class="srtDiv"></div>
+					</div>
+					<div class="div_bar">
+						<div class="div_avatar inline"><img class="avatar" src="../resources/images/school.png" /></div>
+						<div class="school inline"></div>
+						<div class="bar_right inline">
+							<div class="comments inline">
+								<i class="icon iconfont icon-xiaoxi1"></i>
+								<div class="comment_count inline"></div>
+							</div>
+							<!--<div class="gengduo inline"><i class="icon iconfont icon-gengduo"></i></div>-->
+							<div class="gengduo inline">
+								<div class="like num inline">
+									<i class="iconfont icon-dianzan1 shoucang_xin"></i>
+									<span class="favorTimes"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="title">
+					</div>
+					<div class="content">
+					</div>
+				</div>
+				<!--目录-->
+				<div class="menus" style="display:none;">
+					<!--标题-->
+					<div class="courseMenuTitle">
+						<span class="line"></span>
+						<span class="resourcesName"></span>
+						<span class="moreMenu"></span>
+					</div>
+					<!--目录详情-->
+					<ul class="menuShow">
+						<li class="packMenu" data-videoId="" data-resourcesPackId="">
+							<div class="splitLine">
+								<div></div>
+								<img src="../resources/images/aleadyPlay.jpg" alt="" />
+							</div>
+							<div class="menuColm">
+								<span class="menuTitle">101讲 为什么国学</span>
+								<div class="times">
+									<span class="isCurrPlay" style="color:#008FD3;display:none;margin-right:.3rem;font-size:.7rem;">播放中</span>
+									<i class="icon iconfont icon-bofang"></i>
+									<span class="second"></span>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				
+				
+				<div class="div_related" style="margin-top: 0.5rem;">
+					<div style="position: relative;">
+						<div class="detail_head_line"></div>
+						<div class="detail_head_title xiangguan">
+							<div>相关推荐</div>
+						</div>
+					</div>
+					<ul id="news_list" style="margin-top: 0.8rem;">
+						<li class="news_item news_img1 debug">
+							<div>
+								<div class="left">
+									<div class="title more2">
+										2018年高考艺考开幕 济南六千考生同场竞技2018年高考艺考开幕 济南六千考生同场竞技
+									</div>
+									<div class="subtitle">
+										<span class="author">高考百科</span>
+										<span class="time m-l-4">2018-08-22</span>
+									</div>
+								</div>
+								<img src="../resources/images/dummy_news_image.png" />
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="div_coments">
+					<div style="position: relative;">
+						<div class="detail_head_line"></div>
+						<div class="detail_head_title">
+							<div>热门跟帖</div>
+						</div>
+					</div>
+					<ul id="comment_list" style="margin-top: 1.6rem;">
+						<li class="comment_item debug">
+							<div>
+								<img class="comment_avatar" src="../resources/images/avatar.png" />
+								<div class="inline">
+									<div>
+										<span class="comment_name">汉翔书法</span>
+										<div class="comment_zan inline">
+											<i id="comment_zan_zan" class="iconfont icon-dianzan"></i>&nbsp;<span id="comment_dianzan">6</span>
+										</div>
+									</div>
+									<div class="comment_content">传承千古智慧</div>
+									<div class="comment_btn_bar">
+										<span id="comment_time" class="time">15小时前</span>
+										<div class="comment_reply inline">
+											<i class="iconfont icon-pinglun"></i>&nbsp;回复
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="comment_div">
+			<div class="comment_input inline"><i class="icon iconfont icon-fabiao"></i><input id="comment_content" type="text" placeholder="写评论..." /></div>
+			<div class="comment_right inline"><i class="icon iconfont icon-xiaoxi1"></i>
+				<div class="inline comment_commentTimes">0</div>
+				<button type="button" class="comment_submit inline" style="display: none;">发布</button>
+			</div>
+		</div>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.jplayer.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			var comentObj,
+				typeId,
+				commentFpi,
+				type = 1,
+				resourcePackId="";
+
+			function refresh() {
+				location.reload();
+			}
+			var ctime = 0;
+			var cdata, listItemObj = $(".comment_con"),
+				commentList = $(".comment_container"),
+				flag = 0,
+				pid = null,
+				page = 0,
+				pages = 1,
+				total = 0;
+			var srtArray, curSrt, srtIdx = 0,
+				curTime = 0; // 字幕相关变量
+			mui.init();
+			myFunc(function() {
+				if(mui.os.ios) { // ios系统静音，视频播放时依然出声音
+					var AVAudioSession = plus.ios.importClass("AVAudioSession");
+					var avSession = AVAudioSession.sharedInstance();
+					plus.ios.invoke(avSession, "setCategory:error:", "AVAudioSessionCategoryPlayback", "nil");
+				}
+
+				// 先禁用全屏显示，会导致窗口抖动
+				// 设置应用全屏显示（隐藏顶部状态条）
+				//				if(mui.os.ios) // ios全屏显示，android系统会导致输入法弹出遮挡评论框底部
+				//					plus.navigator.setFullscreen(true);
+				// 默认图片占位区高度
+				$(".div_img").css('height', 210 / 376 * plus.screen.resolutionWidth + 'px');
+
+				var sData = plus.webview.currentWebview();
+				var videoId = osg.param("videoId");
+				getDetail(videoId);
+				
+				
+				var videoId = osg.param("videoId");
+				typeId = videoId;
+				var news_list = $('#news_list');
+				osg.ajax('video/findByCategoryId', {
+					'id': videoId
+				}, function(data) {
+					var videos = data.data;
+					if(videos == null || videos.length <= 0) {
+						$('.xiangguan').remove();
+					}
+					for(var i = 0; i < videos.length; i++) {
+						var oneData = videos[i];
+						news_list.append(getItem(oneData));
+					}
+				}, {
+					noload: true
+				});
+
+				// ios隐藏全屏按钮
+				if(mui.os.ios)
+					$(".btnFullscreen").hide();
+				//收藏
+				var user = osg.currentUser();
+				$(".gengduo").tap(function() {
+					if(osg.isLogined()) {
+						if(cdata.favored) {
+							osg.ajax('favor/deleFavor', {
+								'type': type,
+								'typeId': typeId
+							}, function(data) {
+								cdata.favored = false;
+								$(".favorTimes").text(data);
+								osg.toast("取消收藏成功！");
+								$(".shoucang_xin").attr("class", "iconfont icon-dianzan1 shoucang_xin");
+							}, {
+								noload: true
+							});
+						} else {
+							osg.ajax('favor/addFavor', {
+								'type': type,
+								'typeId': typeId
+							}, function(data) {
+								cdata.favored = true;
+								$(".favorTimes").text(data);
+								osg.toast("已添加至收藏！");
+								$(".shoucang_xin").attr("class", "iconfont icon-dianzandianjihou shoucang_xin");
+							}, {
+								noload: true
+							});
+						}
+					} else {
+						osg.confirm("请登录！", function() {
+							osg.open('../mine/login.html');
+						});
+					}
+				});
+
+			});
+
+			function getDetail(videoId) {
+				osg.ajax('video/findById', {
+					'deviceid': plus.device.uuid,
+					'id': videoId
+				}, function(data) {
+					resourcePackId =data.resourceIds[0];
+					if(data.resourcePay == 0 && data.payed.toString() == "false") {
+						osg.alert('该视频是付费资源，请先购买资源包！',function(){
+							/*如果没登录直接跳转到登录，如果已经登录则跳转到支付页*/
+							if(!osg.isLogined()){
+								osg.toast('请先登录！');
+								localStorage.setItem("sourcesPg","1");
+								osg.open('../mine/login.html', {'videoId':videoId}, null, {
+									im: 1
+								})
+							}else{
+								osg.open('payResourcePackage.html', {'videoId':videoId}, null, {
+									im: 1
+								});
+							}
+						});
+						return;
+					}
+					cdata = data;
+					var videoItem = $(".video_detail"),
+						cover;
+					if(data.favored) {
+						$(".shoucang_xin").attr("class", "iconfont icon-dianzandianjihou shoucang_xin");
+					}
+					if(data.logo)
+						cover = qiniuRoot + data.logo + "!app.cover";
+					else
+						cover = data.appCoverUrl;
+
+					videoItem.find('.title').text(data.title);
+					videoItem.find('.favorTimes').text(data.favorTimes);
+					if(data.teacherAvatar)
+						videoItem.find('.avatar').attr('src', qiniuRoot + data.teacherAvatar);
+					else
+						videoItem.find('.avatar').hide();
+					videoItem.find('.time').text(data.strDuration);
+					videoItem.find('.school').text(data.createSchoolName);
+					videoItem.find('.comment_count').text(data.commentTimes);
+					$('.comment_commentTimes').text(data.commentTimes);
+
+					$('.btnPlay').attr('video', data.fileidUrl);
+					$('.btnPlay').attr('videoCover', cover);
+					$('.btnPlay').data('data', data);
+					if(data.srtFileid) {
+						// 加载字幕文件
+						osg.ajax('video/srt/' + data._id, null, function(data) {
+							srtArray = data;
+						});
+					}
+					setBtnPlay($('.btnPlay')[0]);
+					var maxw = plus.screen.resolutionWidth - 20;
+					$("#content img").each(function() {
+						$(this).css('max-width', maxw);
+					});
+					
+					
+					/*加载当前资源包的目录*/
+				var menuLi=$(".packMenu").clone();
+				$(".packMenu").hide();
+				if(resourcePackId){
+					osg.ajax('/resourcePack/resourcePackDetail.do',{"resourcePackId":resourcePackId},function(data){
+					var packs=data.data;
+						$(".menus").show();
+					$(".moreMenu").html("更多>>");
+					$(".resourcesName").html(packs.name);
+					$(".packMenu").attr("data-resourcesPackId",resourcePackId);
+					var packMenu=packs.videos["allVideo"];
+					var num=0,currNum=0;
+					
+					for(var i=0;i<packMenu.length;i++){
+						if(packMenu[i]._id==videoId){
+							var currMenu=menuLi.clone();
+							var isViewd=packMenu[i].isViewd;
+							if(isViewd)
+								currMenu.find(".splitLine>img").attr("src","../resources/images/aleadyPlay.png")
+							else
+								currMenu.find(".splitLine>img").attr("src","../resources/images/noPlay.png")
+							
+							currMenu.find(".menuTitle").html(packMenu[i].title);
+							currMenu.find(".menuTitle").css("color","#008FD3")
+							currMenu.find(".isCurrPlay").show();
+							currMenu.find(".second").html(packMenu[i].strDuration);
+							currMenu.attr("data-videoId",packMenu[i]._id);
+							$(".menuShow").append(currMenu);
+							num++;
+							currNum=i;
+						}
+						if(i>currNum && num>=1){
+							if(num<5){
+								var currMenu=menuLi.clone();
+								var isViewd=packMenu[i].isViewd;
+								if(isViewd)
+									currMenu.find(".splitLine>img").attr("src","../resources/images/aleadyPlay.png")
+								else
+									currMenu.find(".splitLine>img").attr("src","../resources/images/noPlay.png")
+								currMenu.find(".menuTitle").html(packMenu[i].title);
+								currMenu.find(".isCurrPlay").hide();
+								currMenu.find(".second").html(packMenu[i].strDuration);
+								currMenu.attr("data-videoId",packMenu[i]._id);
+								$(".menuShow").append(currMenu);
+								num++;
+								currNum++;
+								if(currNum==(packMenu.length-1)){
+									currNum=i=-1;
+								}
+							}
+							else{
+								break;
+							}
+						}
+					}
+					})
+				}
+				}, {
+					cache: true
+				});
+			}
+
+			var videoItemObj = $('.news_item');
+			videoItemObj.remove().removeClass("debug");
+
+			function getItem(oneData) {
+				var news_item = videoItemObj.clone();
+				news_item.find(".title").text(oneData.title);
+				news_item.find('.author').text(oneData.author);
+				news_item.find('.time').text(oneData.createTimeFormat);
+
+				var cover;
+				if(oneData.logo) {
+					cover = qiniuRoot + oneData.logo + "!app.cover";
+				} else {
+					cover = oneData.appCoverUrl;
+				}
+				news_item.find('img').attr('src', cover);
+				news_item.data('id', oneData._id);
+				news_item.tap(function(e) {
+					openDetail($(this).data('id'));
+				});
+				return news_item;
+			}
+
+			function openDetail(id) {
+				var extras = {
+					videoId: id
+				};
+				var options = {
+					'id': id
+				};
+				osg.open('./detail.html', extras, null, options);
+			}
+
+			function setBtnPlay(btnPlay) {
+				var cd = osg.get(cacheKeys.downloads);
+				var url = btnPlay.getAttribute("video");
+				if(cd) {
+					var dt = $(btnPlay).data('data');
+					cd = JSON.parse(cd);
+					for(var j = 0; j < cd.length; j++) {
+						if(cdata._id == cd[j].typeId) {
+							url = cd[j].url;
+							url = plus.io.convertLocalFileSystemURL(url);
+							break;
+						}
+					}
+				}
+				osg.video(btnPlay, url, {
+					progressCallback: function() {
+						if(srtArray && srtArray.length > 0) {
+							var tm = $("#jp_player_1").data('jPlayer').status.currentTime;
+							var t = parseFloat(tm) * 1000;
+
+							if(tm < curTime) {
+								// 隐藏字幕
+								$(".srtDiv").hide();
+								curSrt = null;
+								srtIdx = 0;
+								curTime = tm;
+								return;
+							}
+							curTime = tm;
+							while((!curSrt || curSrt[2] < t) && srtIdx < srtArray.length) {
+								var ct = srtArray[srtIdx];
+								if(ct) {
+									curSrt = ct;
+								} else
+									break;
+								srtIdx++;
+							}
+							if(curSrt && curSrt[1] < t && curSrt[2] > t) {
+								// 显示字幕curSrt[3]
+								$(".srtDiv").text(curSrt[3]).show();
+							} else {
+								// 隐藏字幕
+								$(".srtDiv").hide();
+							}
+						}
+					}
+				});
+				/*查看更多目录的点击事件*/
+				$(".moreMenu").tap(function(){
+						var currCourseId=$(".packMenu").attr("data-resourcesPackId");
+						
+						if(currCourseId){
+							osg.open('CourseDetail.html', {"resourcePackId":currCourseId}, null, {im:1});
+						}
+				})
+				
+				$(".menuShow").on("tap","li",function(){
+					var videTd=$(this).attr("data-videoId");
+					if(videTd){
+						osg.open('../video/detail.html',{'videoId':videTd},null, {'id':videTd});
+					}
+				})
+			}
+			
+		</script>
+		<script src="../resources/js/comment.js"></script>
+	</body>
+
+</html>

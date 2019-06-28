@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet">
+		<style>
+			body {
+				background: #FFFFFF;
+			}
+			
+			.content {
+				padding: 20px 20px;
+			}
+			
+			button {
+				margin-top: 1rem;
+				background: #008FD3;
+				color: #EFEFF4;
+				padding: 10px 0;
+				width: 100%;
+				font-size: 1rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav ">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">意见反馈</h1>
+		</header>
+		<div class="mui-scroll-wrapper ">
+			<div class="mui-scroll ">
+				<div class="content">
+					<div class="tel font-c9" style="text-align: center;margin-bottom:1rem;">
+						<span>联系电话: <font color="blue">010-84097195</font></span>
+					</div>
+					<textarea rows="5" placeholder="您的意见是我们改进的动力" id="content"></textarea>
+					<button id="btn" type="button">提交</button>
+				</div>
+			</div>
+		</div>
+		<script src="../resources/js/jquery.min.js "></script>
+		<script src="../resources/js/mui.min.js "></script>
+		<script src="../resources/js/common.js "></script>
+		<script type="text/javascript ">
+			myFunc(function() {
+				$("#btn").tap(function() {
+					var c = $("#content").val();
+					if(!c) {
+						osg.alert('先说点儿什么吧！');
+						return;
+					}
+					osg.ajax('user/suggest', {
+						content: c
+					}, function(data) {
+						if(data.success) {
+							osg.toast("提交成功");
+							osg.closeMe();
+						} else {
+							osg.toast("提交失败");
+						}
+					});
+				});
+
+				$(".tel").tap(function() {
+					plus.device.dial('01084097195', true);
+				});
+			});
+		</script>
+	</body>
+
+</html>

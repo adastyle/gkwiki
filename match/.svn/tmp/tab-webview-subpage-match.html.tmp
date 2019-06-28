@@ -1,0 +1,849 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-bar-nav {
+				background-color: #008FD3;
+			}
+			
+			.mui-bar .mui-title {
+				position: relative;
+				color: #fff;
+			}
+			
+			.li_btn {
+				display: inline-block;
+				background: url(../resources/images/btn_bg.png) no-repeat center 0;
+				background-size: 100% 100%;
+				color: white;
+				font-weight: bold;
+				font-size: 0.875rem;
+				padding: 0.4rem 1.25rem;
+				cursor: pointer;
+			}
+			/*.li_btn:hover {
+				background-image: url(../resources/images/btn_bg_mouseOver.png);
+			}*/
+			
+			.mui-fullscreen .mui-segmented-control~.mui-slider-group {
+				top: 3rem;
+			}
+			
+			.mui-segmented-control.mui-scroll-wrapper {
+				height: 3rem;
+			}
+			
+			.mui-segmented-control.mui-scroll-wrapper .mui-scroll {
+				width: 100%;
+			}
+			
+			.mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+				width: 24%;
+				line-height: 2.85rem;
+				margin: 0 13%;
+			}
+			
+			.mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				border-bottom: 2px solid #1794d3;
+			}
+			
+			.match_recommend_ul {
+				margin: 0.75rem 0.25rem;
+			}
+			
+			.match_enrolled_ul {
+				margin: 0.75rem 0.25rem;
+			}
+			
+			.match_enrolled_ul a {
+				margin-left: 0.5rem;
+			}
+			
+			.match_recommend_ul li {
+				list-style-position: inside;
+				font-size: 1rem;
+				list-style-type: none;
+				color: #333;
+				float: left;
+				width: 100%;
+				padding: 0.45rem 0.65rem;
+				position: relative;
+			}
+			
+			.match_recommend_ul li>div {
+				width: 100%;
+				padding: 0;
+			}
+			
+			.match_recommend_ul li div {
+				vertical-align: middle;
+				max-width: 100%;
+			}
+			
+			.match_recommend_ul li>div {
+				margin: 0;
+				text-align: center;
+				border: 1px solid rgba(228, 228, 228, 1);
+				background-color: #fff;
+				padding: 1rem 0.25rem;
+			}
+			
+			.match_recommend_ul .li_title {
+				color: #333;
+				font-size: 1rem;
+				font-weight: bold;
+				margin-top: 0.6rem;
+			}
+			
+			.match_recommend_ul .li_title2 {
+				color: #333;
+				font-size: 0.85rem;
+				font-weight: bold;
+				margin-top: 0rem;
+				height: 1.25rem;
+			}
+			
+			.match_recommend_ul .li_subtitle {
+				color: #6B6B6B;
+				font-size: 0.75rem;
+				margin-top: 0rem;
+				margin-bottom: 0.4rem;
+				font-weight: bold;
+			}
+			
+			.zoneBtn {
+				white-space: nowrap;
+				color: #2196F3 !important;
+			}
+			
+			.zoneBtn:hover {
+				color: #1477c6 !important;
+			}
+			
+			.chooseZoneDiv {
+				padding: 1rem;
+				text-align: left;
+			}
+			
+			.layui-layer-title {
+				text-align: left;
+			}
+			
+			.payMemo {
+				color: #f00;
+				max-width: 12.5rem;
+				margin: 0 auto;
+			}
+			
+			.recommendCup {
+				position: absolute;
+				width: 5rem;
+				height: 5rem;
+				text-align: center;
+				line-height: 4rem;
+				top: 50%;
+				left: 1.5rem;
+				transform: translateY(-50%);
+			}
+			
+			.recommendCup>img.li_cup {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			
+			.recommendCup>img.li_logo {
+				width: 40% !important;
+				position: absolute;
+				top: 30%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			/*临时解决缓存问题*/
+			
+			.match_title_bar {
+				border: 0;
+				padding: 0.4rem 1.6rem;
+				text-align: center;
+			}
+			
+			.match_title_bar img {
+				width: 3.6rem !important;
+				margin: 0.4rem 0;
+			}
+			
+			.match_title_bar .name {
+				font-size: 1.125rem;
+				font-weight: bold;
+				color: #333;
+				line-height: 1.6rem;
+				margin-bottom: 0.6rem;
+			}
+			
+			.match_title_bar .name>div {
+				text-align: center;
+				max-width: 100%;
+				white-space: normal;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+			
+			.match_title_bar .news_list_div {
+				border-bottom: 1px solid rgba(228, 228, 228, 1);
+				border-top: 1px solid rgba(228, 228, 228, 1);
+				margin-top: 0.6rem;
+				padding: 0.4rem 0;
+			}
+			
+			.match_title_bar .news_list_div>div {
+				display: inline-block;
+				max-width: 100%;
+				color: #2D93E9;
+				white-space: nowrap;
+				text-align: center;
+			}
+			
+			.match_title_bar .news_list_div>div>div {
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				max-width: 96%;
+				margin: 0 0.4rem;
+			}
+			
+			.match_title_bar .news_list_div .news_read {
+				line-height: 1.5rem;
+				white-space: nowrap;
+				color: #2D93E9;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<img class="bar_logo" src="../resources/images/logo_bar.svg">
+			<img style="width:0; height:2.5rem;">
+			<div class="bar_input"><input type="text" placeholder="请输入查询内容" readonly="readonly"></div>
+			<div class="bar_message_btn"><i class="icon iconfont icon-xiaoxi"></i>
+				<div class="badge_red" style="display: none;">0</div>
+			</div>
+		</header>
+		<div class="mui-content">
+			<div class="mui-slider mui-fullscreen">
+				<div class="my_bar mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll" style="padding: 0 2rem;">
+						<a class="mui-control-item mui-active" style="padding:0;" href="#content1">推荐竞赛</a>
+						<a class="mui-control-item school-content2" style="padding:0;" href="#content2">我的竞赛</a>
+					</div>
+				</div>
+				<div class="mui-slider-group">
+					<div id="content1" class="mui-slider-item mui-control-content mui-active">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="match_recommend_ul">
+									<li class="match_recommend_item debug">
+										<div>
+											<div class="recommendCup">
+												<img class="li_cup" src="../resources/images/cup.svg" />
+												<img class="li_logo" src="" />
+											</div>
+											<div style="margin-left: 6.2rem;">
+												<div class="li_title more2">${match.name }</div>
+												<div class="li_title2 more">报名年级：${match.memo}</div>
+												<div class="li_subtitle">报名时间：${match.enrollStartTimeStr }-${match.enrollEndTimeStr }</div>
+												<div class="li_btn" data-type="${match.type }" data-type-url="${match.url }" data-id="${region._id }">立即报名</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="content2" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="match_enrolled_ul">
+									<li class="match_enrolled_item debug">
+										<div class="enroll_div">
+											<div class="match_title_bar">
+												<img class="region_logo" src="${qiniuImageHost }${region.logo}" />
+												<div class="name m-l-5 m-r-20">
+													<div class="match_name">${match.name}</div>
+													<div class="zone_name">${zone.name }</div>
+												</div>
+												<div class="news_list_div news_list">
+												</div>
+											</div>
+											<div class="enrollPhases">
+												<div class="enrollPhase match_phase_item">
+													<div>
+														<div class="num inline phase_code">${phase.code }</div>
+														<div class="name inline phase_name">${phase.name}</div>
+													</div>
+													<div class="pieces">
+														<div class="piece piece1" style="height:11.875rem;">
+															<div class="title">报名</div>
+															<div class="label1 enroll_time">${phase.enrollStartTimeStr }-${phase.enrollEndTimeStr }</div>
+															<div class="label2"><span class="enroll_status">${phase.enrollStatus }< class="currStates">hahahah<div></div><span class="enroll_btns"></span></div>
+															<div class="up_teacher_div">
+																<div class="up_teacherName" style="width:100%;text-align:center"></div>
+																<div class="up_teacherPhone" style="width:100%;text-align:center"></div>
+																<div class="teacherChange" style="width:100%;text-align:center;">
+																	<span style="display:inline-block;width:58px;height:26px;text-align:center;line-height:26px;;background:#7CC229;color:#fff;border-radius:10px;">修改</span>
+																</div>
+															</div>
+														</div>
+														<!--线下比赛参赛证下载 -->
+														<div class="piece piece2">
+															<div class="title">参赛证下载</div>
+															<div class="label1 cert_time">${phase.certStartTimeStr }-${phase.certEndTimeStr }</div>
+															<div class="label2"><span class="cert_status">${phase.certStatus }</span></div>
+														</div>
+														<div class="piece piece3">
+															<div class="title">比赛</div>
+															<div class="label1 match_time">${phase.matchStartTimeStr }-${phase.matchEndTimeStr }</div>
+															<div class="label2"><span class="match_status">${phase.matchStatus }</span><span class="match_btns"></span></div>
+														</div>
+														<div class="piece piece4">
+															<div class="title">公布结果</div>
+															<div class="label1 result_time">${phase.resultTimeStr }</div>
+															<div class="label2"><span class="result_status">${phase.resultStatus }</span></div>
+															<div class="label2"><span class="result_str"></span></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pay_menu mui-scroll-wrapper">
+				<div class="pay_bar">
+					<div class="pay_btn ali_pay">
+						<i class="icon iconfont icon-alipay"></i>
+						<div>支付宝</div>
+					</div>
+					<div class="pay_btn wx_pay">
+						<i class="icon iconfont icon-wechat"></i>
+						<div>微信支付</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.picker.min.js"></script>
+		<script src="../resources/js/mui.picker.js"></script>
+		<script src="../resources/js/mui.poppicker.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			var channel = {},
+				payid;
+			myFunc(function() {
+				$(".pay_menu").tap(function() {
+					$(".pay_menu").fadeOut();
+				});
+
+				function doShowPayMenu() {
+					if(mui.os.ios && (plus.runtime.version + '') == '1.5')
+						pay('alipay', payid);
+					else
+						$(".pay_menu").fadeIn();
+				}
+				$(".ali_pay").tap(function() {
+					pay('alipay', payid);
+				});
+				$(".wx_pay").tap(function() {
+					pay('wxpay', payid);
+				});
+				// 获取支付通道
+				plus.payment.getChannels(function(channels) {
+					for(var i = 0; i < channels.length; i++) {
+						var c = channels[i];
+						if(c.serviceReady)
+							channel[c.id] = c;
+						//alert(c.id + ":" + c.description + ":" + c.serviceReady);
+					}
+				}, function(e) {
+					alert("获取支付通道失败：" + e.message);
+				});
+
+				function pay(id, enrollPhaseId) {
+					$(".pay_menu").fadeOut();
+					var url;
+					if(id == 'alipay')
+						url = 'match/payali';
+					else if(id == 'wxpay')
+						url = 'match/payweixin';
+					else
+						return;
+
+					osg.ajax(url, {
+						enrollPhaseId: enrollPhaseId
+					}, function(d) {
+						plus.payment.request(channel[id], d, function(result) {
+							// 支付成功
+							osg.toast('支付成功！');
+							loadEnrolledMatches();
+						}, function(error) {
+							// 支付失败
+							osg.toast('支付失败:' + error.code);
+						});
+					});
+				}
+				osg.evtAddListener(function(d) {
+					if(d && d == 'messageCounts') { // 更新未读消息数量
+						initMessageCounts();
+					} else if(d && (d == 'login' || d == 'logout' || d == 'change_student' || d.startsWith('match_enroll'))) {
+						loadRecommendMatches();
+						loadEnrolledMatches();
+						if(d.startsWith('match_enroll')) { // 新参赛报名成功，调起支付
+							var dv = d.split('|');
+							payid = dv[1];
+							doShowPayMenu();
+						}
+					} else if(d && d == 'match_answer') {
+						loadEnrolledMatches();
+					}
+				});
+
+				function initMessageCounts() {
+					var c = osg.get('messageCounts');
+					if(!c || '0' == c)
+						$(".badge_red").hide();
+					else {
+						$(".badge_red").text(c);
+						$(".badge_red").show();
+					}
+				}
+				initMessageCounts();
+
+				$(".bar_input").tap(function() {
+					osg.open('../search.html', null, null, {
+						im: 1
+					});
+				});
+
+				$(".bar_message_btn").tap(function() {
+					osg.open('../mine/message.html', null, null, {
+						im: 1
+					});
+				});
+
+				/* 推荐竞赛相关 */
+				var zonePicker = new mui.PopPicker();
+				// 推荐竞赛立即报名按钮点击事件
+				mui(".match_recommend_ul")
+					.on(
+						"tap",
+						".li_btn",
+						function() {
+							if(!osg.isLogined()) {
+								osg.toast('请先登录！');
+								osg.open('../mine/login.html', null, null, {
+									im: 1
+								});
+								return;
+							} else {
+								// 判断信息是否完善
+								var user = osg.currentUser();
+								if(!user.name || user.name == '' || !user.idcard || user.idcard == '' || !user.schoolId || user.schoolId == '' || !user.gradeId || user.gradeId == '') {
+									osg.toast('请先完善信息！');
+									osg.open('../mine/update.html', null, null, {
+										im: 1
+									});
+									return;
+								}
+							}
+							var $t = $(this),
+								type = $t.attr(
+									'data-type'),
+								url = $t.attr(
+									'data-type-url');
+							if(type == '1') { // 外部比赛
+								osg.openWithTitle(url, 'other_match', null, '');
+								return;
+							}
+							var divId = $t.attr(
+								'data-id');
+							var zones = $t.data("zones");
+							if(zones.length == 1) { // 只有一个赛区，则为默认报名赛区
+								var zoneId = zones[0]._id;
+								osg.open('enrollZone.html', {
+									zoneId: zoneId
+								}, null, {
+									im: 1
+								});
+							} else {
+								var wts = [];
+								for(var i = 0; i < zones.length; i++) {
+									var wt = zones[i];
+									wts.push({
+										value: wt._id,
+										text: wt.name
+									});
+								}
+								zonePicker.setData(wts);
+								zonePicker.show(function(items) {
+									var zoneId = items[0].value;
+									//items[0].text
+									osg.open('enrollZone.html', {
+										zoneId: zoneId
+									}, null, {
+										im: 1
+									});
+								});
+							}
+						});
+
+				var recommendItem = $('.match_recommend_item');
+				recommendItem.removeClass('debug').remove();
+
+				// 加载推荐竞赛
+				function loadRecommendMatches() {
+					osg.ajax('match/recommend', null, function(d) {
+						$('.match_recommend_ul').html('');
+						for(var i = 0; i < d.length; i++) {
+							var match = d[i],
+								region = match.region;
+							var itemObj = recommendItem.clone();
+							itemObj.find(".li_logo").attr('src', qiniuRoot + region.logo + '!match.logo');
+							itemObj.find(".li_title").text(match.name);
+							if(match.memo)
+								itemObj.find(".li_title2").text("报名年级：" + match.memo);
+							else
+								itemObj.find(".li_title2").hide();
+							itemObj.find(".li_subtitle").text("报名时间：" + match.enrollStartTimeStr + '-' + match.enrollEndTimeStr);
+							itemObj.find('.li_btn').attr('data-type', match.type).attr('data-type-url', match.url).attr('data-id', region._id).data('zones', match.zones);
+							$('.match_recommend_ul').append(itemObj);
+						}
+					}, {
+						noload: true
+					});
+				}
+				loadRecommendMatches();
+
+				// 报名须知新闻链接点击事件
+				mui(".match_enrolled_ul")
+					.on(
+						"tap",
+						".news_read",
+						function() {
+							var id = $(this).attr('data-id');
+							if(id) {
+								osg.open('../news/detail.html', {
+									'newsId': id
+								}, null, {
+									im: 1
+								});
+							}
+						});
+				// 报名点击事件
+				mui(".match_enrolled_ul")
+					.on(
+						"tap",
+						".btn_enroll",
+						function() {
+							var id = $(this).attr('data-id');
+							if(id) {
+								osg.open('enrollPhase.html', {
+									phaseId: id
+								}, null, {
+									im: 1
+								});
+							}
+						});
+				// 支付点击事件
+				mui(".match_enrolled_ul")
+					.on(
+						"tap",
+						".btn_pay",
+						function() {
+							var id = $(this).attr('data-id');
+							if(id) {
+								payid = id;
+								doShowPayMenu();
+							}
+						});
+				// 去答题点击事件
+				mui(".match_enrolled_ul")
+					.on(
+						"tap",
+						".btn_answer",
+						function() {
+							var id = $(this).attr('data-id');
+							if(id) {
+								osg.open('answer.html', {
+									enrollPhaseId: id
+								}, null, {
+									im: 1
+								});
+							}
+						});
+				// 真题下载（未支付）
+				mui(".match_enrolled_ul")
+					.on(
+						"tap",
+						".btn_resource_file",
+						function() {
+							osg.alert('请先报名并支付！');
+						});
+				// 真题下载（已支付）
+				mui(".match_enrolled_ul")
+					.on(
+						"tap",
+						".btn_resource_file_view",
+						function() {
+							var match = $(this).data('data');
+							osg.open('../common/docSub.html', {
+								_id: match._id,
+								name: match.resourceLabel,
+								url: match.resourceFileidUrl
+							}, null, {
+								im: 1
+							});
+						});
+				// 选择/修改赛点
+				var matchPlacePicker = new mui.PopPicker();
+				mui(".match_enrolled_ul")
+					.on(
+						"tap",
+						".btn_match_place",
+						function() {
+							var $t = $(this),
+								phase = $t.data('data'),
+								enrollPhase = phase.enrollPhase,
+								places = phase.matchPlaceList,
+								enrollPhaseId = $t.attr('data-id');
+							var wts = [];
+							if(enrollPhase.matchPlaceName) {
+								wts.push({
+									value: enrollPhase.matchPlaceId,
+									text: '当前：' + enrollPhase.matchPlaceName
+								});
+							}
+							for(var i = 0; i < places.length; i++) {
+								var wt = places[i];
+								if(wt._id == enrollPhase.matchPlaceId)
+									continue;
+								wts.push({
+									value: wt._id,
+									text: wt.name
+								});
+							}
+							matchPlacePicker.setData(wts);
+							matchPlacePicker.show(function(items) {
+								var placeId = items[0].value,
+									placeName = items[0].text;
+								if(placeId == enrollPhase.matchPlaceId)
+									return;
+								osg.ajax('match/matchPlace', {
+									enrollPhaseId: enrollPhaseId,
+									matchPlaceId: placeId
+								}, function(data) {
+									if(data.success) {
+										osg.alert("赛点设置成功！");
+										enrollPhase.matchPlaceId = placeId;
+										enrollPhase.matchPlaceName = placeName;
+									} else {
+										osg.alert(data.message);
+									}
+								});
+							});
+						});
+				//辅导老师修改
+				mui(".match_enrolled_ul")
+					.on(
+						"tap",
+						".teacherChange",
+						function() {
+							var matchId = $(this).parent().find('.up_teacherPhone').attr('data-match-Id');
+							var teacherName = $(this).parent().find('.up_teacherName').text();
+							var teacherPhone = $(this).parent().find('.up_teacherPhone').text();
+							osg.open('updateTeacher.html', {
+								matchId: matchId,
+								teacherName: teacherName,
+								teacherPhone: teacherPhone
+							}, null, {
+								im: 1
+							});
+						});
+
+				var phaseItem = $('.match_phase_item');
+				phaseItem.remove();
+				var enrolledItem = $(".match_enrolled_item");
+				enrolledItem.removeClass('debug').remove();
+
+				/* 加载已参加的竞赛信息 */
+				function loadEnrolledMatches() {
+					if(!osg.isLogined()) {
+						$('.match_enrolled_ul').html('');
+						return;
+					}
+
+					osg.ajax('match/enrolled', null, function(d) {
+						$('.match_enrolled_ul').html('');
+						for(var i = 0; i < d.length; i++) {
+							var zone = d[i],
+								region = zone.region,
+								match = zone.match;
+							var itemObj = enrolledItem.clone();
+							itemObj.find(".region_logo").attr('src', qiniuRoot + region.logo);
+							itemObj.find(".match_name").text(match.name);
+							if(match.memo)
+								itemObj.find(".zone_name").text(match.memo);
+							else
+								itemObj.find(".zone_name").remove();
+							var newsListObj = itemObj.find('.news_list');
+							var newsList = match.newsList;
+							if(newsList.length == 0)
+								itemObj.find(".news_list_div").remove();
+							for(var v = 0; v < newsList.length; v++) {
+								var news = newsList[v],
+									$div = $("<div></div>"),
+									$div2 = $("<div class='inline'></div>");
+								$div.append('[').append($div2.append(generateALink('news_read', news._id, news.titleAbbrBetter))).append(']');
+								newsListObj.append($div);
+							}
+							var resourceok = false; //是否可以下载真题，默认否
+
+							var phases = zone.phases;
+							for(var k = 0; k < phases.length; k++) {
+								var phase = phases[k];
+								var phaseItemObj = phaseItem.clone();
+								if(phase.code == 1)
+									phaseItemObj.addClass('green');
+								else if(phase.code == 2)
+									phaseItemObj.addClass('blue');
+								else if(phase.code == 3)
+									phaseItemObj.addClass('orange');
+								else
+									phaseItemObj.addClass('green');
+
+								phaseItemObj.find('.phase_code').text(phase.code);
+								phaseItemObj.find('.phase_name').text(phase.name);
+
+								if(k == phases.length - 1)
+									phaseItemObj.find('.pieces').addClass('last');
+
+								// 报名处理
+								if(phase.enrollStatus == '未开始')
+									phaseItemObj.find('.piece1').addClass('gray');
+								phaseItemObj.find('.enroll_time').text(phase.enrollStartTimeStr + ' - ' + phase.enrollEndTimeStr);
+								phaseItemObj.find('.enroll_status').text(phase.enrollStatus);
+								if(phase.match.enrollNeedTeacher == 1 && phase.match.canUpdateTeacher == 1) {
+									var enrollPhase = phase.enrollPhase;
+									phaseItemObj.find('.up_teacherName').text("老师姓名：" + enrollPhase.teacherName);
+									phaseItemObj.find('.up_teacherPhone').text("老师电话：" + enrollPhase.phone);
+									phaseItemObj.find('.up_teacherPhone').attr('data-match-Id', phase.match._id);
+								} else {
+									phaseItemObj.find('.up_teacher_div').parent().removeAttr("style");
+									phaseItemObj.find('.up_teacher_div').remove();
+								}
+
+								var enrollBtnsObj = phaseItemObj.find('.enroll_btns');
+								if(phase.enrollStatus == '进行中' && phase.canEnroll)
+									enrollBtnsObj.append(generateALink('btn_enroll', phase._id, '去报名'));
+								if(phase.enrollPhase) {
+									var toPay = phase.enrollStatus == '进行中' && (phase.enrollPhase.state == 0 || phase.enrollPhase.state == -1);
+									if(toPay)
+										enrollBtnsObj.append(generateALink('btn_pay', phase.enrollPhase._id, '去支付'));
+									if(phase.enrollPhase.state == -1)
+										enrollBtnsObj.append('<div class="payMemo">' + phase.enrollPhase.payMemo + '</div>');
+									// 资源下载（真题等）
+									if(match.resourceFileidUrl != '') {
+										if(phase.enrollPhase.state > 1) {
+											enrollBtnsObj.append(generateALink('btn_resource_file_view', null, match.resourceLabel, match));
+											resourceok = true;
+										} else {
+											enrollBtnsObj.append(generateALink('btn_resource_file', null, match.resourceLabel));
+										}
+									}
+									// 赛点选择
+									if(phase.matchPlaceList && phase.matchPlaceList.length > 0) {
+										enrollBtnsObj.append(generateALink('btn_match_place', phase.enrollPhase._id, '赛点设置', phase));
+									}
+								}
+
+								// 参赛证处理
+								if(phase.type == 1) {
+									if(phase.certStatus == '未开始')
+										phaseItemObj.find('.piece2').addClass('gray');
+									phaseItemObj.find('.cert_time').text(phase.certStartTimeStr + ' - ' + phase.certEndTimeStr);
+									phaseItemObj.find('.cert_status').text(phase.certStatus);
+								} else {
+									phaseItemObj.find('.piece2').hide();
+								}
+
+								// 比赛处理
+								if(phase.matchStatus == '未开始')
+									phaseItemObj.find('.piece3').addClass('gray');
+								phaseItemObj.find('.match_time').text(phase.matchStartTimeStr + ' - ' + phase.matchEndTimeStr);
+								phaseItemObj.find('.match_status').text(phase.matchStatus);
+								var matchBtnsObj = phaseItemObj.find('.match_btns');
+								if(phase.enrollPhase) {
+									if(phase.matchStatus == '进行中' && (phase.enrollPhase.state == 2 || phase.enrollPhase.state == 3))
+										matchBtnsObj.append(generateALink('btn_answer', phase.enrollPhase._id, '试题查看&作品提交'));
+								}
+
+								// 结果处理
+								if(phase.resultStatus == '未开始')
+									phaseItemObj.find('.piece4').addClass('gray');
+								phaseItemObj.find('.result_time').text(phase.resultTimeStr);
+								phaseItemObj.find('.result_status').text(phase.resultStatus);
+								if(phase.enrollPhase && phase.resultStatus == '进行中' && phase.resultOpen == 1) {
+									var resultStr = '';
+									if(phase.resultDispScore == 1)
+										resultStr += phase.enrollPhase.score + '分&nbsp;';
+									if(phase.resultDispName == 1)
+										resultStr += phase.enrollPhase.resultName + '&nbsp;';
+									if(phase.resultDispLevel == 1)
+										resultStr += phase.enrollPhase.resultLevel;
+									phaseItemObj.find('.result_str').text(resultStr);
+								}
+
+								itemObj.find('.enrollPhases').append(phaseItemObj);
+							}
+
+							if(resourceok)
+								itemObj.find('.btn_resource_file').remove();
+
+							$('.match_enrolled_ul').append(itemObj);
+						}
+					}, {
+						noload: true
+					});
+				}
+				loadEnrolledMatches();
+
+				function generateALink(clz, id, txt, obj) {
+					var aobj = $('<a class="' + clz + '" target="_blank" href="javascript:void(0)"></a>');
+					aobj.text(txt);
+					if(id)
+						aobj.attr('data-id', id);
+					if(obj)
+						aobj.data('data', obj);
+					return aobj;
+				}
+			});
+		</script>
+	</body>
+
+</html>

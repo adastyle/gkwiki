@@ -1,0 +1,42 @@
+{
+  "news/librarydetail.html": {
+    "href": "news/librarydetail.html",
+    "priority": 0
+  },
+  "news/addComments.html": {
+    "href": "news/addComments.html",
+    "resources": [],
+    "refer": [],
+    "priority": 2
+  },
+  "news/report.html": {
+    "href": "news/report.html",
+    "resources": [],
+    "refer": [],
+    "priority": 3
+  },
+  "news/reply.html": {
+    "href": "news/reply.html",
+    "resources": [],
+    "refer": [],
+    "priority": 4
+  },
+  "news/detail.html": {
+    "href": "news/detail.html",
+    "resources": [],
+    "refer": [],
+    "priority": 2
+  },
+  "news/search.html": {
+    "href": "news/search.html",
+    "resources": [],
+    "refer": [],
+    "priority": 1
+  },
+  "main.html": {
+    "href": "main.html",
+    "resources": [],
+    "refer": [],
+    "priority": 0
+  }
+}

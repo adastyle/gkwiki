@@ -1,0 +1,468 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-bar-nav {
+				background-color: #008FD3;
+			}
+			
+			.mui-bar-nav~.mui-content {
+				margin-top: 0;
+				top: 2.8rem;
+				padding-top: 0;
+				position: absolute;
+				width: 100%;
+			}
+			
+			.mui-bar-nav~.mui-content .mui-slider.mui-fullscreen {
+				top: 1.875rem !important;
+			}
+			
+			.mui-bar .mui-title {
+				position: relative;
+				color: #fff;
+			}
+			
+			.school_item {
+				background-color: #fff;
+				position: relative;
+			}
+			
+			.school_item>div {
+				padding: 0.8rem 0 0.5rem 0;
+				margin: 0 0 0 1rem;
+				border-bottom: 0.5px solid #e6e6e6;
+			}
+			
+			.school_item .img {
+				width: 36% !important;
+			}
+			
+			.school_item .div_detail {
+				margin-left: 0.6rem;
+				width: 58%;
+				padding-top: 0.1rem;
+			}
+			
+			.school_item .logo {
+				width: 25px !important;
+				height: 25px;
+			}
+			
+			.school_item .div_name {
+				position: relative;
+			}
+			
+			.school_item .name {
+				font-size: 1.06rem;
+				color: #282628;
+				line-height: 1.625rem;
+				position: absolute;
+				right: 0;
+				left: 34px;
+			}
+			
+			.school_item .div_tag {
+				height: 21px;
+				margin-top: 0.25rem;
+			}
+			
+			.school_item .subtitle {
+				font-size: 0.815rem;
+				color: #666;
+				position: absolute;
+				bottom: 0.625rem;
+			}
+			
+			.school_item .subtitle .spec {
+				margin-left: 0.25rem;
+			}
+			
+			.condition_bar {
+				background-color: #F5F5F5;
+			}
+			
+			.condition_bar div {
+				display: inline-block;
+				width: 23%;
+				text-align: center;
+				color: #282628;
+				line-height: 30px;
+				font-size: 0.875rem;
+			}
+			
+			.condition_bar .active {
+				font-weight: bold;
+			}
+			
+			.condition_bar i {
+				margin-left: 0.25rem;
+				font-size: 12px;
+			}
+			
+			.menu_group {
+				display: none;
+				top: 30px;
+				background-color: hsla(0, 0%, 0%, 0.7);
+			}
+			
+			.menu {
+				display: none;
+			}
+			
+			.menu.active {
+				display: block;
+			}
+			
+			.menu>div {
+				line-height: 36px;
+				font-size: 0.875rem;
+				padding: 0.25rem 1rem;
+				background-color: #F5F5F5;
+			}
+			
+			.menu>div.active {
+				color: #008FD3;
+			}
+			
+			.bar_logo {
+				width: 7rem;
+				margin: 0.375rem;
+			}
+			
+			.bar_input {
+				position: absolute;
+				left: 7.75rem;
+				bottom: 0.5rem;
+				right: 3.375rem;
+				height: 1.75rem;
+			}
+			
+			.bar_input>input {
+				border: #026A7B;
+				font-size: 0.875rem;
+				height: 1.75rem;
+			}
+			
+			.bar_message_btn {
+				position: absolute;
+				bottom: 0.5rem;
+				right: 0.5rem;
+				height: 1.875rem;
+				width: 2.25rem;
+				text-align: center;
+			}
+			
+			.bar_message_btn i {
+				font-size: 1.375rem;
+				line-height: 1.875rem;
+				color: #fff;
+			}
+			
+			.badge_red {
+				position: absolute;
+				right: 0;
+				top: -2px;
+				background-color: #ce0b24;
+				border: 0.5px solid #fff;
+				border-radius: 6px;
+				font-size: 9px;
+				color: #fff;
+				line-height: 12px;
+				padding: 0 4px;
+				z-index: 100;
+			}
+		</style>
+	</head>
+
+	<body class="la">
+		<header class="mui-bar mui-bar-nav">
+			<img class="bar_logo" src="../resources/images/logo_bar.svg">
+			<img style="width:0; height:2.5rem;">
+			<div class="bar_input"><input type="text" placeholder="请输入查询内容" readonly="readonly"></div>
+			<div class="bar_message_btn"><i class="icon iconfont icon-xiaoxi"></i>
+				<div class="badge_red" style="display: none;">0</div>
+			</div>
+		</header>
+		<div class="mui-content">
+			<div class="condition_bar menu_bar">
+				<div>地区<i class="font iconfont icon-xiangxiajiantou"></i></div>
+				<div>层次<i class="font iconfont icon-xiangxiajiantou"></i></div>
+				<div>特色<i class="font iconfont icon-xiangxiajiantou"></i></div>
+				<div>学科<i class="font iconfont icon-xiangxiajiantou"></i></div>
+			</div>
+			<div class="menu_group mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="menu menu_province">
+						<div class="active" my_name="province" my_val="">全部</div>
+
+					</div>
+					<div class="menu menu_prop1">
+						<div class="active" my_name="prop1" my_val="">全部</div>
+
+					</div>
+					<div class="menu menu_prop2">
+						<div class="active" my_name="prop2" my_val="">全部</div>
+
+					</div>
+					<div class="menu menu_subject">
+						<div class="active">全部</div>
+						<div>经济学</div>
+						<div>历史学</div>
+					</div>
+				</div>
+			</div>
+			<div class="mui-slider mui-fullscreen">
+				<div class="mui-scroll myscroll">
+					<ul id="school_list">
+						<li class="school_item debug">
+							<div>
+								<img class="img" src="../resources/images/school.png" />
+								<div class="div_detail inline">
+									<div class="div_name"><img class="logo" src="../resources/images/school.png" />
+										<div class="name inline more">北京大学</div>
+									</div>
+									<div class="div_tag more">
+									</div>
+									<div class="subtitle">
+										<span class="province"></span><span class="spec"></span>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			var search = {},
+				ptr;
+			var fpi, lastMenuIdx = -1;
+			myFunc(function() {
+				osg.evtAddListener(function(d) {
+					if(d && d == 'messageCounts') { // 更新未读消息数量
+						initMessageCounts();
+					}
+				});
+
+				function initMessageCounts() {
+					var c = osg.get('messageCounts');
+					if(!c || '0' == c || 'null' == c)
+						$(".badge_red").hide();
+					else {
+						try {
+							var cint = parseInt(c);
+							$(".badge_red").text(cint + '');
+							$(".badge_red").show();
+						}catch(e){
+							$(".badge_red").hide();
+						}
+					}
+				}
+				initMessageCounts();
+
+				$(".bar_input").tap(function() {
+					osg.open('../search.html', null, null, {
+						im: 1
+					});
+				});
+
+				$(".bar_message_btn").tap(function() {
+					osg.open('../mine/message.html', null, null, {
+						im: 1
+					});
+				});
+
+				// 菜单分类条点击事件
+				$(".menu_bar div").tap(function() {
+					var idx = $(".menu_bar div").index(this);
+					$(".menu_bar div").removeClass("active").find("i").removeClass("icon-xiangshangjiantou").addClass("icon-xiangxiajiantou");
+					$(".menu_group .menu").hide();
+					if(lastMenuIdx == idx) { // 二次点击收起所有菜单
+						$(".menu_group").fadeOut();
+						lastMenuIdx = -1;
+					} else { // 一次点击展开菜单
+						// 滚动菜单到顶部，避免第一个长菜单滚动到底部，短菜单不会显示的问题
+						mui('.menu_group').scroll().scrollTo(0, 0, 100);
+						$(".menu_group").fadeIn();
+						$(this).addClass("active").find("i").removeClass("icon-xiangxiajiantou").addClass("icon-xiangshangjiantou");
+						if(lastMenuIdx == -1) // 之前未展开菜单，则动画显示
+							$(".menu_group .menu").eq(idx).slideDown();
+						else // 之前已展开菜单，则不用动画直接显示
+							$(".menu_group .menu").eq(idx).show();
+						lastMenuIdx = idx;
+					}
+				});
+				// 菜单项点击事件
+				//				$(".menu_group .menu>div").tap(function() {
+				//					event.stopPropagation(); // 禁止事件冒泡到父节点点击事件
+				//					$(this).parent().children().removeClass("active");
+				//					$(this).addClass("active");
+				//					hideMenu();
+				//				});
+				// 菜单项点击事件
+				$(".menu_group .menu").on('tap', 'div', function() {
+					event.stopPropagation(); // 禁止事件冒泡到父节点点击事件
+					$(this).parent().children().removeClass("active");
+					$(this).addClass("active");
+					hideMenu();
+					search[$(this).attr("my_name")] = $(this).attr("my_val");
+					if(ptr) ptr.refresh(true);
+					findPage(1);
+				});
+
+				// 菜单背景点击事件
+				$(".menu_group").tap(function() {
+					hideMenu();
+				});
+
+				// 隐藏菜单函数
+				function hideMenu() {
+					// 隐藏全部菜单
+					$(".menu_bar div").removeClass("active").find("i").removeClass("icon-xiangshangjiantou").addClass("icon-xiangxiajiantou");
+					$(".menu_group .menu").hide();
+					$(".menu_group").fadeOut();
+					lastMenuIdx = -1;
+				}
+
+				var myscroll = $(".myscroll")[0];
+
+				mui(myscroll).pullToRefresh({
+					down: {
+						callback: function() {
+							ptr = this;
+							findPage(1, {
+								'pullDown': true
+							});
+						}
+					},
+					up: {
+						auto: true,
+						callback: function() {
+							ptr = this;
+							var nextPage;
+							if(fpi)
+								nextPage = fpi.page + 1;
+							else
+								nextPage = 1;
+
+							findPage(nextPage);
+						}
+					},
+				});
+
+				//分页函数
+				function findPage(page, param) {
+					if(!param) param = {};
+					param.self = ptr;
+					var $schoolList = $("#school_list");
+					search["page"] = page;
+					osg.ajax('school/query',
+						search,
+						function(data) {
+							// 下拉的情况下，结束下拉刷新状态
+							if(param.pullDown) {
+								param.self.endPullDownToRefresh();
+							}
+							if(!data) {
+								param.self.endPullUpToRefresh(true);
+								return;
+							}
+							if(page == 1) {
+								$schoolList.html('');
+							}
+							fpi = data;
+							for(var i = 0; i < data.data.length; i++) {
+								var oneData = data.data[i];
+								$schoolList.append(getItem(oneData));
+							}
+
+							param.self.endPullUpToRefresh(data.page >= data.pages);
+						}, {
+							noload: true
+						});
+				}
+
+				// 条目模板
+				var schoolItemObj = $('.school_item');
+				schoolItemObj.remove().removeClass("debug");
+
+				// 获取高校显示条目
+				function getItem(oneData) {
+					var listItem = schoolItemObj.clone(),
+						imgs = oneData.images;
+					if(imgs.length > 0 && imgs[0])
+						listItem.find('img').attr('src', qiniuRoot + imgs[0] + "!app.school.img");
+					if(oneData.logo)
+						listItem.find('.logo').attr('src', qiniuRoot + oneData.logo + "!school.logo");
+					listItem.find('.name').text(oneData.name);
+					listItem.find('.province').text(oneData.province);
+					listItem.find('.spec').text(oneData.spec);
+
+					var tagDiv = listItem.find('.div_tag');
+					tagDiv.children().remove();
+					var propNames = oneData.propValuename;
+					if(propNames) {
+						if(propNames.length > 0) {
+							tagDiv.append('<div class="tag tag_green">' + propNames[0] + '</div>')
+						}
+						if(propNames.length > 1) {
+							tagDiv.append('<div class="tag tag_orange">' + propNames[1] + '</div>')
+						}
+						if(propNames.length > 2) {
+							tagDiv.append('<div class="tag tag_yellow">' + propNames[2] + '</div>')
+						}
+						if(propNames.length > 3) {
+							tagDiv.append('<div class="tag tag_blue">...</div>')
+						}
+					}
+
+					listItem.data('id', oneData._id);
+					listItem.tap(function(e) {
+						openDetail($(this).data('id'));
+					});
+					return listItem;
+				}
+
+				function openDetail(id) {
+					osg.open('detail.html', {
+						'schoolId': id
+					}, null, {
+						im: 1
+					});
+				}
+				//菜单栏条件筛选
+				osg.ajax('school/search', {}, function(data) {
+					var provinces = data['provinces'];
+					var mpropList = data['mpropList'];
+					for(var i = 0; i < provinces.length; i++) {
+						$('.menu_province').append('<div my_name="province" my_val="' + provinces[i] + '">' + provinces[i] + '</div>')
+					}
+					for(var i = 0; i < mpropList[0].propValues.length; i++) {
+						$('.menu_prop1').append('<div my_name="prop1" my_val="' + mpropList[0].propValues[i]._id + '">' + mpropList[0].propValues[i].name + '</div>')
+					}
+					for(var i = 0; i < mpropList[1].propValues.length; i++) {
+						$('.menu_prop2').append('<div my_name="prop2" my_val="' + mpropList[1].propValues[i]._id + '">' + mpropList[1].propValues[i].name + '</div>')
+					}
+				}, {
+					noload: true
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

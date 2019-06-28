@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet">
+		<style>
+			.num {
+				position: absolute;
+				right: 45px;
+				top: 12px;
+				font-size: 16px;
+				line-height: 1.5rem;
+			}
+			
+			span {
+				position: static;
+				margin-left: 104px;
+				font-size: 1.4rem;
+				height: 2.8rem;
+				line-height: 2.8rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+			<h1 class="mui-title">设置</h1>
+		</header>
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell">
+						<a id="suggest_btn" class="mui-navigate-right">意见反馈</a>
+					</li>
+					<li id="update_btn" class="mui-table-view-cell">
+						<a class="mui-navigate-right">检查更新</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a id="about_btn" class="mui-navigate-right">关于我们</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a id="rate_btn" class="mui-navigate-right">为高考百科评分</a>
+					</li>
+				</ul>
+				<ul class="need_login mui-table-view mui-table-view-chevron m-t-10">
+					<li class="mui-table-view-cell">
+						<a id="password_btn" class="mui-navigate-right">修改密码</a>
+					</li>
+				</ul>
+				<ul class="need_login mui-table-view mui-table-view-chevron m-t-10" style="display: none;">
+					<li class="mui-table-view-cell">
+						<a id='exit' class="mui-navigate-right" style="text-align: center;">退出登录</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.jplayer.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript">
+			myFunc(function() {
+				// 苹果上架隐藏检查更新按钮
+				if(mui.os.ios && osg.settingValue('isPublish') == 1)
+					$("#update_btn").hide();
+
+				if(osg.isLogined())
+					$('.need_login').show();
+				else
+					$('.need_login').hide();
+				// 意见反馈
+				$("#suggest_btn").tap(function() {
+					osg.open('suggest.html');
+				});
+				// 关于
+				$('#about_btn').tap(function() {
+					osg.open('about.html');
+				});
+				// 修改密码
+				$("#password_btn").tap(function() {
+					osg.open("passwordChange.html");
+				});
+				// 检查更新
+				$("#update_btn").tap(function() {
+					checkWgt();
+				});
+
+				function checkWgt() {
+					// 检查是否有新的wgt资源包
+					plus.runtime.getProperty(plus.runtime.appid, function(wgtinfo) {
+						osg.ajax('user/appResume', {
+							cv: wgtinfo.version
+						}, function(data) {
+							if(data && data.fileidUrl) { // 有升级包
+								var fileid = data.fileid,
+									url = data.fileidUrl;
+								osg.confirm("有新的升级包，是否现在更新？", function() {
+									downloadWgt(fileid, url);
+								});
+							} else
+								osg.alert('已经是最新版本！');
+						});
+					});
+				}
+
+				function downloadWgt(fileid, url) {
+					osg.download(url, function(fn) {
+						plus.io.resolveLocalFileSystemURL(fn, function(file) {
+							plus.io.resolveLocalFileSystemURL('_downloads', function(dir) {
+								file.moveTo(dir, fileid);
+								var ul = '_downloads/' + fileid;
+								//ul = plus.io.convertLocalFileSystemURL(ul);
+								//alert(ul);
+								plus.runtime.install(ul, {
+									force: true
+								}, function() {
+									//更新完成，重启应用
+									osg.confirm("升级包下载完成，是否立即重启？", function() {
+										setTimeout(function() {
+											plus.runtime.restart();
+										}, 1000);
+
+									});
+								}, function(e) {
+									alert("更新失败(" + e.code + "): " + e.message);
+								});
+							});
+						});
+
+					}, true);
+				}
+				//去评分
+				$("#rate_btn").tap(function() {
+					if(mui.os.ios) {
+						location.href = "https://itunes.apple.com/cn/app/%E9%AB%98%E8%80%83%E7%99%BE%E7%A7%91/id1377474659?mt=8";
+					} else if(mui.os.android) {
+						plus.runtime.openURL("market://details?id=cn.gaokaobaike3", function(e) {
+							plus.runtime.openURL("market://details?id=cn.gaokaobaike3", function(e) {
+								osg.alert("360手机助手和应用宝，一个都没装，暂时无法评分，感谢支持");
+							}, "com.qihoo.appstore");
+						}, "com.tencent.android.qqdownloader");
+					}
+				});
+				//退出
+				$('#exit').tap(function() {
+					if(mui.os.ios) {
+						osg.confirm('确认退出？', function() {
+							// 获取推送clientid（个推）
+							var cinfo = plus.push.getClientInfo(),
+								clientid = cinfo.clientid;
+							var device = mui.os.ios ? 'ios' : 'android';
+							osg.ajax('user/logout', {
+								clientid: clientid,
+								device: device
+							}, function(data) {
+								//注销账号
+								osg.logout();
+								osg.closeMe();
+								osg.evtFireEvent('logout');
+							}, 'POST');
+						})
+						return;
+					}
+					var btnArray = [{
+						title: "退出登录"
+					}, {
+						title: "直接关闭应用"
+					}];
+					plus.nativeUI.actionSheet({
+						cancel: "取消",
+						buttons: btnArray
+					}, function(event) {
+						var index = event.index;
+						switch(index) {
+							case 1:
+								// 获取推送clientid（个推）
+								var cinfo = plus.push.getClientInfo(),
+									clientid = cinfo.clientid;
+								var device = mui.os.ios ? 'ios' : 'android';
+								osg.ajax('user/logout', {
+									clientid: clientid,
+									device: device
+								}, function(data) {
+									//注销账号
+									osg.logout();
+									osg.closeMe();
+									osg.evtFireEvent('logout');
+								}, 'POST');
+								break;
+							case 2:
+								plus.runtime.quit();
+								break;
+						}
+					});
+				}, false);
+			});
+		</script>
+	</body>
+
+</html>

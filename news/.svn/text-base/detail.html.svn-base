@@ -1,0 +1,660 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../resources/css/mui.min.css" rel="stylesheet" />
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="../resources/fonts/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.news {
+				background-color: #FFF;
+				padding: 1rem 1.5rem;
+			}
+			
+			.news .title {
+				line-height: 1.75rem;
+				font-weight: bold;
+				font-size: 1.5rem;
+				line-height: 2.125rem;
+				text-align: justify;
+			}
+			
+			.title {
+				color: #282628;
+				font-size: 1.25rem;
+			}
+			
+			.subtitle {
+				color: #9D9D9D;
+				font-size: 0.6875rem;
+				margin: 0.75rem 0
+			}
+			
+			.content {
+				text-align: justify;
+			}
+			/*分享*/
+			.share{
+				display:inline-block;
+				width:2.5rem;
+				position:absolute;
+				top:.2rem;
+				right:1rem;
+				text-align: center;
+			}
+			.share img{
+				width:1.2rem;
+				vertical-align:middle;
+			}
+			.share span{
+				vertical-align: middle;
+				font-size:.9rem;
+			}
+			
+			/*点赞*/
+			
+			.like {
+				padding: 0.1rem 1.4rem;
+				border-radius: 30px;
+				text-align: center;
+				color: #D0021B;
+				font-size: 0.875rem;
+			}
+			.addGrey{
+				color:#444444 !important
+			}
+			
+			.read {
+				width: 100%;
+				height: 26px;
+				color: #B6B6B6;
+				margin-top: 25px;
+				position: relative;
+			}
+			
+			.icon-dianzan1 {
+				font-size: 13px;
+			}
+			
+			.icon-dianzandianjihou {
+				font-size: 13px;
+			}
+			
+			.div_favor {
+				text-align: center;
+				width: 100%;
+			}
+			
+			.news_item {
+				padding: 0;
+			}
+			
+			.news_item>div {
+				padding: 0.5rem 0rem;
+			}
+			/*评论表情大小*/
+			
+			.emoji-img {
+				width: 6vw;
+			}
+			
+			.mui-scroll-wrapper {
+				margin-bottom: 48px;
+			}
+			/*评论点赞颜色*/
+			
+			.icon-dianzan_dianji {
+				color: #008FD3;
+			}
+			
+			.comment_submit {
+				position: absolute;
+				background-color: transparent !important;
+				right: 0;
+				bottom: 0.45rem;
+				border: none;
+				color: #4A90E2;
+			}
+			
+			.tag_keyword {
+				margin-top: -0.5rem;
+			}
+			
+			.keyword {
+				margin-top: 1rem;
+				margin-bottom: 0.5rem;
+			}
+			
+			
+			
+		/*	html,body {margin: 0px;padding: 0px;background-color: white;}*/
+            .mui-preview-image.mui-fullscreen {
+                position: fixed;z-index: 20;
+                background-color: #000;
+            }
+            
+            .mui-preview-header,
+            .mui-preview-footer {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                z-index: 10;
+            }
+            
+            .mui-preview-header {
+                height: 44px;
+                top: 0;
+            }
+            
+            .mui-preview-footer {
+                height: 50px;
+                bottom: 0px;
+            }
+            
+            .mui-preview-header .mui-preview-indicator {
+                display: block;
+                line-height: 25px;
+                color: #fff;
+                text-align: center;
+                margin: 15px auto 4;
+                width: 70px;
+                background-color: rgba(0, 0, 0, 0.4);
+                border-radius: 12px;
+                font-size: 16px;
+            }
+            
+            .mui-preview-image {
+                display: none;
+                -webkit-animation-duration: 0.5s;
+                animation-duration: 0.5s;
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+            }
+            
+            .mui-preview-image.mui-preview-in {
+                -webkit-animation-name: fadeIn;
+                animation-name: fadeIn;
+            }
+            
+            .mui-preview-image.mui-preview-out {
+                background: none;
+                -webkit-animation-name: fadeOut;
+                animation-name: fadeOut;
+            }
+            
+            .mui-preview-image.mui-preview-out .mui-preview-header,
+            .mui-preview-image.mui-preview-out .mui-preview-footer {
+                display: none;
+            }
+            
+            .mui-zoom-scroller {
+                position: absolute;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+                -webkit-box-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                -webkit-backface-visibility: hidden;
+            }
+            
+            .mui-zoom {
+                -webkit-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+            }
+            
+            .mui-slider .mui-slider-group .mui-slider-item img {
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                max-height: 100%;
+            }
+            
+            .mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+                width: 100%;
+            }
+            
+            .mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+                display: inline-table;
+            }
+            
+            .mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            
+            .mui-preview-loading {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                display: none;
+            }
+            
+            .mui-preview-loading.mui-active {
+                display: block;
+            }
+            
+            .mui-preview-loading .mui-spinner-white {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -25px;
+                margin-top: -25px;
+                height: 50px;
+                width: 50px;
+            }
+            
+            .mui-preview-image img.mui-transitioning {
+                -webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+                transition: transform 0.5s ease, opacity 0.5s ease;
+            }
+            
+            @-webkit-keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            
+            @-webkit-keyframes fadeOut {
+                0% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes fadeOut {
+                0% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-action-back inline">
+				<div class="icon iconfont icon-fanhui"></div>
+			</div>
+		</header>
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll coment_scroll">
+				<div class="news">
+					<div class="title"></div>
+					<div class="subtitle">
+						<span class="author"></span>
+						<span class="time m-l-4"></span>
+					</div>
+					<div class="keyword">
+
+					</div>
+					<div class="content ahref">
+
+					</div>
+					<div class="read">
+						<div class="inline" style="line-height: 25px;">
+							<div class="commentTimes inline"></div>阅读
+						</div>
+						<div class="div_favor absolute">
+							<div class="like num inline addGrey">
+								<i class="iconfont icon-dianzan1 shoucang_xin"></i>
+								<span class="favorTimes"></span>
+							</div>
+						</div>						
+						<div class="share inline">
+							<img src="../resources/images/share.png" alt="" />
+							<span class="shareNum">0</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="div_related" style="margin-top: 0.5rem;">
+					<div style="position: relative;">
+						<div class="detail_head_line"></div>
+						<div class="detail_head_title xiangguan">
+							<div>相关推荐</div>
+						</div>
+					</div>
+					<ul id="news_list" style="margin-top: 0.8rem;">
+						<li class="news_item news_img1 debug">
+							<div>
+								<div class="left">
+									<div class="title more2">
+										2018年高考艺考开幕 济南六千考生同场竞技2018年高考艺考开幕 济南六千考生同场竞技
+									</div>
+									<div class="subtitle">
+										<span class="author">高考百科</span>
+										<span class="time m-l-4">2018-08-22</span>
+									</div>
+								</div>
+								<img src="../resources/images/dummy_news_image.png" />
+							</div>
+						</li>
+						<li class="news_item news_noimg debug">
+							<div>
+								<div class="title more2">
+									2018年高考艺考开幕 济南六千考生同场竞技2018年高考艺考开幕 济南六千考生同场竞技
+								</div>
+								<div class="subtitle">
+									<span class="author">高考百科</span>
+									<span class="time m-l-4">2018-08-22</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="div_coments">
+					<div style="position: relative;">
+						<div class="detail_head_line"></div>
+						<div class="detail_head_title">
+							<div>热门跟帖</div>
+						</div>
+					</div>
+					<ul id="comment_list" style="margin-top: 1.6rem;">
+						<li class="comment_item debug">
+							<div>
+								<img class="comment_avatar" src="../resources/images/avatar.png" />
+								<div class="inline">
+									<div>
+										<span class="comment_name">汉翔书法</span>
+										<div class="comment_zan inline">
+											<i id="comment_zan_zan" class="iconfont icon-dianzan"></i>&nbsp;<span id="comment_dianzan">6</span>
+										</div>
+									</div>
+									<div class="comment_content">传承千古智慧</div>
+									<div class="comment_btn_bar">
+										<span id="comment_time" class="time">15小时前</span>
+										<div class="comment_reply inline">
+											<i class="iconfont icon-pinglun"></i>&nbsp;回复
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="comment_div" style="z-index:0;">
+			<div class="comment_input inline"><i class="icon iconfont icon-fabiao"></i><input id="comment_content" type="text" placeholder="写评论..." /></div>
+			<div class="comment_right inline" style="display: inline;"><i class="icon iconfont icon-xiaoxi1"></i>
+				<div class="inline comment_commentTimes">0</div>
+				<button type="button" class="comment_submit inline" style="display: none;">发布</button>
+			</div>
+
+		</div>
+		<script src="../resources/js/mui.min.js"></script>
+		<script src="../resources/js/jquery.min.js"></script>
+		<script src="../resources/js/common.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.js"></script>
+		<script src="../resources/js/mui.pullToRefresh.material.js"></script>
+		<script src="../resources/js/mui.zoom.js"></script>
+		<script src="../resources/js/mui.previewimage.js"></script>
+		<script type="text/javascript">
+			var cdata, listItemObj = $(".comment_con"),
+				commentList = $(".comment_container"),
+				flag = 0,
+				pid = null,
+				page = 0,
+				pages = 1,
+				total = 0,
+				comentObj,
+				commentFpi,
+				type = 0,
+				typeId,
+				ptr,
+				commenttype = 0;
+			var Intent = null,
+            	File = null,
+            	Uri = null,
+            	main = null;
+        	var shares = null,shareImageUrl = '',shareUrl ="",
+        		shareTitle="",shareContent="",sharePictures="";
+			//listItemObj.remove();
+			myFunc(function() {
+				
+				$(".news").css('min-height', plus.screen.resolutionHeight - 200);
+				$(".cancel").on("tap", function() {
+					$("#popUp").css({
+						"display": "none"
+					});
+					$(".mui-backdrop").removeClass("mui-active");
+				})
+				$(".cancelB").on("tap", function() {
+					$("#pov_Up").css({
+						"display": "none"
+					});
+					$(".mui-backdrop").removeClass("mui-active");
+				})
+				var newsId = osg.param("newsId");
+				typeId = newsId;
+				getDetail(newsId);
+				var user = osg.currentUser();
+			
+				//收藏
+				mui('.div_favor').on('tap', '.like', function(e) {
+					if(osg.isLogined()) {
+						if(cdata.favored) {
+							osg.ajax('favor/deleFavor', {
+								'type': type,
+								'typeId': typeId
+							}, function(data) {
+								cdata.favored = false;
+								$(".favorTimes").text(data);
+								osg.toast("取消收藏成功！");
+								$(".shoucang_xin").attr("class", "iconfont icon-dianzan1 shoucang_xin");
+								$(".like").addClass("addGrey");
+							}, {
+								noload: true
+							});
+						} else {
+							osg.ajax('favor/addFavor', {
+								'type': type,
+								'typeId': typeId
+							}, function(data) {
+								cdata.favored = true;
+								$(".favorTimes").text(data);
+								osg.toast("已添加至收藏！");
+								$(".shoucang_xin").attr("class", "iconfont icon-dianzandianjihou shoucang_xin");
+								$(".like").removeClass("addGrey");
+							}, {
+								noload: true
+							});
+						}
+					} else {
+						osg.confirm("请登录！", function() {
+							osg.open('../mine/login.html');
+						});
+					}
+
+				});
+
+				//加载推荐内容，不用加载图案
+				var news_list = $('#news_list');
+				osg.ajax('news/findOtherById', {
+					'id': newsId
+				}, function(data) {
+					var news = data.data;
+					if(news == null || news.length <= 0) {
+						$('.xiangguan').remove();
+					}
+					for(var i = 0; i < news.length; i++) {
+						var oneData = news[i];
+						news_list.append(getItem(oneData));
+					}
+				}, {
+					noload: true
+				});
+				
+			});
+			
+			//加载详情页，需要加载图案，不用  noload: true,
+			function getDetail(newsId) {
+				osg.ajax('news/findById', {
+					'deviceid': plus.device.uuid,
+					'id': newsId
+				}, function(data) {
+					cdata = data;
+					if(cdata.favored)
+						$(".shoucang_xin").attr("class", "iconfont icon-dianzandianjihou shoucang_xin");
+
+					$('.news .title').text(data.title);
+					$('.news .author').text(data.author);
+					$('.news .time').text(data.createTimeFormat);
+					$('.shareNum').text(data.shareTimes);
+					shareUrl = 'http://www.gaokaobaike.cn/gkwiki/i/news/shareDetail.html?newsId='+data._id;
+					shareTitle = data.title;
+					sharePictures = 'http://qiniu.gaokaobaike.cn/'+data.images[0];
+					shareContent = data.memo;
+					var keywords = cdata.keywords;
+					var keyword = $(".keyword");
+					if(keywords.length > 0) {
+						for(var i = 0; i < keywords.length; i++) {
+							keyword.append('<div class="tag_keyword">' + keywords[i] + '</div>')
+							$(".tag_keyword").tap(function(e) {
+								openKeywords($(this).text(), newsId);
+							})
+						}
+					}
+					$('.news .content').html(data.content);
+					$('#zan').text(data.favorTimes);
+					$('.commentTimes').text(data.times);
+					$('.favorTimes').text(data.favorTimes);
+					$('.comment_commentTimes').text(data.commentTimes);
+					// 新闻内容如果有图片，则限制宽度
+					var maxw = plus.screen.resolutionWidth - 50;
+					
+					/*获取图片，给对应图片添加两个自定义属性*/
+					$(".news .content img").each(function() {
+						$(this).css('max-width', maxw);
+						$(this).removeAttr("height");
+						$(this).attr("data-preview-src","");
+						$(this).attr("data-preview-group","1");
+					});
+					$(".news .content a>img").each(function() {
+						$(this).removeAttr("data-preview-src");
+						$(this).removeAttr("data-preview-group");
+					})
+					mui.init();
+			    	mui.previewImage();
+					$(".news .content p").each(function() {
+						$(this).css('text-indent', '0').css('text-align', 'justify');
+					});
+					$(".news .content a").each(function() {
+						var url = $(this).attr('href');
+						if(url.startsWith('http://www.gaokaobaike.cn/gkwiki/')) {
+							var i = url.lastIndexOf('/');
+							var id = url.trim().substring(i + 1);
+							i = id.lastIndexOf('.');
+							id = id.substring(0, i); //获取到a标签中的id;
+							var url = $(this).attr('href', '');
+							$(this).tap(function(e) {
+								event.stopPropagation(); // 禁止事件冒泡到父节点点击事件
+								openDetail(id);
+							})
+						}
+					});
+				}, {
+					cache: true
+				});
+			}
+
+			var newsItemObj = $('.news_img1');
+			newsItemObj.remove().removeClass("debug");
+			// 无图条目模板
+			var newsNoimgObj = $('.news_noimg');
+			newsNoimgObj.remove().removeClass("debug");
+
+			mui('#news_list').on('tap', '.tag_keyword', function(e) {
+				event.stopPropagation(); // 禁止事件冒泡到父节点点击事件
+				openKeywords($(this).text());
+			});
+			mui('#news_list').on('tap', '.news_item', function(e) {
+				openDetail($(this).data('id'));
+			});
+
+			function getItem(oneData) {
+				var news_item;
+				if(oneData.banner) {
+					news_item = newsItemObj.clone();
+					news_item.find('img').attr('src', qiniuRoot + oneData.banner + "!app.news.img");
+				}else {
+					news_item = newsNoimgObj.clone();
+				}
+				news_item.find(".title").text(oneData.title);
+				news_item.find('.author').text(oneData.author);
+				news_item.find('.time').text(oneData.createTimeFormat);
+				news_item.data('id', oneData._id);
+
+				var keywords = oneData.keywords;
+				if(keywords.length > 0) {
+					for(var i = 0; i < keywords.length; i++) {
+						news_item.children('div').append('<div class="tag_keyword">' + keywords[i] + '</div>')
+					}
+				}
+				return news_item;
+			}
+
+			function openDetail(id) {
+				var extras = {
+					'newsId': id
+				};
+				var options = {
+					'id': id,
+					'notChangeStatusBar': true
+				}
+				osg.open('./detail.html', extras, null, options);
+			}
+
+			function openKeywords(keywords) {
+				var options = {
+					'id': keywords,
+					'notChangeStatusBar': true
+				}
+				osg.open('key_index.html', {
+					'keywords': keywords
+				}, null, options);
+			}
+		
+		
+		
+
+		</script>
+		<script src="../resources/js/share.js"></script>
+		<script src="../resources/js/comment.js"></script>
+
+	</body>
+
+</html>
